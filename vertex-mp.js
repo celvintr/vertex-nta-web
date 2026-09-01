@@ -95,6 +95,25 @@
     "Service Area · Greater Pittsburgh, PA":"Área de Servicio · Gran Pittsburgh, PA"
   };
   const PH = {"Your name":"Tu nombre","you@email.com":"tu@correo.com","Tell us a bit about your project…":"Cuéntanos sobre tu proyecto…"};
+  // Spanish SEO title + meta description per page
+  const SEO_ES = {
+    home:{t:"Contratista de Techos, Remodelación y Revestimiento en Pittsburgh, PA | Vertex NTA",d:"Vertex NTA Roofing — contratista de confianza en techos, remodelación y revestimiento en Pittsburgh, PA. Licenciados y asegurados, precios honestos. Presupuesto gratis."},
+    roofing:{t:"Servicios de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación, reparación y reemplazo de techos en Pittsburgh, PA. Tejas y techos de metal de primera, licenciados y asegurados. Inspección gratis con Vertex NTA."},
+    remodeling:{t:"Servicios de Remodelación en Pittsburgh, PA | Vertex NTA Roofing",d:"Remodelación de cocinas, baños y casa completa en Pittsburgh, PA. Trabajo de calidad, precios claros y un equipo de confianza. Presupuesto gratis con Vertex NTA."},
+    siding:{t:"Instalación de Revestimiento en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación y reparación de revestimiento resistente al clima en Pittsburgh, PA. Vinilo, fibrocemento y aislado que realza tu fachada. Cotización gratis con Vertex NTA."},
+    contact:{t:"Contacta a Vertex NTA Roofing | Presupuesto Gratis en Pittsburgh, PA",d:"Contacta a Vertex NTA Roofing en Pittsburgh, PA. Llama al 412-983-4397 o pide un presupuesto gratis para techos, remodelación y revestimiento. Respuesta rápida."}
+  };
+  const _metaEl = document.querySelector('meta[name="description"]');
+  const _origTitle = document.title;
+  const _origDesc = _metaEl ? _metaEl.getAttribute('content') : '';
+  function _seoKey(){
+    const t=_origTitle.toLowerCase();
+    if(t.indexOf('roofing services')>=0) return 'roofing';
+    if(t.indexOf('remodeling services')>=0) return 'remodeling';
+    if(t.indexOf('siding installation')>=0) return 'siding';
+    if(t.indexOf('contact')>=0) return 'contact';
+    return 'home';
+  }
   const _orig = new Map();
   function walkText(fn){
     const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentNode&&n.parentNode.nodeName; if(p==='SCRIPT'||p==='STYLE')return NodeFilter.FILTER_REJECT; return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
@@ -105,11 +124,18 @@
     walkText(n=>{const k=n.nodeValue.trim(); if(es){ if(I18N[k]!==undefined){ if(!_orig.has(n))_orig.set(n,n.nodeValue); n.nodeValue=n.nodeValue.replace(k,I18N[k]); } } else if(_orig.has(n)){ n.nodeValue=_orig.get(n); }});
     document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{ if(es){ const o=el.dataset._ph||el.getAttribute('placeholder'); if(PH[o]!==undefined){ el.dataset._ph=o; el.placeholder=PH[o]; } } else if(el.dataset._ph){ el.placeholder=el.dataset._ph; }});
     document.documentElement.lang=lang;
+    const _k=_seoKey();
+    if(es && SEO_ES[_k]){ document.title=SEO_ES[_k].t; if(_metaEl) _metaEl.setAttribute('content',SEO_ES[_k].d); }
+    else { document.title=_origTitle; if(_metaEl) _metaEl.setAttribute('content',_origDesc); }
     document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===lang));
     try{localStorage.setItem('vlang',lang);}catch(e){}
   }
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.getAttribute('data-lang'))));
-  let _sv='en'; try{_sv=localStorage.getItem('vlang')||'en';}catch(e){} if(_sv==='es') setLang('es');
+  // load language from saved choice, else auto-detect device/browser language
+  let _sv=null; try{_sv=localStorage.getItem('vlang');}catch(e){}
+  const _navLang=((navigator.language||navigator.userLanguage||'')+'').toLowerCase();
+  const _lang=_sv||(_navLang.indexOf('es')===0?'es':'en');
+  if(_lang==='es') setLang('es');
 
   // highlight current page in nav — match the breadcrumb page name (works in preview & published, EN/ES)
   (function(){
