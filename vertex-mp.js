@@ -111,6 +111,17 @@
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.getAttribute('data-lang'))));
   let _sv='en'; try{_sv=localStorage.getItem('vlang')||'en';}catch(e){} if(_sv==='es') setLang('es');
 
+  // highlight current page in nav (multi-page)
+  (function(){
+    const cur=(location.pathname.replace(/\/+$/,'')||'/');
+    document.querySelectorAll('nav.links a, .mm-link').forEach(a=>{
+      const href=a.getAttribute('href')||'';
+      if(href.indexOf('#')>=0) return;
+      const h=(href.replace(/\/+$/,'')||'/');
+      if(h===cur) a.classList.add('current');
+    });
+  })();
+
   addEventListener('scroll',()=>{document.querySelector('header').style.boxShadow=scrollY>20?'0 2px 20px rgba(0,0,0,.08)':'none'});
   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   function observeReveals(root){
