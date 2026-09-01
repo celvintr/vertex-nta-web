@@ -170,6 +170,7 @@
 
   // hero mascot dog — home hero only, injected if the embed doesn't already include it
   (function(){
+    if(window.innerWidth<=900) return; // no dog on mobile
     const home=document.querySelector('section.hero .hero-collage');
     if(!home || home.querySelector('.hero-dog')) return;
     const dog=document.createElement('img');
