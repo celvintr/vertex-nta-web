@@ -92,7 +92,13 @@
     "This is a design mockup — the form isn't connected yet. In the live site it will email your team automatically.":"Esto es una maqueta — el formulario aún no está conectado. En el sitio real enviará el correo a tu equipo automáticamente.",
     "Thanks! 🎉":"¡Gracias! 🎉","Your request was received (demo). We'll reach out within one business day.":"Tu solicitud fue recibida (demo). Te contactaremos en un día hábil.",
     "Address":"Dirección","Hours":"Horario","Mon–Sat: 8am – 6pm":"Lun–Sáb: 8am – 6pm","Sunday: Closed":"Domingo: Cerrado",
-    "Service Area · Greater Pittsburgh, PA":"Área de Servicio · Gran Pittsburgh, PA"
+    "Service Area · Greater Pittsburgh, PA":"Área de Servicio · Gran Pittsburgh, PA",
+    "Our Work":"Nuestro Trabajo","Recent Projects":"Proyectos Realizados",
+    "A look at completed roofing, remodeling, and siding work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación y revestimiento realizados en el Gran Pittsburgh.",
+    "All":"Todos",
+    "Complete Roof Replacement":"Reemplazo Total de Techo","Storm Damage Repair":"Reparación por Tormenta",
+    "Kitchen Renovation":"Renovación de Cocina","Full Bathroom Remodel":"Remodelación Completa de Baño",
+    "Vinyl Siding Installation":"Instalación de Revestimiento","Exterior Facelift":"Renovación de Fachada"
   };
   const PH = {"Your name":"Tu nombre","you@email.com":"tu@correo.com","Tell us a bit about your project…":"Cuéntanos sobre tu proyecto…"};
   // Spanish SEO title + meta description per page
@@ -131,6 +137,55 @@
     try{localStorage.setItem('vlang',lang);}catch(e){}
   }
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.getAttribute('data-lang'))));
+
+  // ===== Recent Projects gallery — home only, injected so no embed re-paste needed =====
+  (function(){
+    if(document.getElementById('projects')) return;
+    if(!document.querySelector('section.hero')) return; // home page only
+    const IMG='https://images.unsplash.com/photo-', Q='?q=70&w=820&h=620&fit=crop&fm=jpg', QL='?q=80&w=1400&fit=crop&fm=jpg';
+    const P=[
+      ['roofing','Complete Roof Replacement','1632759145351-1d592919f522'],
+      ['roofing','Storm Damage Repair','1503387837-b154d5074bd2'],
+      ['remodeling','Kitchen Renovation','1643225523483-e2c434191bba'],
+      ['remodeling','Full Bathroom Remodel','1682888813913-e13f18692019'],
+      ['siding','Vinyl Siding Installation','1604177420528-44bb3e1dcd7b'],
+      ['siding','Exterior Facelift','1596552183299-000ef779e88d']
+    ];
+    const cap={roofing:'Roofing',remodeling:'Remodeling',siding:'Siding'};
+    let cards='';
+    P.forEach((p,i)=>{cards+='<figure class="pjx-item" data-cat="'+p[0]+'" data-i="'+i+'" tabindex="0" role="button">'+
+      '<img loading="lazy" src="'+IMG+p[2]+Q+'" alt="'+p[1]+'">'+
+      '<figcaption><span class="pjx-cat">'+cap[p[0]]+'</span><span class="pjx-title">'+p[1]+'</span><span class="pjx-loc">Pittsburgh, PA</span></figcaption></figure>';});
+    const sec=document.createElement('section');
+    sec.className='blk projects'; sec.id='projects';
+    sec.innerHTML='<div class="wrap">'+
+      '<div class="sec-head"><span class="eyebrow">Our Work</span><h2 class="h-sec">Recent Projects</h2>'+
+      '<p class="lead">A look at completed roofing, remodeling, and siding work across the Greater Pittsburgh area.</p></div>'+
+      '<div class="pjx-tabs"><button class="pjx-tab active" data-cat="all">All</button><button class="pjx-tab" data-cat="roofing">Roofing</button><button class="pjx-tab" data-cat="remodeling">Remodeling</button><button class="pjx-tab" data-cat="siding">Siding</button></div>'+
+      '<div class="pjx-grid">'+cards+'</div></div>';
+    const about=document.getElementById('about');
+    if(about&&about.parentNode){ about.parentNode.insertBefore(sec,about); }
+    else { const m=document.querySelector('main')||document.body; m.appendChild(sec); }
+    // filter tabs
+    const tabs=[...sec.querySelectorAll('.pjx-tab')], items=[...sec.querySelectorAll('.pjx-item')];
+    tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');const c=t.dataset.cat;items.forEach(it=>it.classList.toggle('pjx-hide',c!=='all'&&it.dataset.cat!==c));}));
+    // lightbox
+    const lb=document.createElement('div'); lb.className='pjx-lb';
+    lb.innerHTML='<button class="lb-close" aria-label="Close">&times;</button><button class="lb-prev" aria-label="Previous">&#8249;</button><img alt=""><div class="lb-cap"></div><button class="lb-next" aria-label="Next">&#8250;</button>';
+    document.body.appendChild(lb);
+    const lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.lb-cap');
+    let order=[], pos=0;
+    function show(){const it=order[pos];lbImg.src=IMG+P[+it.dataset.i][2]+QL;lbCap.textContent=it.querySelector('.pjx-title').textContent;}
+    function open(it){order=items.filter(x=>!x.classList.contains('pjx-hide'));pos=order.indexOf(it);if(pos<0)pos=0;show();lb.classList.add('open');document.body.style.overflow='hidden';}
+    function close(){lb.classList.remove('open');document.body.style.overflow='';}
+    items.forEach(it=>{it.addEventListener('click',()=>open(it));it.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(it);}});});
+    lb.querySelector('.lb-close').addEventListener('click',close);
+    lb.querySelector('.lb-next').addEventListener('click',e=>{e.stopPropagation();pos=(pos+1)%order.length;show();});
+    lb.querySelector('.lb-prev').addEventListener('click',e=>{e.stopPropagation();pos=(pos-1+order.length)%order.length;show();});
+    lb.addEventListener('click',e=>{if(e.target===lb)close();});
+    document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();else if(e.key==='ArrowRight'){pos=(pos+1)%order.length;show();}else if(e.key==='ArrowLeft'){pos=(pos-1+order.length)%order.length;show();}});
+  })();
+
   // load language from saved choice, else auto-detect device/browser language
   let _sv=null; try{_sv=localStorage.getItem('vlang');}catch(e){}
   const _navLang=((navigator.language||navigator.userLanguage||'')+'').toLowerCase();
