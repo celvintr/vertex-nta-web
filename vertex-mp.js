@@ -168,6 +168,17 @@
     document.addEventListener('click',function(e){ if(!fab.contains(e.target)) fab.classList.remove('open'); });
   })();
 
+  // hero mascot dog — home hero only, injected if the embed doesn't already include it
+  (function(){
+    const home=document.querySelector('section.hero .hero-collage');
+    if(!home || home.querySelector('.hero-dog')) return;
+    const dog=document.createElement('img');
+    dog.className='hero-dog';
+    dog.src='https://raw.githubusercontent.com/celvintr/vertex-nta-web/main/vertex-dog.png';
+    dog.alt='Vertex NTA mascot';
+    home.appendChild(dog);
+  })();
+
   addEventListener('scroll',()=>{document.querySelector('header').style.boxShadow=scrollY>20?'0 2px 20px rgba(0,0,0,.08)':'none'});
   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   function observeReveals(root){
