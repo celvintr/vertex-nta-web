@@ -173,11 +173,10 @@
     if(window.innerWidth<=900) return; // no dog on mobile
     const home=document.querySelector('section.hero .hero-collage');
     if(!home || home.querySelector('.hero-dog')) return;
-    const dog=document.createElement('img');
-    dog.className='hero-dog';
-    dog.src='https://raw.githubusercontent.com/celvintr/vertex-nta-web/main/vertex-dog.png';
-    dog.alt='Vertex NTA mascot';
-    home.appendChild(dog);
+    const card=document.createElement('div');
+    card.className='hero-dog';
+    card.innerHTML='<img src="https://raw.githubusercontent.com/celvintr/vertex-nta-web/main/vertex-dog.png" alt="Vertex NTA mascot">';
+    home.appendChild(card);
   })();
 
   addEventListener('scroll',()=>{document.querySelector('header').style.boxShadow=scrollY>20?'0 2px 20px rgba(0,0,0,.08)':'none'});
