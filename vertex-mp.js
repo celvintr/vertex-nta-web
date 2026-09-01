@@ -147,6 +147,27 @@
     });
   })();
 
+  // floating contact button (WhatsApp / Signal / Call) — on every page
+  (function(){
+    if(document.querySelector('.fab')) return;
+    const phone='4129834397';
+    const es=(document.documentElement.lang||'en')==='es';
+    const callTxt=es?'Llamar':'Call';
+    const waIco='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5c-.1.2-.3.3-.1.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>';
+    const sgIco='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18l1.2-3A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z"/></svg>';
+    const clIco='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>';
+    const plus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+    const fab=document.createElement('div'); fab.className='fab';
+    fab.innerHTML='<div class="fab-menu">'+
+      '<a class="fab-item" href="https://wa.me/1'+phone+'" target="_blank" rel="noopener"><span class="ic wa">'+waIco+'</span>WhatsApp</a>'+
+      '<a class="fab-item" href="https://signal.me/#p/+1'+phone+'" target="_blank" rel="noopener"><span class="ic sg">'+sgIco+'</span>Signal</a>'+
+      '<a class="fab-item" href="tel:'+phone+'"><span class="ic cl">'+clIco+'</span>'+callTxt+' 412-983-4397</a>'+
+      '</div><button class="fab-main" type="button" aria-label="Contact">'+plus+'</button>';
+    document.body.appendChild(fab);
+    fab.querySelector('.fab-main').addEventListener('click',function(e){e.stopPropagation();fab.classList.toggle('open');});
+    document.addEventListener('click',function(e){ if(!fab.contains(e.target)) fab.classList.remove('open'); });
+  })();
+
   addEventListener('scroll',()=>{document.querySelector('header').style.boxShadow=scrollY>20?'0 2px 20px rgba(0,0,0,.08)':'none'});
   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   function observeReveals(root){
