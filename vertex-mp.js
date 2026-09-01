@@ -111,14 +111,13 @@
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.getAttribute('data-lang'))));
   let _sv='en'; try{_sv=localStorage.getItem('vlang')||'en';}catch(e){} if(_sv==='es') setLang('es');
 
-  // highlight current page in nav (multi-page)
+  // highlight current page in nav — match the breadcrumb page name (works in preview & published, EN/ES)
   (function(){
-    const cur=(location.pathname.replace(/\/+$/,'')||'/');
+    const crumb=document.querySelector('.icrumb > span');
+    if(!crumb) return;
+    const name=crumb.textContent.trim().toLowerCase();
     document.querySelectorAll('nav.links a, .mm-link').forEach(a=>{
-      const href=a.getAttribute('href')||'';
-      if(href.indexOf('#')>=0) return;
-      const h=(href.replace(/\/+$/,'')||'/');
-      if(h===cur) a.classList.add('current');
+      if(a.textContent.trim().toLowerCase()===name) a.classList.add('current');
     });
   })();
 
