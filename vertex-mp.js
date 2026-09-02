@@ -98,7 +98,10 @@
     "All":"Todos",
     "Complete Roof Replacement":"Reemplazo Total de Techo","Storm Damage Repair":"Reparación por Tormenta",
     "Kitchen Renovation":"Renovación de Cocina","Full Bathroom Remodel":"Remodelación Completa de Baño",
-    "Vinyl Siding Installation":"Instalación de Revestimiento","Exterior Facelift":"Renovación de Fachada"
+    "Vinyl Siding Installation":"Instalación de Revestimiento","Exterior Facelift":"Renovación de Fachada",
+    "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
+    "Proudly serving Pittsburgh and the surrounding communities — if you're in the Greater Pittsburgh area, we've got you covered.":"Con orgullo servimos a Pittsburgh y las comunidades cercanas — si estás en el Gran Pittsburgh, te cubrimos.",
+    "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona."
   };
   const PH = {"Your name":"Tu nombre","you@email.com":"tu@correo.com","Tell us a bit about your project…":"Cuéntanos sobre tu proyecto…"};
   // Spanish SEO title + meta description per page
@@ -184,6 +187,28 @@
     lb.querySelector('.lb-prev').addEventListener('click',e=>{e.stopPropagation();pos=(pos-1+order.length)%order.length;show();});
     lb.addEventListener('click',e=>{if(e.target===lb)close();});
     document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();else if(e.key==='ArrowRight'){pos=(pos+1)%order.length;show();}else if(e.key==='ArrowLeft'){pos=(pos-1+order.length)%order.length;show();}});
+  })();
+
+  // ===== Service Area + map — home only, injected (no embed re-paste) =====
+  (function(){
+    if(document.getElementById('area')) return;
+    if(!document.querySelector('section.hero')) return;
+    const towns=['Pittsburgh','Mount Lebanon','Bethel Park','Upper St. Clair','Monroeville','Penn Hills','Cranberry Twp','Wexford','McCandless','Ross Twp','Robinson','Moon Twp','McKeesport','Plum','Shaler','Baldwin'];
+    let chips=''; towns.forEach(t=>chips+='<span class="area-chip">'+t+'</span>');
+    const sec=document.createElement('section');
+    sec.className='blk surface'; sec.id='area';
+    sec.style.scrollMarginTop='100px';
+    sec.innerHTML='<div class="wrap area"><div class="area-grid">'+
+      '<div><span class="eyebrow" style="display:block;margin-bottom:14px">Where We Work</span>'+
+      '<h2 class="h-sec">Service Area</h2>'+
+      '<p class="lead" style="margin-top:16px">Proudly serving Pittsburgh and the surrounding communities — if you\'re in the Greater Pittsburgh area, we\'ve got you covered.</p>'+
+      '<div class="area-list">'+chips+'</div>'+
+      '<p class="lead" style="margin-top:22px;font-size:.92rem">Don\'t see your town? Give us a call — we likely cover your area too.</p></div>'+
+      '<div class="map"><iframe title="Vertex NTA Roofing service area map — Greater Pittsburgh, PA" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pittsburgh,PA&z=9&output=embed"></iframe></div>'+
+      '</div></div>';
+    const foot=document.querySelector('footer');
+    if(foot&&foot.parentNode){ foot.parentNode.insertBefore(sec,foot); }
+    else { const m=document.querySelector('main')||document.body; m.appendChild(sec); }
   })();
 
   // load language from saved choice, else auto-detect device/browser language
