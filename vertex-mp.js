@@ -107,7 +107,10 @@
     "Seamless gutter installation, repair, and cleaning to protect your home from water damage — done right the first time.":"Instalación, reparación y limpieza de canaletas sin uniones para proteger tu casa del daño por agua — bien hecho desde la primera vez.",
     "Clogged or failing gutters cause leaks, rot, and foundation damage. We install and maintain seamless gutter systems that channel water safely away from your home — clean, durable, and built to last.":"Las canaletas tapadas o en mal estado causan filtraciones, pudrición y daños a los cimientos. Instalamos y mantenemos sistemas de canaletas sin uniones que desvían el agua lejos de tu casa — limpios, durables y hechos para durar.",
     "Seamless aluminum gutters":"Canaletas de aluminio sin uniones","Gutter guards & leaf protection":"Protectores y mallas anti-hojas",
-    "Repairs & re-sealing":"Reparación y sellado","Cleaning & maintenance":"Limpieza y mantenimiento"
+    "Repairs & re-sealing":"Reparación y sellado","Cleaning & maintenance":"Limpieza y mantenimiento",
+    "Seamless gutter installation, repair, and cleaning that channels water safely away from your home — protecting your roof, siding, and foundation.":"Instalación, reparación y limpieza de canaletas sin uniones que desvían el agua lejos de tu casa — protegiendo tu techo, revestimiento y cimientos.",
+    "Get a Gutter Quote":"Cotizar Canaletas","Protect Your Home":"Protege Tu Hogar","Protect Your Home Today":"Protege Tu Hogar Hoy",
+    "Downspouts & drainage":"Bajantes y drenaje","Commercial gutters":"Canaletas comerciales"
   };
   const PH = {"Your name":"Tu nombre","you@email.com":"tu@correo.com","Tell us a bit about your project…":"Cuéntanos sobre tu proyecto…"};
   // Spanish SEO title + meta description per page
@@ -116,6 +119,7 @@
     roofing:{t:"Servicios de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación, reparación y reemplazo de techos en Pittsburgh, PA. Tejas y techos de metal de primera, licenciados y asegurados. Inspección gratis con Vertex NTA."},
     remodeling:{t:"Servicios de Remodelación en Pittsburgh, PA | Vertex NTA Roofing",d:"Remodelación de cocinas, baños y casa completa en Pittsburgh, PA. Trabajo de calidad, precios claros y un equipo de confianza. Presupuesto gratis con Vertex NTA."},
     siding:{t:"Instalación de Revestimiento en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación y reparación de revestimiento resistente al clima en Pittsburgh, PA. Vinilo, fibrocemento y aislado que realza tu fachada. Cotización gratis con Vertex NTA."},
+    gutters:{t:"Servicios de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación, reparación y limpieza de canaletas sin uniones en Pittsburgh, PA. Protege tu casa del daño por agua. Licenciados y asegurados. Cotización gratis con Vertex NTA."},
     contact:{t:"Contacta a Vertex NTA Roofing | Presupuesto Gratis en Pittsburgh, PA",d:"Contacta a Vertex NTA Roofing en Pittsburgh, PA. Llama al 412-983-4397 o pide un presupuesto gratis para techos, remodelación y revestimiento. Respuesta rápida."}
   };
   const _metaEl = document.querySelector('meta[name="description"]');
@@ -126,6 +130,7 @@
     if(t.indexOf('roofing services')>=0) return 'roofing';
     if(t.indexOf('remodeling services')>=0) return 'remodeling';
     if(t.indexOf('siding installation')>=0) return 'siding';
+    if(t.indexOf('gutter services')>=0) return 'gutters';
     if(t.indexOf('contact')>=0) return 'contact';
     return 'home';
   }
@@ -304,7 +309,7 @@
   // ===== Gutters — 4th service (nav on all pages; card + info section + hero on home) =====
   (function(){
     const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
-    const GHREF='/#gutters';
+    const GHREF='/gutters';
     // nav (desktop + mobile): add after Siding
     if(!document.querySelector('[data-gutter]')){
       var ns=[].slice.call(document.querySelectorAll('nav.links a')).filter(function(a){return a.textContent.trim()==='Siding';})[0];
