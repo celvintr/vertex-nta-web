@@ -203,20 +203,6 @@
     // left hero tile -> real roof photo
     const left=document.querySelector('.hero .shot:not(.short)');
     if(left){const im=left.querySelector('img'); if(im){im.src=CDN+'v-roof.jpg'; im.removeAttribute('srcset');}}
-    // subtle looping video BEHIND the whole hero (low opacity), desktop only
-    if(window.innerWidth>700){
-      const hero=document.querySelector('section.hero');
-      if(hero && !hero.querySelector('.hero-bgvid')){
-        const v=document.createElement('video');
-        v.className='hero-bgvid'; v.autoplay=true; v.muted=true; v.loop=true; v.playsInline=true;
-        v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('preload','auto');
-        v.src=CDN+'v-hero.mp4';
-        v.defaultPlaybackRate=0.5; v.playbackRate=0.5;
-        v.addEventListener('loadedmetadata',()=>{v.playbackRate=0.5;});
-        hero.insertBefore(v, hero.firstChild);
-        v.play&&v.play().catch(()=>{});
-      }
-    }
   })();
 
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
