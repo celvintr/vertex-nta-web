@@ -209,8 +209,8 @@
   (function(){
     if(document.getElementById('area')) return;
     if(!document.querySelector('section.hero')) return;
-    const towns=['Pittsburgh','Mount Lebanon','Bethel Park','Upper St. Clair','Monroeville','Penn Hills','Cranberry Twp','Wexford','McCandless','Ross Twp','Robinson','Moon Twp','McKeesport','Plum','Shaler','Baldwin'];
-    let chips=''; towns.forEach(t=>chips+='<span class="area-chip">'+t+'</span>');
+    const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739]];
+    let chips=''; towns.forEach(t=>chips+='<span class="area-chip">'+t[0]+'</span>');
     const sec=document.createElement('section');
     sec.className='blk surface'; sec.id='area';
     sec.style.scrollMarginTop='100px';
@@ -220,11 +220,33 @@
       '<p class="lead" style="margin-top:16px">Proudly serving Pittsburgh and the surrounding communities — if you\'re in the Greater Pittsburgh area, we\'ve got you covered.</p>'+
       '<div class="area-list">'+chips+'</div>'+
       '<p class="lead" style="margin-top:22px;font-size:.92rem">Don\'t see your town? Give us a call — we likely cover your area too.</p></div>'+
-      '<div class="map"><iframe title="Vertex NTA Roofing service area map — Greater Pittsburgh, PA" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pittsburgh,PA&z=9&output=embed"></iframe></div>'+
+      '<div class="map"><div id="vmap"></div></div>'+
       '</div></div>';
     const foot=document.querySelector('footer');
     if(foot&&foot.parentNode){ foot.parentNode.insertBefore(sec,foot); }
     else { const m=document.querySelector('main')||document.body; m.appendChild(sec); }
+    // interactive Leaflet map (free, no API key) with gold markers + coverage
+    (function(){
+      function boot(){
+        if(!window.L||!document.getElementById('vmap'))return;
+        const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([40.44,-79.99],10);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+        L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
+        const pts=[];
+        towns.forEach(function(t){
+          const big=t[0]==='Pittsburgh';
+          const m=L.circleMarker([t[1],t[2]],{radius:big?9:6,color:'#8F651E',weight:2,fillColor:big?'#B8862F':'#E8C066',fillOpacity:1}).addTo(map);
+          m.bindTooltip(t[0],{direction:'top',offset:[0,-4]});
+          m.bindPopup('<b style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.03em">'+t[0]+'</b><br><span style="color:#8F651E;font-size:.8rem;font-weight:600">Vertex NTA · Roofing · Remodeling · Siding</span>');
+          pts.push([t[1],t[2]]);
+        });
+        map.fitBounds(pts,{padding:[34,34]});
+        setTimeout(function(){map.invalidateSize()},250);
+      }
+      if(window.L){boot();return;}
+      if(!document.getElementById('leaflet-css')){var c=document.createElement('link');c.id='leaflet-css';c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);}
+      var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=boot;document.head.appendChild(s);
+    })();
   })();
 
   // load language from saved choice, else auto-detect device/browser language
