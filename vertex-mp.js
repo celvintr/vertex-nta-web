@@ -102,7 +102,12 @@
     "Exterior Renovation":"Renovación Exterior","Siding Repair & Trim":"Reparación de Revestimiento",
     "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
     "Proudly serving Pittsburgh and the surrounding communities — if you're in the Greater Pittsburgh area, we've got you covered.":"Con orgullo servimos a Pittsburgh y las comunidades cercanas — si estás en el Gran Pittsburgh, te cubrimos.",
-    "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona."
+    "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona.",
+    "Gutters":"Canaletas","Gutter Services":"Servicios de Canaletas","Seamless Gutters, Done Right":"Canaletas Sin Uniones, Bien Hechas",
+    "Seamless gutter installation, repair, and cleaning to protect your home from water damage — done right the first time.":"Instalación, reparación y limpieza de canaletas sin uniones para proteger tu casa del daño por agua — bien hecho desde la primera vez.",
+    "Clogged or failing gutters cause leaks, rot, and foundation damage. We install and maintain seamless gutter systems that channel water safely away from your home — clean, durable, and built to last.":"Las canaletas tapadas o en mal estado causan filtraciones, pudrición y daños a los cimientos. Instalamos y mantenemos sistemas de canaletas sin uniones que desvían el agua lejos de tu casa — limpios, durables y hechos para durar.",
+    "Seamless aluminum gutters":"Canaletas de aluminio sin uniones","Gutter guards & leaf protection":"Protectores y mallas anti-hojas",
+    "Repairs & re-sealing":"Reparación y sellado","Cleaning & maintenance":"Limpieza y mantenimiento"
   };
   const PH = {"Your name":"Tu nombre","you@email.com":"tu@correo.com","Tell us a bit about your project…":"Cuéntanos sobre tu proyecto…"};
   // Spanish SEO title + meta description per page
@@ -294,6 +299,48 @@
       if(!document.getElementById('leaflet-css')){var c=document.createElement('link');c.id='leaflet-css';c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);}
       var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=boot;document.head.appendChild(s);
     })();
+  })();
+
+  // ===== Gutters — 4th service (nav on all pages; card + info section + hero on home) =====
+  (function(){
+    const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const GHREF='/#gutters';
+    // nav (desktop + mobile): add after Siding
+    if(!document.querySelector('[data-gutter]')){
+      var ns=[].slice.call(document.querySelectorAll('nav.links a')).filter(function(a){return a.textContent.trim()==='Siding';})[0];
+      if(ns){var g=document.createElement('a');g.textContent='Gutters';g.href=GHREF;g.setAttribute('data-gutter','');ns.parentNode.insertBefore(g,ns.nextSibling);}
+      var ms=[].slice.call(document.querySelectorAll('.mm-link')).filter(function(a){return a.textContent.trim()==='Siding';})[0];
+      if(ms){var g2=document.createElement('a');g2.className='mm-link';g2.textContent='Gutters';g2.href=GHREF;g2.setAttribute('data-gutter','');ms.parentNode.insertBefore(g2,ms.nextSibling);}
+    }
+    if(!document.querySelector('section.hero')) return; // rest is home only
+    // 4th service card
+    var cards=document.querySelector('#services .cards');
+    if(cards && !document.getElementById('svc-gutters')){
+      var art=document.createElement('article'); art.className='card'; art.id='svc-gutters';
+      art.innerHTML='<div class="media ph"><img class="fill" loading="lazy" alt="Gutters" src="'+CDN+'v-siding.jpg"></div>'+
+        '<h3>Gutters</h3><p>Seamless gutter installation, repair, and cleaning to protect your home from water damage — done right the first time.</p>'+
+        '<a class="more" href="'+GHREF+'">Learn More →</a>';
+      cards.appendChild(art);
+    }
+    // dedicated info section after Services
+    if(!document.getElementById('gutters')){
+      var chk='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>';
+      var items=['Seamless aluminum gutters','Gutter guards & leaf protection','Repairs & re-sealing','Cleaning & maintenance'];
+      var lis=''; items.forEach(function(t){lis+='<li>'+chk+'<span>'+t+'</span></li>';});
+      var sec=document.createElement('section'); sec.className='blk'; sec.id='gutters'; sec.style.scrollMarginTop='100px';
+      sec.innerHTML='<div class="wrap feature rev">'+
+        '<div class="feat-media ph"><img class="fill" loading="lazy" alt="Seamless gutter installation" src="'+CDN+'v-siding.jpg"></div>'+
+        '<div><span class="eyebrow" style="display:block;margin-bottom:14px">Gutter Services</span>'+
+        '<h2>Seamless Gutters, Done Right</h2>'+
+        '<p>Clogged or failing gutters cause leaks, rot, and foundation damage. We install and maintain seamless gutter systems that channel water safely away from your home — clean, durable, and built to last.</p>'+
+        '<ul class="checklist">'+lis+'</ul>'+
+        '<a class="btn btn-gold" href="/#contact" role="button" style="margin-top:26px">Get a Quote</a></div></div>';
+      var svc=document.getElementById('services');
+      if(svc&&svc.parentNode){svc.parentNode.insertBefore(sec,svc.nextSibling);}
+    }
+    // hero button
+    var hb=document.querySelector('.hero .hero-btns');
+    if(hb && !hb.querySelector('[data-gutter-btn]')){var b=document.createElement('a');b.className='btn btn-gold';b.href=GHREF;b.textContent='Gutters';b.setAttribute('data-gutter-btn','');b.setAttribute('role','button');hb.appendChild(b);}
   })();
 
   // load language from saved choice, else auto-detect device/browser language
