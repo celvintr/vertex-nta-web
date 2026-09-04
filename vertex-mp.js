@@ -215,6 +215,26 @@
         v.play&&v.play().catch(()=>{});
       }
     }
+    // MOBILE hero image slider (auto + dots + swipe) — replaces the single tile
+    if(window.innerWidth<=900){
+      const shot=document.querySelector('.hero .shot:not(.short)');
+      if(shot && !shot.querySelector('.hslide')){
+        const files=['v-roof.jpg','v-hero.jpg','v-siding.jpg','v-p-roof2.jpg','v-p-roof1.jpg','v-p-siding2.jpg'];
+        shot.innerHTML='';
+        const wrap=document.createElement('div'); wrap.className='hslide';
+        files.forEach(function(f,i){var im=document.createElement('img'); im.src=CDN+f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA project'; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
+        const dots=document.createElement('div'); dots.className='hslide-dots';
+        files.forEach(function(f,i){var d=document.createElement('button'); d.type='button'; d.className='hslide-dot'+(i===0?' on':''); d.setAttribute('aria-label','Ver imagen '+(i+1)); dots.appendChild(d);});
+        wrap.appendChild(dots); shot.appendChild(wrap);
+        const slides=[].slice.call(wrap.querySelectorAll('.hslide-img')), ds=[].slice.call(dots.children); let idx=0, t;
+        function go(n){slides[idx].classList.remove('on');ds[idx].classList.remove('on');idx=(n+slides.length)%slides.length;slides[idx].classList.add('on');ds[idx].classList.add('on');}
+        function start(){t=setInterval(function(){go(idx+1);},3800);} function reset(){clearInterval(t);start();}
+        ds.forEach(function(d,i){d.addEventListener('click',function(){go(i);reset();});});
+        var sx=0; wrap.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+        wrap.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));reset();}},{passive:true});
+        start();
+      }
+    }
   })();
 
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
