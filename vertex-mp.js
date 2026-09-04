@@ -210,7 +210,7 @@
     if(document.getElementById('area')) return;
     if(!document.querySelector('section.hero')) return;
     const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739]];
-    let chips=''; towns.forEach(t=>chips+='<span class="area-chip">'+t[0]+'</span>');
+    let chips=''; towns.forEach((t,i)=>chips+='<button type="button" class="area-chip" data-i="'+i+'">'+t[0]+'</button>');
     const sec=document.createElement('section');
     sec.className='blk surface'; sec.id='area';
     sec.style.scrollMarginTop='100px';
@@ -232,14 +232,26 @@
         const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([40.44,-79.99],10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
-        const pts=[];
-        towns.forEach(function(t){
+        const pts=[], markers=[];
+        towns.forEach(function(t,i){
           const big=t[0]==='Pittsburgh';
           const m=L.circleMarker([t[1],t[2]],{radius:big?9:6,color:'#8F651E',weight:2,fillColor:big?'#B8862F':'#E8C066',fillOpacity:1}).addTo(map);
           m.bindTooltip(t[0],{direction:'top',offset:[0,-4]});
           m.bindPopup('<b style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.03em">'+t[0]+'</b><br><span style="color:#8F651E;font-size:.8rem;font-weight:600">Vertex NTA · Roofing · Remodeling · Siding</span>');
-          pts.push([t[1],t[2]]);
+          m.on('click',function(){select(i,true);});
+          pts.push([t[1],t[2]]); markers.push(m);
         });
+        // two-way link between the chip list and the map markers
+        const chipEls=[].slice.call(sec.querySelectorAll('.area-chip'));
+        function select(i,fromMap){
+          chipEls.forEach(function(c){c.classList.toggle('active',+c.dataset.i===i);});
+          markers.forEach(function(mm,j){mm.setStyle({radius:j===i?11:(towns[j][0]==='Pittsburgh'?9:6),fillColor:j===i?'#B8862F':(towns[j][0]==='Pittsburgh'?'#B8862F':'#E8C066')});});
+          const t=towns[i];
+          map.flyTo([t[1],t[2]],12,{duration:.7});
+          markers[i].openPopup();
+          if(fromMap){var c=chipEls.filter(function(x){return +x.dataset.i===i;})[0]; if(c&&c.scrollIntoView)c.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});}
+        }
+        chipEls.forEach(function(c){c.addEventListener('click',function(){select(+c.dataset.i,false);});});
         function refresh(){map.invalidateSize();if(pts.length)map.fitBounds(pts,{padding:[34,34]});}
         var el=document.getElementById('vmap');
         if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){refresh();setTimeout(refresh,350);}});},{threshold:.01});io.observe(el);}
