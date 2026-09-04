@@ -240,8 +240,11 @@
           m.bindPopup('<b style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.03em">'+t[0]+'</b><br><span style="color:#8F651E;font-size:.8rem;font-weight:600">Vertex NTA · Roofing · Remodeling · Siding</span>');
           pts.push([t[1],t[2]]);
         });
-        map.fitBounds(pts,{padding:[34,34]});
-        setTimeout(function(){map.invalidateSize()},250);
+        function refresh(){map.invalidateSize();if(pts.length)map.fitBounds(pts,{padding:[34,34]});}
+        var el=document.getElementById('vmap');
+        if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){refresh();setTimeout(refresh,350);}});},{threshold:.01});io.observe(el);}
+        [120,500,1200].forEach(function(d){setTimeout(refresh,d);});
+        window.addEventListener('resize',refresh);
       }
       if(window.L){boot();return;}
       if(!document.getElementById('leaflet-css')){var c=document.createElement('link');c.id='leaflet-css';c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);}
