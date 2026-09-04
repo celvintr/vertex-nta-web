@@ -99,6 +99,7 @@
     "Complete Roof Replacement":"Reemplazo Total de Techo","Storm Damage Repair":"Reparación por Tormenta",
     "Kitchen Renovation":"Renovación de Cocina","Full Bathroom Remodel":"Remodelación Completa de Baño",
     "Vinyl Siding Installation":"Instalación de Revestimiento","Exterior Facelift":"Renovación de Fachada",
+    "Exterior Renovation":"Renovación Exterior","Siding Repair & Trim":"Reparación de Revestimiento",
     "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
     "Proudly serving Pittsburgh and the surrounding communities — if you're in the Greater Pittsburgh area, we've got you covered.":"Con orgullo servimos a Pittsburgh y las comunidades cercanas — si estás en el Gran Pittsburgh, te cubrimos.",
     "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona."
@@ -145,19 +146,19 @@
   (function(){
     if(document.getElementById('projects')) return;
     if(!document.querySelector('section.hero')) return; // home page only
-    const IMG='https://images.unsplash.com/photo-', Q='?q=70&w=820&h=620&fit=crop&fm=jpg', QL='?q=80&w=1400&fit=crop&fm=jpg';
+    const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const P=[
-      ['roofing','Complete Roof Replacement','1632759145351-1d592919f522'],
-      ['roofing','Storm Damage Repair','1503387837-b154d5074bd2'],
-      ['remodeling','Kitchen Renovation','1643225523483-e2c434191bba'],
-      ['remodeling','Full Bathroom Remodel','1682888813913-e13f18692019'],
-      ['siding','Vinyl Siding Installation','1604177420528-44bb3e1dcd7b'],
-      ['siding','Exterior Facelift','1596552183299-000ef779e88d']
+      ['roofing','Complete Roof Replacement',CDN+'v-p-roof2.jpg'],
+      ['roofing','Storm Damage Repair',CDN+'v-p-roof1.jpg'],
+      ['remodeling','Exterior Renovation',CDN+'v-p-remodel1.jpg'],
+      ['remodeling','Exterior Facelift',CDN+'v-p-remodel2.jpg'],
+      ['siding','Vinyl Siding Installation',CDN+'v-p-siding1.jpg'],
+      ['siding','Siding Repair & Trim',CDN+'v-p-siding2.jpg']
     ];
     const cap={roofing:'Roofing',remodeling:'Remodeling',siding:'Siding'};
     let cards='';
     P.forEach((p,i)=>{cards+='<figure class="pjx-item" data-cat="'+p[0]+'" data-i="'+i+'" tabindex="0" role="button">'+
-      '<img loading="lazy" src="'+IMG+p[2]+Q+'" alt="'+p[1]+'">'+
+      '<img loading="lazy" src="'+p[2]+'" alt="'+p[1]+'">'+
       '<figcaption><span class="pjx-cat">'+cap[p[0]]+'</span><span class="pjx-title">'+p[1]+'</span><span class="pjx-loc">Pittsburgh, PA</span></figcaption></figure>';});
     const sec=document.createElement('section');
     sec.className='blk projects'; sec.id='projects';
@@ -178,7 +179,7 @@
     document.body.appendChild(lb);
     const lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.lb-cap');
     let order=[], pos=0;
-    function show(){const it=order[pos];lbImg.src=IMG+P[+it.dataset.i][2]+QL;lbCap.textContent=it.querySelector('.pjx-title').textContent;}
+    function show(){const it=order[pos];lbImg.src=P[+it.dataset.i][2];lbCap.textContent=it.querySelector('.pjx-title').textContent;}
     function open(it){order=items.filter(x=>!x.classList.contains('pjx-hide'));pos=order.indexOf(it);if(pos<0)pos=0;show();lb.classList.add('open');document.body.style.overflow='hidden';}
     function close(){lb.classList.remove('open');document.body.style.overflow='';}
     items.forEach(it=>{it.addEventListener('click',()=>open(it));it.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(it);}});});
@@ -187,6 +188,32 @@
     lb.querySelector('.lb-prev').addEventListener('click',e=>{e.stopPropagation();pos=(pos-1+order.length)%order.length;show();});
     lb.addEventListener('click',e=>{if(e.target===lb)close();});
     document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();else if(e.key==='ArrowRight'){pos=(pos+1)%order.length;show();}else if(e.key==='ArrowLeft'){pos=(pos-1+order.length)%order.length;show();}});
+  })();
+
+  // ===== Swap stock images for the client's real photos + hero video =====
+  (function(){
+    if(!document.querySelector('section.hero')) return;
+    const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const set=(alt,file)=>{const im=document.querySelector('img[alt="'+alt+'"]'); if(im){im.src=CDN+file; im.removeAttribute('srcset');}};
+    set('Home exterior','v-hero.jpg');
+    set('Roofing','v-roof.jpg');
+    set('Remodeling','v-remodel.jpg');
+    set('Siding','v-siding.jpg');
+    set('Vertex NTA crew at work','v-owner.jpg');
+    // left hero tile -> looping muted video (desktop); photo on mobile to stay light
+    const left=document.querySelector('.hero .shot:not(.short)');
+    if(left){
+      if(window.innerWidth>900){
+        const v=document.createElement('video');
+        v.className='fill'; v.autoplay=true; v.muted=true; v.loop=true; v.playsInline=true;
+        v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('preload','metadata');
+        v.poster=CDN+'v-roof.jpg'; v.src=CDN+'v-hero.mp4';
+        left.innerHTML=''; left.appendChild(v);
+        v.play&&v.play().catch(()=>{});
+      } else {
+        const im=left.querySelector('img'); if(im){im.src=CDN+'v-roof.jpg'; im.removeAttribute('srcset');}
+      }
+    }
   })();
 
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
