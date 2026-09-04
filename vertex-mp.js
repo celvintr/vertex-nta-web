@@ -230,7 +230,7 @@
       function boot(){
         if(!window.L||!document.getElementById('vmap'))return;
         const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([40.44,-79.99],10);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         const pts=[];
         towns.forEach(function(t){
