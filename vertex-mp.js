@@ -309,7 +309,7 @@
   // ===== Gutters — 4th service (nav on all pages; card + info section + hero on home) =====
   (function(){
     const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
-    const GHREF='/#gutters';
+    const GHREF='/gutters';
     // nav (desktop + mobile): add after Siding
     if(!document.querySelector('[data-gutter]')){
       var ns=[].slice.call(document.querySelectorAll('nav.links a')).filter(function(a){return a.textContent.trim()==='Siding';})[0];
