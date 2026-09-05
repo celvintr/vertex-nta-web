@@ -271,7 +271,8 @@
     (function(){
       function boot(){
         if(!window.L||!document.getElementById('vmap'))return;
-        const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([40.44,-79.99],10);
+        const isMobile=window.matchMedia('(max-width:900px)').matches||('ontouchstart' in window);
+        const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true,dragging:!isMobile,touchZoom:!isMobile,doubleClickZoom:!isMobile,tap:false}).setView([40.44,-79.99],10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         const pts=[], markers=[];
@@ -294,11 +295,14 @@
           if(fromMap){var c=chipEls.filter(function(x){return +x.dataset.i===i;})[0]; if(c&&c.scrollIntoView)c.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});}
         }
         chipEls.forEach(function(c){c.addEventListener('click',function(){select(+c.dataset.i,false);});});
-        function refresh(){map.invalidateSize();if(pts.length)map.fitBounds(pts,{padding:[34,34]});}
+        function refresh(){try{map.invalidateSize(false);if(pts.length)map.fitBounds(pts,{padding:[34,34]});}catch(e){}}
         var el=document.getElementById('vmap');
-        if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){refresh();setTimeout(refresh,350);}});},{threshold:.01});io.observe(el);}
-        [120,500,1200].forEach(function(d){setTimeout(refresh,d);});
+        map.whenReady(function(){requestAnimationFrame(refresh);});
+        if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){refresh();setTimeout(refresh,300);setTimeout(refresh,900);}});},{threshold:.01});io.observe(el);}
+        [150,500,1200,2500].forEach(function(d){setTimeout(refresh,d);});
         window.addEventListener('resize',refresh);
+        window.addEventListener('orientationchange',function(){setTimeout(refresh,300);});
+        window.addEventListener('load',function(){setTimeout(refresh,200);});
       }
       if(window.L){boot();return;}
       if(!document.getElementById('leaflet-css')){var c=document.createElement('link');c.id='leaflet-css';c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);}
