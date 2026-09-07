@@ -31,6 +31,7 @@
     "Project management that handles planning, top-grade materials, and installation — start to finish.":"Gestión de proyecto que cubre planeación, materiales de primera e instalación — de principio a fin.",
     "Expert roof installation, repair, and replacement using top-grade materials for long-lasting protection.":"Instalación, reparación y reemplazo de techos con materiales de primera para una protección duradera.",
     "Transform your interior spaces with professional creativity — kitchens, bathrooms, and complete makeovers.":"Transforma tus espacios interiores con creatividad profesional — cocinas, baños y renovaciones completas.",
+    "Transform your interior spaces with professional creativity — kitchens, bathrooms, basements, and complete home makeovers done right.":"Transforma tus espacios interiores con creatividad profesional — cocinas, baños, sótanos y renovaciones completas del hogar, bien hechas.",
     "Durable, weather-tight siding installation and repair that boosts curb appeal for residential and commercial properties.":"Instalación y reparación de revestimiento resistente al clima que mejora la apariencia de propiedades residenciales y comerciales.",
     "Learn More →":"Ver Más →",
     "The Owner":"El Dueño","Every Project":"Cada Proyecto","Is Personal":"Es Personal","— The Owner":"— El Dueño",
