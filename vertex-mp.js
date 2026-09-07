@@ -97,6 +97,8 @@
     "Address":"Dirección","Hours":"Horario","Mon–Sat: 8am – 6pm":"Lun–Sáb: 8am – 6pm","Sunday: Closed":"Domingo: Cerrado",
     "Service Area · Greater Pittsburgh, PA":"Área de Servicio · Gran Pittsburgh, PA",
     "Our Work":"Nuestro Trabajo","Recent Projects":"Proyectos Realizados","Seamless Gutter Installation":"Instalación de Canaletas",
+    "On The Roof":"Desde El Techo","See Our Work In Action":"Mira Nuestro Trabajo","Get a Free Inspection":"Inspección Gratis",
+    "A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.":"Un techo real de Vertex NTA al amanecer — trabajo de tejas limpio y bien hecho, aquí en el Gran Pittsburgh.",
     "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
     "Complete Roof Replacement":"Reemplazo Total de Techo","Storm Damage Repair":"Reparación por Tormenta",
@@ -222,6 +224,18 @@
     if(/\/roofing$/.test(_pth)){_setURL('New roof installation',CDN+'v-roof.jpg');_setURL('Home exterior',CDN+'v-p-roof1.jpg');_setURL('Roof replacement in progress',CDN+'v-p-roof2.jpg');}
     if(/\/siding$/.test(_pth)){_setURL('New siding',CDN+'v-siding.jpg');_setURL('Home exterior',CDN+'v-p-siding1.jpg');_setURL('New siding installation',CDN+'v-p-siding2.jpg');}
     if(/\/remodeling$/.test(_pth)){_setURL('Remodeled interior',_uns('photo-1556912173-3bb406ef7e77',900,1300));_setURL('Home exterior',_uns('photo-1620626011761-996317b8d101',900,1100));_setURL('Home remodeling project',_uns('photo-1616486338812-3dadae4b4ace',1000,720));}
+    // Roofing page: real jobsite video section
+    if(/\/roofing$/.test(_pth) && !document.getElementById('roofvid')){
+      var vsec=document.createElement('section'); vsec.className='blk surface'; vsec.id='roofvid';
+      vsec.innerHTML='<div class="wrap vid-wrap">'+
+        '<div class="reveal vid-txt"><span class="eyebrow">On The Roof</span><h2 class="h-sec">See Our Work In Action</h2><p class="lead">A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.</p><a class="btn btn-gold" href="/contact">Get a Free Inspection</a></div>'+
+        '<div class="vid-frame reveal"><video src="'+CDN+'v-roof-video.mp4" poster="'+CDN+'v-roof-video-poster.jpg" autoplay muted loop playsinline preload="metadata" controls></video></div>'+
+        '</div>';
+      var rband=document.querySelector('.band-cta'); var rfoot=document.querySelector('footer');
+      if(rband&&rband.parentNode){rband.parentNode.insertBefore(vsec,rband);}
+      else if(rfoot&&rfoot.parentNode){rfoot.parentNode.insertBefore(vsec,rfoot);}
+      else {var mm2=document.querySelector('main')||document.body; mm2.appendChild(vsec);}
+    }
     const isHome=(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname));
     // left hero tile -> real roof photo (home only; internal pages keep their own hero image)
     const left=isHome?document.querySelector('.hero .shot:not(.short)'):null;
