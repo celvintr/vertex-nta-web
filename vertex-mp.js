@@ -98,6 +98,7 @@
     "Service Area · Greater Pittsburgh, PA":"Área de Servicio · Gran Pittsburgh, PA",
     "Our Work":"Nuestro Trabajo","Recent Projects":"Proyectos Realizados","Seamless Gutter Installation":"Instalación de Canaletas",
     "On The Roof":"Desde El Techo","See Our Work In Action":"Mira Nuestro Trabajo","Get a Free Inspection":"Inspección Gratis",
+    "Find Us":"Encuéntranos","Our Location":"Nuestra Ubicación",
     "A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.":"Un techo real de Vertex NTA al amanecer — trabajo de tejas limpio y bien hecho, aquí en el Gran Pittsburgh.",
     "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
@@ -235,6 +236,18 @@
       if(rband&&rband.parentNode){rband.parentNode.insertBefore(vsec,rband);}
       else if(rfoot&&rfoot.parentNode){rfoot.parentNode.insertBefore(vsec,rfoot);}
       else {var mm2=document.querySelector('main')||document.body; mm2.appendChild(vsec);}
+    }
+    // Owner name + portrait
+    var OWNER='Narlyn Ortiz';
+    document.querySelectorAll('.sig').forEach(function(sg){var n=sg.childNodes[0]; if(n&&n.nodeType===3&&/The Owner/.test(n.nodeValue)){n.nodeValue='— '+OWNER;}});
+    if(/\/about$/.test(_pth)){var fm=document.querySelector('.feat-media img'); if(fm){fm.src=CDN+'v-owner-portrait.jpg'; fm.removeAttribute('srcset');}}
+    // Contact page: Google map of the office
+    if(/\/contact$/.test(_pth) && !document.getElementById('office-map')){
+      var msec=document.createElement('section'); msec.className='blk surface'; msec.id='office-map';
+      msec.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 32px"><span class="eyebrow" style="display:block;margin-bottom:12px">Find Us</span><h2 class="h-sec">Our Location</h2><p class="lead" style="margin-top:14px">1810 Rhine St, Pittsburgh, PA 15212</p></div>'+
+        '<div class="map-embed reveal"><iframe src="https://maps.google.com/maps?q=1810%20Rhine%20St%2C%20Pittsburgh%2C%20PA%2015212&z=15&output=embed" loading="lazy" title="Vertex NTA Roofing location" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>';
+      var cfoot=document.querySelector('footer');
+      if(cfoot&&cfoot.parentNode){cfoot.parentNode.insertBefore(msec,cfoot);} else {(document.querySelector('main')||document.body).appendChild(msec);}
     }
     const isHome=(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname));
     // left hero tile -> real roof photo (home only; internal pages keep their own hero image)
