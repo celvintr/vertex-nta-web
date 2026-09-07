@@ -330,6 +330,11 @@
   (function(){
     const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const GHREF='/gutters';
+    // Home link as the FIRST nav item (desktop + mobile), unless already present
+    var dn=document.querySelector('nav.links');
+    if(dn && !dn.querySelector('a[href="/"], a[data-home]')){var h1=document.createElement('a');h1.textContent='Home';h1.href='/';h1.setAttribute('data-home','');dn.insertBefore(h1,dn.firstChild);}
+    var mmw=document.querySelector('.mobile-menu .wrap'); var mtop=mmw?mmw.querySelector('.mm-top'):null;
+    if(mmw && !mmw.querySelector('a.mm-link[href="/"], a.mm-link[data-home]')){var h2=document.createElement('a');h2.className='mm-link';h2.textContent='Home';h2.href='/';h2.setAttribute('data-home','');if(mtop)mtop.parentNode.insertBefore(h2,mtop.nextSibling);else mmw.insertBefore(h2,mmw.firstChild);}
     // nav (desktop + mobile): add after Siding
     if(!document.querySelector('[data-gutter]')){
       var ns=[].slice.call(document.querySelectorAll('nav.links a')).filter(function(a){return a.textContent.trim()==='Siding';})[0];
