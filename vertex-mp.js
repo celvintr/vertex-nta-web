@@ -213,18 +213,7 @@
     // left hero tile -> real roof photo
     const left=document.querySelector('.hero .shot:not(.short)');
     if(left){const im=left.querySelector('img'); if(im){im.src=CDN+'v-roof.jpg'; im.removeAttribute('srcset');}}
-    // subtle aerial video behind the whole hero (desktop only, low opacity)
-    if(window.innerWidth>700){
-      const hero=document.querySelector('section.hero');
-      if(hero && !hero.querySelector('.hero-bgvid')){
-        const v=document.createElement('video');
-        v.className='hero-bgvid'; v.autoplay=true; v.muted=true; v.loop=true; v.playsInline=true;
-        v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('preload','auto');
-        v.src=CDN+'v-hero.mp4';
-        hero.insertBefore(v, hero.firstChild);
-        v.play&&v.play().catch(()=>{});
-      }
-    }
+    // (hero background video removed by request)
     // MOBILE hero image slider (auto + dots + swipe) — replaces the single tile
     if(window.innerWidth<=900){
       const shot=document.querySelector('.hero .shot:not(.short)');
@@ -326,7 +315,7 @@
     var cards=document.querySelector('#services .cards');
     if(cards && !document.getElementById('svc-gutters')){
       var art=document.createElement('article'); art.className='card'; art.id='svc-gutters';
-      art.innerHTML='<div class="media ph"><img class="fill" loading="lazy" alt="Gutters" src="'+CDN+'v-siding.jpg"></div>'+
+      art.innerHTML='<div class="media ph"><img class="fill" loading="lazy" alt="Gutters" src="'+CDN+'v-gutters.jpg"></div>'+
         '<h3>Gutters</h3><p>Seamless gutter installation, repair, and cleaning to protect your home from water damage — done right the first time.</p>'+
         '<a class="more" href="'+GHREF+'">Learn More →</a>';
       cards.appendChild(art);
@@ -338,7 +327,7 @@
       var lis=''; items.forEach(function(t){lis+='<li>'+chk+'<span>'+t+'</span></li>';});
       var sec=document.createElement('section'); sec.className='blk'; sec.id='gutters'; sec.style.scrollMarginTop='100px';
       sec.innerHTML='<div class="wrap feature rev">'+
-        '<div class="feat-media ph"><img class="fill" loading="lazy" alt="Seamless gutter installation" src="'+CDN+'v-siding.jpg"></div>'+
+        '<div class="feat-media ph"><img class="fill" loading="lazy" alt="Seamless gutter installation" src="'+CDN+'v-gutters.jpg"></div>'+
         '<div><span class="eyebrow" style="display:block;margin-bottom:14px">Gutter Services</span>'+
         '<h2>Seamless Gutters, Done Right</h2>'+
         '<p>Clogged or failing gutters cause leaks, rot, and foundation damage. We install and maintain seamless gutter systems that channel water safely away from your home — clean, durable, and built to last.</p>'+
