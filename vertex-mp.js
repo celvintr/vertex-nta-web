@@ -26,7 +26,7 @@
     "Pittsburgh, PA · Licensed & Insured":"Pittsburgh, PA · Licenciados y Asegurados",
     "Remodeling &":"Remodelación y",
     "Professional construction for homes and commercial properties — quality workmanship, honest pricing, and a crew that treats your home like our own.":"Construcción profesional para hogares y propiedades comerciales — trabajo de calidad, precios honestos y un equipo que trata tu casa como la nuestra.",
-    "Years of":"Años de","Experience":"Experiencia","Finished":"Proyectos","Projects":"Terminados","Client":"Satisfacción","Satisfaction":"del Cliente","Core":"Servicios","Services":"Principales",
+    "Years of":"Años de","Experience":"Experiencia","Finished":"Proyectos","Projects":"Terminados","Client":"Satisfacción","Satisfaction":"del Cliente","Services":"Servicios","Offered":"Ofrecidos",
     "What We Do":"Lo Que Hacemos","Our Services":"Nuestros Servicios",
     "Project management that handles planning, top-grade materials, and installation — start to finish.":"Gestión de proyecto que cubre planeación, materiales de primera e instalación — de principio a fin.",
     "Expert roof installation, repair, and replacement using top-grade materials for long-lasting protection.":"Instalación, reparación y reemplazo de techos con materiales de primera para una protección duradera.",
@@ -323,6 +323,37 @@
     if(!document.querySelector('.mobile-menu a[href="/about"], .mobile-menu a[data-about]')){
       var ma=[].slice.call(document.querySelectorAll('.mm-link')).filter(function(a){var t=a.textContent.trim();return t==='Gutters'||t==='Siding';}).pop();
       if(ma){var a2=document.createElement('a');a2.className='mm-link';a2.textContent='About';a2.href='/about';a2.setAttribute('data-about','');ma.parentNode.insertBefore(a2,ma.nextSibling);}
+    }
+    // ---- Collapse the 4 services into a "Services" dropdown (desktop) + accordion (mobile) ----
+    var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>';
+    var SVC=['/roofing','/remodeling','/siding','/gutters'];
+    // desktop
+    var dnav=document.querySelector('nav.links');
+    if(dnav && !dnav.querySelector('.nav-dd')){
+      var dlinks=SVC.map(function(h){return dnav.querySelector('a[href="'+h+'"]');}).filter(Boolean);
+      if(dlinks.length){
+        var dd=document.createElement('div'); dd.className='nav-dd';
+        var btn=document.createElement('button'); btn.type='button'; btn.className='nav-dd-btn'; btn.innerHTML='Services'+CHEV;
+        var menu=document.createElement('div'); menu.className='nav-dd-menu';
+        dd.appendChild(btn); dd.appendChild(menu);
+        dlinks[0].parentNode.insertBefore(dd,dlinks[0]);
+        dlinks.forEach(function(a){menu.appendChild(a);});
+        btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open');});
+        document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
+      }
+    }
+    // mobile
+    var mm=document.querySelector('.mobile-menu .wrap');
+    if(mm && !mm.querySelector('.mm-svc-toggle')){
+      var mlinks=SVC.map(function(h){return mm.querySelector('a.mm-link[href="'+h+'"]');}).filter(Boolean);
+      if(mlinks.length){
+        var tog=document.createElement('button'); tog.type='button'; tog.className='mm-svc-toggle'; tog.innerHTML='Services'+CHEV;
+        var sub=document.createElement('div'); sub.className='mm-sub';
+        mlinks[0].parentNode.insertBefore(tog,mlinks[0]);
+        tog.parentNode.insertBefore(sub,tog.nextSibling);
+        mlinks.forEach(function(a){sub.appendChild(a);});
+        tog.addEventListener('click',function(){tog.classList.toggle('open');sub.classList.toggle('open');});
+      }
     }
     if(!document.querySelector('section.hero')) return; // rest is home only
     // 4th service card
