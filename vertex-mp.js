@@ -159,7 +159,7 @@
   // ===== Recent Projects gallery — home only, injected so no embed re-paste needed =====
   (function(){
     if(document.getElementById('projects')) return;
-    if(!document.querySelector('section.hero')) return; // home page only
+    if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
     const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const P=[
       ['roofing','Complete Roof Replacement',CDN+'v-p-roof2.jpg'],
@@ -214,12 +214,13 @@
     set('Remodeling','v-remodel.jpg');
     set('Siding','v-siding.jpg');
     set('Vertex NTA crew at work','v-owner.jpg');
-    // left hero tile -> real roof photo
-    const left=document.querySelector('.hero .shot:not(.short)');
+    const isHome=(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname));
+    // left hero tile -> real roof photo (home only; internal pages keep their own hero image)
+    const left=isHome?document.querySelector('.hero .shot:not(.short)'):null;
     if(left){const im=left.querySelector('img'); if(im){im.src=CDN+'v-roof.jpg'; im.removeAttribute('srcset');}}
     // (hero background video removed by request)
-    // MOBILE hero image slider (auto + dots + swipe) — replaces the single tile
-    if(window.innerWidth<=900){
+    // MOBILE hero image slider (auto + dots + swipe) — replaces the single tile — HOME ONLY
+    if(isHome && window.innerWidth<=900){
       const shot=document.querySelector('.hero .shot:not(.short)');
       if(shot && !shot.querySelector('.hslide')){
         const files=['v-roof.jpg','v-hero.jpg','v-siding.jpg','v-p-roof2.jpg','v-p-roof1.jpg','v-p-siding2.jpg'];
@@ -243,7 +244,7 @@
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
   (function(){
     if(document.getElementById('area')) return;
-    if(!document.querySelector('section.hero')) return;
+    if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
     const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739]];
     let chips=''; towns.forEach((t,i)=>chips+='<button type="button" class="area-chip" data-i="'+i+'">'+t[0]+'</button>');
     const sec=document.createElement('section');
@@ -394,6 +395,7 @@
   // hero mascot dog — home hero only, injected if the embed doesn't already include it
   (function(){
     if(window.innerWidth<=900) return; // no dog on mobile
+    if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home hero only
     const home=document.querySelector('section.hero .hero-collage');
     if(!home || home.querySelector('.hero-dog')) return;
     const card=document.createElement('div');
