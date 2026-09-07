@@ -34,6 +34,8 @@
     "Durable, weather-tight siding installation and repair that boosts curb appeal for residential and commercial properties.":"Instalación y reparación de revestimiento resistente al clima que mejora la apariencia de propiedades residenciales y comerciales.",
     "Learn More →":"Ver Más →",
     "The Owner":"El Dueño","Every Project":"Cada Proyecto","Is Personal":"Es Personal","— The Owner":"— El Dueño",
+    "About":"Nosotros","About Us":"Sobre Nosotros","Built On":"Construido Sobre","Trust & Quality":"Confianza y Calidad","Our Story":"Nuestra Historia","Let's Build Something That Lasts":"Construyamos Algo Que Perdure",
+    "Vertex NTA Roofing is a Pittsburgh-based contractor delivering roofing, remodeling, siding, and gutter services with honest work, fair pricing, and results built to last.":"Vertex NTA Roofing es un contratista de Pittsburgh que ofrece servicios de techos, remodelación, revestimiento y canaletas con trabajo honesto, precios justos y resultados que perduran.",
     "I've been working in the construction industry for over seven years, specializing in roofing, remodeling, and siding. My passion is helping homeowners improve and protect their properties through quality workmanship and honest service.":"Llevo más de siete años en la industria de la construcción, especializado en techos, remodelación y revestimiento. Mi pasión es ayudar a los propietarios a mejorar y proteger sus hogares con trabajo de calidad y servicio honesto.",
     "Every project I take on is personal — I treat each home as if it were my own. My goal is to deliver results that not only look great but also stand the test of time.":"Cada proyecto que tomo es personal — trato cada casa como si fuera la mía. Mi meta es entregar resultados que no solo se vean geniales, sino que también resistan el paso del tiempo.",
     "How It Works":"Cómo Funciona","Our Process":"Nuestro Proceso",
@@ -93,8 +95,8 @@
     "Thanks! 🎉":"¡Gracias! 🎉","Your request was received (demo). We'll reach out within one business day.":"Tu solicitud fue recibida (demo). Te contactaremos en un día hábil.",
     "Address":"Dirección","Hours":"Horario","Mon–Sat: 8am – 6pm":"Lun–Sáb: 8am – 6pm","Sunday: Closed":"Domingo: Cerrado",
     "Service Area · Greater Pittsburgh, PA":"Área de Servicio · Gran Pittsburgh, PA",
-    "Our Work":"Nuestro Trabajo","Recent Projects":"Proyectos Realizados",
-    "A look at completed roofing, remodeling, and siding work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación y revestimiento realizados en el Gran Pittsburgh.",
+    "Our Work":"Nuestro Trabajo","Recent Projects":"Proyectos Realizados","Seamless Gutter Installation":"Instalación de Canaletas",
+    "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
     "Complete Roof Replacement":"Reemplazo Total de Techo","Storm Damage Repair":"Reparación por Tormenta",
     "Kitchen Renovation":"Renovación de Cocina","Full Bathroom Remodel":"Remodelación Completa de Baño",
@@ -120,7 +122,8 @@
     remodeling:{t:"Servicios de Remodelación en Pittsburgh, PA | Vertex NTA Roofing",d:"Remodelación de cocinas, baños y casa completa en Pittsburgh, PA. Trabajo de calidad, precios claros y un equipo de confianza. Presupuesto gratis con Vertex NTA."},
     siding:{t:"Instalación de Revestimiento en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación y reparación de revestimiento resistente al clima en Pittsburgh, PA. Vinilo, fibrocemento y aislado que realza tu fachada. Cotización gratis con Vertex NTA."},
     gutters:{t:"Servicios de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación, reparación y limpieza de canaletas sin uniones en Pittsburgh, PA. Protege tu casa del daño por agua. Licenciados y asegurados. Cotización gratis con Vertex NTA."},
-    contact:{t:"Contacta a Vertex NTA Roofing | Presupuesto Gratis en Pittsburgh, PA",d:"Contacta a Vertex NTA Roofing en Pittsburgh, PA. Llama al 412-983-4397 o pide un presupuesto gratis para techos, remodelación y revestimiento. Respuesta rápida."}
+    contact:{t:"Contacta a Vertex NTA Roofing | Presupuesto Gratis en Pittsburgh, PA",d:"Contacta a Vertex NTA Roofing en Pittsburgh, PA. Llama al 412-983-4397 o pide un presupuesto gratis para techos, remodelación y revestimiento. Respuesta rápida."},
+    about:{t:"Sobre Nosotros | Vertex NTA Roofing en Pittsburgh, PA",d:"Conoce a Vertex NTA Roofing, contratista de confianza en Pittsburgh, PA. Más de 7 años en techos, remodelación, revestimiento y canaletas con trabajo honesto y de calidad."}
   };
   const _metaEl = document.querySelector('meta[name="description"]');
   const _origTitle = document.title;
@@ -131,6 +134,7 @@
     if(t.indexOf('remodeling services')>=0) return 'remodeling';
     if(t.indexOf('siding installation')>=0) return 'siding';
     if(t.indexOf('gutter services')>=0) return 'gutters';
+    if(t.indexOf('about')>=0) return 'about';
     if(t.indexOf('contact')>=0) return 'contact';
     return 'home';
   }
@@ -163,9 +167,9 @@
       ['remodeling','Exterior Renovation',CDN+'v-p-remodel1.jpg'],
       ['remodeling','Exterior Facelift',CDN+'v-p-remodel2.jpg'],
       ['siding','Vinyl Siding Installation',CDN+'v-p-siding1.jpg'],
-      ['siding','Siding Repair & Trim',CDN+'v-p-siding2.jpg']
+      ['gutters','Seamless Gutter Installation',CDN+'v-gutters.jpg']
     ];
-    const cap={roofing:'Roofing',remodeling:'Remodeling',siding:'Siding'};
+    const cap={roofing:'Roofing',remodeling:'Remodeling',siding:'Siding',gutters:'Gutters'};
     let cards='';
     P.forEach((p,i)=>{cards+='<figure class="pjx-item" data-cat="'+p[0]+'" data-i="'+i+'" tabindex="0" role="button">'+
       '<img loading="lazy" src="'+p[2]+'" alt="'+p[1]+'">'+
@@ -174,8 +178,8 @@
     sec.className='blk projects'; sec.id='projects';
     sec.innerHTML='<div class="wrap">'+
       '<div class="sec-head"><span class="eyebrow">Our Work</span><h2 class="h-sec">Recent Projects</h2>'+
-      '<p class="lead">A look at completed roofing, remodeling, and siding work across the Greater Pittsburgh area.</p></div>'+
-      '<div class="pjx-tabs"><button class="pjx-tab active" data-cat="all">All</button><button class="pjx-tab" data-cat="roofing">Roofing</button><button class="pjx-tab" data-cat="remodeling">Remodeling</button><button class="pjx-tab" data-cat="siding">Siding</button></div>'+
+      '<p class="lead">A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.</p></div>'+
+      '<div class="pjx-tabs"><button class="pjx-tab active" data-cat="all">All</button><button class="pjx-tab" data-cat="roofing">Roofing</button><button class="pjx-tab" data-cat="remodeling">Remodeling</button><button class="pjx-tab" data-cat="siding">Siding</button><button class="pjx-tab" data-cat="gutters">Gutters</button></div>'+
       '<div class="pjx-grid">'+cards+'</div></div>';
     const about=document.getElementById('about');
     if(about&&about.parentNode){ about.parentNode.insertBefore(sec,about); }
@@ -309,6 +313,15 @@
       if(ns){var g=document.createElement('a');g.textContent='Gutters';g.href=GHREF;g.setAttribute('data-gutter','');ns.parentNode.insertBefore(g,ns.nextSibling);}
       var ms=[].slice.call(document.querySelectorAll('.mm-link')).filter(function(a){return a.textContent.trim()==='Siding';})[0];
       if(ms){var g2=document.createElement('a');g2.className='mm-link';g2.textContent='Gutters';g2.href=GHREF;g2.setAttribute('data-gutter','');ms.parentNode.insertBefore(g2,ms.nextSibling);}
+    }
+    // About link (desktop + mobile): add after Gutters, unless already present
+    if(!document.querySelector('nav.links a[href="/about"], nav.links a[data-about]')){
+      var na=[].slice.call(document.querySelectorAll('nav.links a')).filter(function(a){var t=a.textContent.trim();return t==='Gutters'||t==='Siding';}).pop();
+      if(na){var a1=document.createElement('a');a1.textContent='About';a1.href='/about';a1.setAttribute('data-about','');na.parentNode.insertBefore(a1,na.nextSibling);}
+    }
+    if(!document.querySelector('.mobile-menu a[href="/about"], .mobile-menu a[data-about]')){
+      var ma=[].slice.call(document.querySelectorAll('.mm-link')).filter(function(a){var t=a.textContent.trim();return t==='Gutters'||t==='Siding';}).pop();
+      if(ma){var a2=document.createElement('a');a2.className='mm-link';a2.textContent='About';a2.href='/about';a2.setAttribute('data-about','');ma.parentNode.insertBefore(a2,ma.nextSibling);}
     }
     if(!document.querySelector('section.hero')) return; // rest is home only
     // 4th service card
