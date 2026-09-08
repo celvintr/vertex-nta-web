@@ -100,7 +100,7 @@
     "On The Roof":"Desde El Techo","See Our Work In Action":"Mira Nuestro Trabajo","Get a Free Inspection":"Inspección Gratis",
     "Find Us":"Encuéntranos","Our Location":"Nuestra Ubicación",
     "Roof Repair":"Reparación de Techos","Roof Replacement":"Reemplazo de Techos","Roof Inspection":"Inspección de Techos","Emergency Roofing":"Techos de Emergencia","in Pittsburgh, PA":"en Pittsburgh, PA",
-    "Roofing Services":"Servicios de Techos","Explore Our Roofing Services":"Explora Nuestros Servicios de Techos",
+    "Roofing Services":"Servicios de Techos","Explore Our Roofing Services":"Explora Nuestros Servicios de Techos","Explore Our Gutter Services":"Explora Nuestros Servicios de Canaletas",
     "Get a Free Inspection":"Inspección Gratis","Book a Free Inspection":"Agenda una Inspección Gratis","Request Help":"Solicitar Ayuda","Call 412-983-4397 Now":"Llama Ya al 412-983-4397",
     "Fast, reliable roof repair for leaks, storm damage, and worn shingles across the Greater Pittsburgh area — licensed, insured, and backed by free inspections.":"Reparación de techos rápida y confiable para goteras, daño por tormenta y tejas desgastadas en el Gran Pittsburgh — licenciados, asegurados y con inspecciones gratis.",
     "Repairs Done Right":"Reparaciones Bien Hechas","Leaks & Storm Damage, Fixed Fast":"Goteras y Daño por Tormenta, Resueltos Rápido",
@@ -184,6 +184,48 @@
     "What roofing materials can I choose?":"¿Qué materiales de techo puedo elegir?","Asphalt shingles or metal roofing — we help you pick the best fit for your home, style, and budget.":"Tejas asfálticas o techo de metal — te ayudamos a elegir lo que mejor se ajuste a tu hogar, estilo y presupuesto.",
     "Is the estimate really free?":"¿El presupuesto es realmente gratis?","Yes. We provide a clear, no-obligation estimate for your new roof after a quick inspection.":"Sí. Damos un presupuesto claro y sin compromiso para tu techo nuevo tras una inspección rápida.",
     "Ready For A Brand-New Roof?":"¿Listo Para Un Techo Nuevo?",
+    "Gutter Installation":"Instalación de Canaletas","Gutter Repair":"Reparación de Canaletas","Gutter Cleaning":"Limpieza de Canaletas","Gutter Guards":"Protectores de Canaletas","Schedule Cleaning":"Agenda la Limpieza",
+    "Seamless aluminum gutters":"Canaletas de aluminio sin uniones","Residential & commercial":"Residencial y comercial",
+    "Seamless aluminum gutters custom-fit to your home. We install durable, great-looking gutter systems that channel water safely away from your roof, siding, and foundation.":"Canaletas de aluminio sin uniones hechas a la medida de tu casa. Instalamos sistemas duraderos y de buen aspecto que desvían el agua lejos de tu techo, revestimiento y cimientos.",
+    "Done Right":"Bien Hecho","Seamless Gutters, Custom-Fit":"Canaletas Sin Uniones, a la Medida",
+    "Seamless gutters are formed on-site to fit your home exactly — fewer leaks, less maintenance, and a clean look. We size them right, pitch them properly, and place downspouts where the water needs to go.":"Las canaletas sin uniones se forman en sitio para ajustarse exactamente a tu casa — menos goteras, menos mantenimiento y mejor aspecto. Las dimensionamos bien, les damos la inclinación correcta y colocamos los bajantes donde el agua debe ir.",
+    "Custom colors to match your home":"Colores a juego con tu casa","Proper sizing & pitch":"Tamaño e inclinación correctos",
+    "Gutter Installation Questions":"Preguntas de Instalación de Canaletas",
+    "Why choose seamless gutters?":"¿Por qué elegir canaletas sin uniones?","Seamless gutters have far fewer joints, which means fewer leaks and less maintenance. They're formed to fit your home exactly and look cleaner than sectional gutters.":"Las canaletas sin uniones tienen muchas menos juntas, lo que significa menos goteras y menos mantenimiento. Se forman para ajustarse exactamente a tu casa y se ven más limpias que las seccionadas.",
+    "How much does gutter installation cost?":"¿Cuánto cuesta instalar canaletas?","It depends on your home's size and gutter style. We give you a clear, upfront estimate for free after measuring your home.":"Depende del tamaño de tu casa y el estilo de canaleta. Te damos un presupuesto claro y por adelantado, gratis, tras medir tu casa.",
+    "What color options are available?":"¿Qué colores hay disponibles?","Seamless aluminum gutters come in many colors — we help you match them to your roof and trim.":"Las canaletas de aluminio sin uniones vienen en muchos colores — te ayudamos a combinarlas con tu techo y molduras.",
+    "Do you add gutter guards?":"¿Colocan protectores de canaletas?","Yes. We can install gutter guards during your new gutter install to keep leaves and debris out.":"Sí. Podemos instalar protectores durante la instalación de tus canaletas nuevas para dejar fuera hojas y escombros.",
+    "Get Your Gutter Quote":"Cotiza Tus Canaletas",
+    "Sagging, leaking, or overflowing gutters? We fix them fast — resealing, re-hanging, and replacing damaged sections so your gutters protect your home the way they should.":"¿Canaletas caídas, con goteras o que se desbordan? Las reparamos rápido — resellado, re-fijación y reemplazo de secciones dañadas para que tus canaletas protejan tu casa como deben.",
+    "Fixed Fast":"Reparado Rápido","Gutters That Work Again":"Canaletas Que Vuelven a Funcionar",
+    "Damaged gutters let water spill where it shouldn't — rotting fascia, soaking siding, and pooling at your foundation. We find the problem and fix it right, from small leaks to sagging runs.":"Las canaletas dañadas dejan caer el agua donde no debe — pudriendo la fascia, mojando el revestimiento y acumulándose en los cimientos. Encontramos el problema y lo reparamos bien, desde pequeñas goteras hasta tramos caídos.",
+    "Leak sealing & re-sealing":"Sellado y resellado de goteras","Re-hanging sagging gutters":"Re-fijación de canaletas caídas","Section & downspout replacement":"Reemplazo de secciones y bajantes","Fixing overflow & drainage":"Corrección de desbordes y drenaje","Fascia & bracket repair":"Reparación de fascia y soportes",
+    "Gutter Repair Questions":"Preguntas de Reparación de Canaletas",
+    "Can my gutters be repaired or do I need new ones?":"¿Se pueden reparar mis canaletas o necesito nuevas?","Often a repair is all you need. We inspect them honestly and only recommend replacement when repair isn't cost-effective.":"A menudo basta con una reparación. Las inspeccionamos con honestidad y solo recomendamos reemplazo cuando reparar no conviene.",
+    "Why are my gutters overflowing?":"¿Por qué se desbordan mis canaletas?","Usually clogs, wrong pitch, or undersized gutters. We diagnose the cause and fix it — not just clear it temporarily.":"Normalmente por obstrucciones, mala inclinación o canaletas pequeñas. Diagnosticamos la causa y la corregimos — no solo la destapamos temporalmente.",
+    "Do you fix sagging gutters?":"¿Reparan canaletas caídas?","Yes — we re-secure or replace the hangers and correct the pitch so water flows properly again.":"Sí — re-aseguramos o reemplazamos los soportes y corregimos la inclinación para que el agua fluya bien de nuevo.",
+    "How fast can you come out?":"¿Qué tan rápido pueden venir?","Call us at 412-983-4397 — for leaks causing damage we prioritize getting to you quickly.":"Llámanos al 412-983-4397 — para goteras que causan daño priorizamos llegar pronto.",
+    "Fix Your Gutters Today":"Repara Tus Canaletas Hoy",
+    "Clogged gutters cause leaks, rot, and foundation damage. We clear out leaves and debris, flush your downspouts, and make sure water flows freely across the Greater Pittsburgh area.":"Las canaletas tapadas causan goteras, pudrición y daño a los cimientos. Retiramos hojas y escombros, destapamos los bajantes y nos aseguramos de que el agua fluya libre en el Gran Pittsburgh.",
+    "Keep Water Flowing":"Que el Agua Fluya","Clean Gutters, Protected Home":"Canaletas Limpias, Hogar Protegido",
+    "It only takes one clogged season to cause real damage. We remove built-up leaves and debris, flush the system, and check for problems — keeping water off your roof, siding, and foundation.":"Basta una temporada de obstrucción para causar daño real. Retiramos las hojas y escombros acumulados, enjuagamos el sistema y revisamos por problemas — manteniendo el agua lejos de tu techo, revestimiento y cimientos.",
+    "Leaf & debris removal":"Retiro de hojas y escombros","Downspout flushing":"Enjuague de bajantes","Clog removal":"Destape de obstrucciones","Free flow check":"Revisión de flujo libre","Seasonal & one-time service":"Servicio por temporada o único",
+    "Gutter Cleaning Questions":"Preguntas de Limpieza de Canaletas",
+    "How often should gutters be cleaned?":"¿Con qué frecuencia se deben limpiar las canaletas?","At least twice a year — spring and fall. Homes with lots of trees nearby may need it more often.":"Al menos dos veces al año — primavera y otoño. Las casas con muchos árboles cerca pueden necesitarlo más seguido.",
+    "What happens if I don't clean my gutters?":"¿Qué pasa si no limpio mis canaletas?","Clogs cause overflow that can rot fascia, damage siding, leak into your home, and pool around the foundation.":"Las obstrucciones causan desbordes que pueden pudrir la fascia, dañar el revestimiento, filtrarse a tu casa y acumularse en los cimientos.",
+    "Do you offer recurring cleaning?":"¿Ofrecen limpieza recurrente?","Yes — ask about seasonal cleaning so you never have to think about it.":"Sí — pregunta por la limpieza por temporada para que nunca tengas que pensar en ello.",
+    "Can gutter guards reduce cleaning?":"¿Los protectores reducen la limpieza?","Absolutely. We can install gutter guards to greatly cut down how often cleaning is needed.":"Claro. Podemos instalar protectores para reducir mucho la frecuencia de limpieza.",
+    "Book Your Gutter Cleaning":"Agenda Tu Limpieza de Canaletas",
+    "Stop cleaning your gutters every season. Gutter guards keep leaves and debris out while letting water flow — protecting your home and saving you time, all year round.":"Deja de limpiar tus canaletas cada temporada. Los protectores dejan fuera las hojas y escombros mientras dejan pasar el agua — protegiendo tu casa y ahorrándote tiempo todo el año.",
+    "Less Maintenance":"Menos Mantenimiento","Leaf Protection That Lasts":"Protección Contra Hojas Que Perdura",
+    "Gutter guards block leaves, twigs, and debris while letting rainwater through. That means far less cleaning, no more dangerous ladder trips, and gutters that keep protecting your home.":"Los protectores bloquean hojas, ramitas y escombros mientras dejan pasar la lluvia. Eso significa mucha menos limpieza, no más subidas peligrosas a la escalera y canaletas que siguen protegiendo tu casa.",
+    "Keeps leaves & debris out":"Deja fuera hojas y escombros","Cuts down cleaning drastically":"Reduce mucho la limpieza","Fits new or existing gutters":"Para canaletas nuevas o existentes","Prevents clogs & overflow":"Evita obstrucciones y desbordes","Durable, low-profile designs":"Diseños duraderos y discretos",
+    "Gutter Guard Questions":"Preguntas de Protectores de Canaletas",
+    "Do gutter guards really work?":"¿Los protectores realmente funcionan?","Yes — quality guards keep out the debris that causes clogs while letting water flow, so your gutters stay clear far longer.":"Sí — los protectores de calidad dejan fuera los escombros que causan obstrucciones mientras dejan pasar el agua, así tus canaletas se mantienen despejadas mucho más tiempo.",
+    "Will I ever need to clean my gutters again?":"¿Tendré que limpiar mis canaletas otra vez?","Cleaning drops dramatically. You may need an occasional check, but no more constant seasonal cleaning.":"La limpieza baja drásticamente. Puede que necesites una revisión ocasional, pero no más limpieza constante por temporada.",
+    "Can guards go on my existing gutters?":"¿Se pueden poner en mis canaletas actuales?","In most cases, yes. We assess your current gutters and fit guards that work with them.":"En la mayoría de los casos, sí. Evaluamos tus canaletas actuales y colocamos protectores compatibles.",
+    "How much do gutter guards cost?":"¿Cuánto cuestan los protectores de canaletas?","It depends on your home's size and the guard type. We give you a clear, free estimate up front.":"Depende del tamaño de tu casa y el tipo de protector. Te damos un presupuesto claro y gratis por adelantado.",
+    "Never Clean Gutters Again":"No Vuelvas a Limpiar Canaletas",
     "A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.":"Un techo real de Vertex NTA al amanecer — trabajo de tejas limpio y bien hecho, aquí en el Gran Pittsburgh.",
     "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
@@ -220,7 +262,11 @@
     "asphalt-roofing":{t:"Techos de Tejas Asfálticas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de techos de tejas asfálticas en Pittsburgh, PA. La opción más popular: económica, duradera y con muchos colores. Presupuesto gratis con Vertex NTA."},
     "metal-roofing":{t:"Techos de Metal en Pittsburgh, PA | Vertex NTA Roofing",d:"Techos de metal duraderos y eficientes en Pittsburgh, PA. Sistemas standing seam y paneles que duran 40–70 años. Presupuesto gratis con Vertex NTA."},
     "roof-maintenance":{t:"Mantenimiento de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Mantenimiento de techos en Pittsburgh, PA. Inspecciones, limpieza y sellado para alargar la vida de tu techo. Inspección gratis con Vertex NTA."},
-    "new-roof-installation":{t:"Instalación de Techos Nuevos en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de techos nuevos en Pittsburgh, PA para casas y construcción nueva. Sistemas completos y herméticos. Presupuesto gratis con Vertex NTA."}
+    "new-roof-installation":{t:"Instalación de Techos Nuevos en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de techos nuevos en Pittsburgh, PA para casas y construcción nueva. Sistemas completos y herméticos. Presupuesto gratis con Vertex NTA."},
+    "gutter-installation":{t:"Instalación de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de canaletas sin uniones en Pittsburgh, PA, a la medida de tu casa. Aluminio duradero, bajantes y drenaje. Presupuesto gratis con Vertex NTA."},
+    "gutter-repair":{t:"Reparación de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Reparación de canaletas en Pittsburgh, PA — goteras, canaletas caídas y desbordamiento. Sellado, re-fijación y reemplazo. Inspección gratis con Vertex NTA."},
+    "gutter-cleaning":{t:"Limpieza de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Limpieza de canaletas en Pittsburgh, PA. Retiramos hojas y escombros y destapamos bajantes para que el agua fluya. Servicio por temporada. Vertex NTA."},
+    "gutter-guards":{t:"Protectores de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Protectores de canaletas en Pittsburgh, PA. Bloquean hojas y escombros y reducen la limpieza. Para canaletas nuevas o existentes. Presupuesto gratis."}
   };
   const _metaEl = document.querySelector('meta[name="description"]');
   const _origTitle = document.title;
@@ -239,6 +285,10 @@
     if(t.indexOf('metal roofing')>=0) return 'metal-roofing';
     if(t.indexOf('roof maintenance')>=0) return 'roof-maintenance';
     if(t.indexOf('new roof installation')>=0) return 'new-roof-installation';
+    if(t.indexOf('gutter installation')>=0) return 'gutter-installation';
+    if(t.indexOf('gutter repair')>=0) return 'gutter-repair';
+    if(t.indexOf('gutter cleaning')>=0) return 'gutter-cleaning';
+    if(t.indexOf('gutter guard')>=0) return 'gutter-guards';
     if(t.indexOf('about')>=0) return 'about';
     if(t.indexOf('contact')>=0) return 'contact';
     return 'home';
@@ -346,6 +396,15 @@
         var rlb=document.querySelector('.band-cta');
         if(rlb&&rlb.parentNode){rlb.parentNode.insertBefore(rl,rlb);}
       }
+    }
+    // internal SEO links to gutter sub-services (gutters page only)
+    if(/\/gutters$/.test(_pth) && !document.getElementById('gutter-links')){
+      var gl=document.createElement('section'); gl.className='blk'; gl.id='gutter-links';
+      var glinks=[['Gutter Installation','/gutter-installation'],['Gutter Repair','/gutter-repair'],['Gutter Cleaning','/gutter-cleaning'],['Gutter Guards','/gutter-guards']];
+      var gchips=glinks.map(function(l){return '<a class="area-chip" href="'+l[1]+'" style="text-decoration:none">'+l[0]+'</a>';}).join('');
+      gl.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 28px"><span class="eyebrow" style="display:block;margin-bottom:12px">Gutter Services</span><h2 class="h-sec">Explore Our Gutter Services</h2></div><div class="area-list reveal" style="justify-content:center">'+gchips+'</div></div>';
+      var glb=document.querySelector('.band-cta');
+      if(glb&&glb.parentNode){glb.parentNode.insertBefore(gl,glb);}
     }
     // Owner name + portrait
     var OWNER='Narlyn Ortiz';
