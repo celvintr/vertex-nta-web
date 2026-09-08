@@ -142,6 +142,48 @@
     "Do you work with insurance?":"¿Trabajan con seguros?","Yes. Storm and sudden damage is often covered — we document everything with photos to support your claim.":"Sí. El daño por tormenta y repentino suele estar cubierto — documentamos todo con fotos para respaldar tu reclamo.",
     "Do you offer permanent repairs too?":"¿También hacen reparaciones permanentes?","Absolutely. After we secure your roof, we schedule the full repair or replacement to fix it for good.":"Claro. Después de asegurar tu techo, programamos la reparación o el reemplazo completo para dejarlo bien de forma definitiva.",
     "Roof Emergency? Call Now":"¿Emergencia de Techo? Llama Ya",
+    "Asphalt Roofing":"Techos de Tejas Asfálticas","Metal Roofing":"Techos de Metal","Roof Maintenance":"Mantenimiento de Techos","New Roof Installation":"Instalación de Techos Nuevos",
+    "Asphalt Shingle Roofing":"Techos de Tejas Asfálticas","Schedule Maintenance":"Agenda Mantenimiento","Free inspection":"Inspección gratis",
+    "Affordable, reliable asphalt shingle roofing installed to last. The most popular choice for Pittsburgh homes — dozens of colors, great value, and a clean, professional install.":"Techos de tejas asfálticas económicos y confiables, instalados para durar. La opción más popular para casas de Pittsburgh — muchos colores, gran valor y una instalación limpia y profesional.",
+    "Popular & Proven":"Popular y Comprobado","Asphalt Shingles That Last":"Tejas Asfálticas Que Duran",
+    "Asphalt shingles give you the best balance of price, durability, and curb appeal. We install top-grade architectural shingles with proper underlayment and ventilation so your roof performs for decades.":"Las tejas asfálticas te dan el mejor equilibrio entre precio, durabilidad y estética. Instalamos tejas arquitectónicas de primera con el fieltro y la ventilación adecuados para que tu techo rinda por décadas.",
+    "Architectural & 3-tab shingles":"Tejas arquitectónicas y de 3 pestañas","Dozens of colors & styles":"Docenas de colores y estilos","Great value for your budget":"Gran valor para tu presupuesto","Proper underlayment & ventilation":"Fieltro y ventilación adecuados",
+    "Asphalt Roofing Questions":"Preguntas de Techos de Tejas Asfálticas",
+    "How long do asphalt shingles last?":"¿Cuánto duran las tejas asfálticas?","Quality architectural asphalt shingles typically last 20–30 years with proper installation and maintenance.":"Las tejas asfálticas arquitectónicas de calidad suelen durar de 20 a 30 años con la instalación y el mantenimiento adecuados.",
+    "Why choose asphalt over other materials?":"¿Por qué elegir asfalto sobre otros materiales?","Asphalt offers the best mix of affordability, durability, and style options — it's the most popular roofing choice for good reason.":"El asfalto ofrece la mejor mezcla de precio, durabilidad y opciones de estilo — es la opción de techo más popular por una buena razón.",
+    "How much does an asphalt roof cost?":"¿Cuánto cuesta un techo de asfalto?","Cost depends on your roof's size and shingle grade. We give you a clear, upfront estimate for free after a quick inspection.":"El costo depende del tamaño de tu techo y el grado de la teja. Te damos un presupuesto claro y por adelantado, gratis, tras una inspección rápida.",
+    "Do you offer a warranty?":"¿Ofrecen garantía?","Yes — manufacturer material warranties plus our own workmanship guarantee.":"Sí — garantías de materiales del fabricante más nuestra propia garantía de mano de obra.",
+    "Get Your Asphalt Roof Quote":"Cotiza Tu Techo de Asfalto",
+    "Durable, energy-efficient metal roofing built to last 40–70 years. Standing seam and metal panel systems that stand up to Pittsburgh weather with minimal maintenance.":"Techos de metal duraderos y eficientes hechos para durar de 40 a 70 años. Sistemas standing seam y de paneles que resisten el clima de Pittsburgh con mínimo mantenimiento.",
+    "Maximum Durability":"Máxima Durabilidad","Metal Roofing Built To Last":"Techos de Metal Hechos Para Durar",
+    "Metal roofing is the longest-lasting, most energy-efficient option available. It reflects heat, sheds snow, resists fire and wind, and can last two to three times longer than shingles.":"El techo de metal es la opción más duradera y eficiente que existe. Refleja el calor, deja caer la nieve, resiste el fuego y el viento, y puede durar dos o tres veces más que las tejas.",
+    "Standing seam & metal panels":"Standing seam y paneles de metal","Lasts 40–70 years":"Dura de 40 a 70 años","Energy efficient & reflective":"Eficiente y reflectante","Fire & wind resistant":"Resistente al fuego y al viento","Low maintenance":"Bajo mantenimiento",
+    "Metal Roofing Questions":"Preguntas de Techos de Metal",
+    "How long does a metal roof last?":"¿Cuánto dura un techo de metal?","A quality metal roof lasts 40–70 years — often two to three times longer than asphalt shingles.":"Un techo de metal de calidad dura de 40 a 70 años — a menudo dos o tres veces más que las tejas asfálticas.",
+    "Is metal roofing worth the cost?":"¿Vale la pena el costo del techo de metal?","Metal costs more upfront but lasts far longer, lowers energy bills, and rarely needs repairs — making it a smart long-term investment.":"El metal cuesta más al inicio pero dura mucho más, baja las facturas de energía y rara vez necesita reparaciones — una inversión inteligente a largo plazo.",
+    "Is a metal roof noisy in the rain?":"¿Un techo de metal es ruidoso con la lluvia?","No — with proper underlayment and decking, a modern metal roof is no louder than any other roof.":"No — con el fieltro y la base adecuados, un techo de metal moderno no es más ruidoso que cualquier otro.",
+    "Does metal roofing help with energy bills?":"¿El techo de metal ayuda con las facturas de energía?","Yes. Metal reflects the sun's heat, which can noticeably reduce cooling costs in summer.":"Sí. El metal refleja el calor del sol, lo que puede reducir notablemente los costos de enfriamiento en verano.",
+    "Ask About Metal Roofing":"Pregunta por Techos de Metal",
+    "Extend the life of your roof with regular maintenance. We catch small problems before they become expensive ones — inspections, cleaning, sealing, and tune-ups across the Greater Pittsburgh area.":"Alarga la vida de tu techo con mantenimiento regular. Detectamos problemas pequeños antes de que se vuelvan caros — inspecciones, limpieza, sellado y ajustes en el Gran Pittsburgh.",
+    "Protect Your Investment":"Protege Tu Inversión","Maintenance That Adds Years":"Mantenimiento Que Suma Años",
+    "A little upkeep goes a long way. Regular maintenance keeps your roof watertight, spots issues early, and can add years to its life — saving you from costly repairs and premature replacement.":"Un poco de cuidado hace una gran diferencia. El mantenimiento regular mantiene tu techo hermético, detecta problemas a tiempo y puede sumar años a su vida — evitándote reparaciones costosas y un reemplazo prematuro.",
+    "Seasonal roof inspections":"Inspecciones de techo por temporada","Debris & gutter cleaning":"Limpieza de escombros y canaletas","Sealant & flashing tune-ups":"Ajustes de sellado y tapajuntas","Minor repairs before they grow":"Reparaciones menores antes de que crezcan","Extends roof lifespan":"Alarga la vida del techo",
+    "Roof Maintenance Questions":"Preguntas de Mantenimiento de Techos",
+    "How often should I maintain my roof?":"¿Con qué frecuencia debo dar mantenimiento a mi techo?","At least once a year, plus after major storms. Regular upkeep is the cheapest way to protect your roof.":"Al menos una vez al año, y después de tormentas fuertes. El cuidado regular es la forma más económica de proteger tu techo.",
+    "What does roof maintenance include?":"¿Qué incluye el mantenimiento de techos?","Inspection, debris and gutter cleaning, resealing flashing, and minor repairs to keep everything watertight.":"Inspección, limpieza de escombros y canaletas, resellado de tapajuntas y reparaciones menores para mantener todo hermético.",
+    "Can maintenance really extend my roof's life?":"¿El mantenimiento realmente alarga la vida del techo?","Yes — catching small issues early prevents big damage and can add years before you need a replacement.":"Sí — detectar problemas pequeños a tiempo evita daños grandes y puede sumar años antes de necesitar un reemplazo.",
+    "Do you offer maintenance plans?":"¿Ofrecen planes de mantenimiento?","We do. Ask us about scheduled seasonal maintenance to keep your roof in top shape year-round.":"Sí. Pregúntanos por el mantenimiento programado por temporada para mantener tu techo en óptimas condiciones todo el año.",
+    "Keep Your Roof In Top Shape":"Mantén Tu Techo en Óptimas Condiciones",
+    "Building new or ready for a fresh start? We install complete, weather-tight roof systems for homes and new construction across the Greater Pittsburgh area — done right the first time.":"¿Construyendo o listo para empezar de nuevo? Instalamos sistemas de techo completos y herméticos para casas y construcción nueva en el Gran Pittsburgh — bien hecho desde la primera vez.",
+    "Start To Finish":"De Principio a Fin","A Complete New Roof System":"Un Sistema de Techo Nuevo Completo",
+    "From new construction to a full fresh install, we handle everything — decking, underlayment, leak barrier, shingles or metal, flashing, and ventilation — for a roof that protects your home for decades.":"Desde construcción nueva hasta una instalación completa, nos encargamos de todo — base, fieltro, barrera anti-goteras, tejas o metal, tapajuntas y ventilación — para un techo que protege tu hogar por décadas.",
+    "New construction & full installs":"Construcción nueva e instalaciones completas","Asphalt shingle & metal systems":"Sistemas de tejas asfálticas y metal","Decking, underlayment & leak barrier":"Base, fieltro y barrera anti-goteras","Proper ventilation & flashing":"Ventilación y tapajuntas adecuados",
+    "New Roof Installation Questions":"Preguntas de Instalación de Techos Nuevos",
+    "How long does a new roof installation take?":"¿Cuánto tarda la instalación de un techo nuevo?","Most homes take 1–3 days depending on size, materials, and weather. We give you a firm timeline before we start.":"La mayoría de casas toman de 1 a 3 días según el tamaño, los materiales y el clima. Te damos un plazo firme antes de empezar.",
+    "Do you handle new construction roofing?":"¿Hacen techos para construcción nueva?","Yes. We install roofs for new builds and additions, coordinating with your schedule from start to finish.":"Sí. Instalamos techos para construcciones nuevas y ampliaciones, coordinando con tu calendario de principio a fin.",
+    "What roofing materials can I choose?":"¿Qué materiales de techo puedo elegir?","Asphalt shingles or metal roofing — we help you pick the best fit for your home, style, and budget.":"Tejas asfálticas o techo de metal — te ayudamos a elegir lo que mejor se ajuste a tu hogar, estilo y presupuesto.",
+    "Is the estimate really free?":"¿El presupuesto es realmente gratis?","Yes. We provide a clear, no-obligation estimate for your new roof after a quick inspection.":"Sí. Damos un presupuesto claro y sin compromiso para tu techo nuevo tras una inspección rápida.",
+    "Ready For A Brand-New Roof?":"¿Listo Para Un Techo Nuevo?",
     "A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.":"Un techo real de Vertex NTA al amanecer — trabajo de tejas limpio y bien hecho, aquí en el Gran Pittsburgh.",
     "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
@@ -174,7 +216,11 @@
     "roof-repair":{t:"Reparación de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Reparación de techos rápida y confiable en Pittsburgh, PA — goteras, daño por tormenta y tejas dañadas. Licenciados, asegurados e inspección gratis."},
     "roof-replacement":{t:"Reemplazo de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Reemplazo completo de techos en Pittsburgh, PA con tejas asfálticas y metal de primera. Presupuesto gratis, plazos claros e instalación profesional."},
     "roof-inspection":{t:"Inspección de Techos Gratis en Pittsburgh, PA | Vertex NTA Roofing",d:"Inspección de techos gratis en Pittsburgh, PA. Revisamos goteras, daño por tormenta y desgaste con un reporte honesto. Sin compromiso."},
-    "emergency-roofing":{t:"Techos de Emergencia en Pittsburgh, PA | Vertex NTA Roofing",d:"Techos de emergencia en Pittsburgh, PA. Respuesta rápida con lonas y reparaciones para goteras y daño por tormenta. Llama al 412-983-4397."}
+    "emergency-roofing":{t:"Techos de Emergencia en Pittsburgh, PA | Vertex NTA Roofing",d:"Techos de emergencia en Pittsburgh, PA. Respuesta rápida con lonas y reparaciones para goteras y daño por tormenta. Llama al 412-983-4397."},
+    "asphalt-roofing":{t:"Techos de Tejas Asfálticas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de techos de tejas asfálticas en Pittsburgh, PA. La opción más popular: económica, duradera y con muchos colores. Presupuesto gratis con Vertex NTA."},
+    "metal-roofing":{t:"Techos de Metal en Pittsburgh, PA | Vertex NTA Roofing",d:"Techos de metal duraderos y eficientes en Pittsburgh, PA. Sistemas standing seam y paneles que duran 40–70 años. Presupuesto gratis con Vertex NTA."},
+    "roof-maintenance":{t:"Mantenimiento de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Mantenimiento de techos en Pittsburgh, PA. Inspecciones, limpieza y sellado para alargar la vida de tu techo. Inspección gratis con Vertex NTA."},
+    "new-roof-installation":{t:"Instalación de Techos Nuevos en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de techos nuevos en Pittsburgh, PA para casas y construcción nueva. Sistemas completos y herméticos. Presupuesto gratis con Vertex NTA."}
   };
   const _metaEl = document.querySelector('meta[name="description"]');
   const _origTitle = document.title;
@@ -189,6 +235,10 @@
     if(t.indexOf('roof replacement')>=0) return 'roof-replacement';
     if(t.indexOf('roof inspection')>=0) return 'roof-inspection';
     if(t.indexOf('emergency roofing')>=0) return 'emergency-roofing';
+    if(t.indexOf('asphalt')>=0) return 'asphalt-roofing';
+    if(t.indexOf('metal roofing')>=0) return 'metal-roofing';
+    if(t.indexOf('roof maintenance')>=0) return 'roof-maintenance';
+    if(t.indexOf('new roof installation')>=0) return 'new-roof-installation';
     if(t.indexOf('about')>=0) return 'about';
     if(t.indexOf('contact')>=0) return 'contact';
     return 'home';
@@ -290,7 +340,7 @@
       // internal SEO links to roofing sub-services (crawlable discovery)
       if(!document.getElementById('roof-links')){
         var rl=document.createElement('section'); rl.className='blk'; rl.id='roof-links';
-        var links=[['Roof Repair','/roof-repair'],['Roof Replacement','/roof-replacement'],['Roof Inspection','/roof-inspection'],['Emergency Roofing','/emergency-roofing']];
+        var links=[['Roof Repair','/roof-repair'],['Roof Replacement','/roof-replacement'],['Roof Inspection','/roof-inspection'],['Emergency Roofing','/emergency-roofing'],['Asphalt Roofing','/asphalt-roofing'],['Metal Roofing','/metal-roofing'],['Roof Maintenance','/roof-maintenance'],['New Roof Installation','/new-roof-installation']];
         var chips=links.map(function(l){return '<a class="area-chip" href="'+l[1]+'" style="text-decoration:none">'+l[0]+'</a>';}).join('');
         rl.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 28px"><span class="eyebrow" style="display:block;margin-bottom:12px">Roofing Services</span><h2 class="h-sec">Explore Our Roofing Services</h2></div><div class="area-list reveal" style="justify-content:center">'+chips+'</div></div>';
         var rlb=document.querySelector('.band-cta');
