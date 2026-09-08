@@ -101,6 +101,7 @@
     "Find Us":"Encuéntranos","Our Location":"Nuestra Ubicación",
     "Roof Repair":"Reparación de Techos","Roof Replacement":"Reemplazo de Techos","Roof Inspection":"Inspección de Techos","Emergency Roofing":"Techos de Emergencia","in Pittsburgh, PA":"en Pittsburgh, PA",
     "Roofing Services":"Servicios de Techos","Explore Our Roofing Services":"Explora Nuestros Servicios de Techos","Explore Our Gutter Services":"Explora Nuestros Servicios de Canaletas",
+    "Remodeling Services":"Servicios de Remodelación","Explore Our Remodeling Services":"Explora Nuestros Servicios de Remodelación","Siding Services":"Servicios de Revestimiento","Explore Our Siding Services":"Explora Nuestros Servicios de Revestimiento",
     "Get a Free Inspection":"Inspección Gratis","Book a Free Inspection":"Agenda una Inspección Gratis","Request Help":"Solicitar Ayuda","Call 412-983-4397 Now":"Llama Ya al 412-983-4397",
     "Fast, reliable roof repair for leaks, storm damage, and worn shingles across the Greater Pittsburgh area — licensed, insured, and backed by free inspections.":"Reparación de techos rápida y confiable para goteras, daño por tormenta y tejas desgastadas en el Gran Pittsburgh — licenciados, asegurados y con inspecciones gratis.",
     "Repairs Done Right":"Reparaciones Bien Hechas","Leaks & Storm Damage, Fixed Fast":"Goteras y Daño por Tormenta, Resueltos Rápido",
@@ -226,6 +227,85 @@
     "Can guards go on my existing gutters?":"¿Se pueden poner en mis canaletas actuales?","In most cases, yes. We assess your current gutters and fit guards that work with them.":"En la mayoría de los casos, sí. Evaluamos tus canaletas actuales y colocamos protectores compatibles.",
     "How much do gutter guards cost?":"¿Cuánto cuestan los protectores de canaletas?","It depends on your home's size and the guard type. We give you a clear, free estimate up front.":"Depende del tamaño de tu casa y el tipo de protector. Te damos un presupuesto claro y gratis por adelantado.",
     "Never Clean Gutters Again":"No Vuelvas a Limpiar Canaletas",
+    "Kitchen Remodeling":"Remodelación de Cocinas","Bathroom Remodeling":"Remodelación de Baños","Basement Remodeling":"Remodelación de Sótanos","Home Additions":"Ampliaciones de Casa","Siding Installation":"Instalación de Revestimiento","Fiber Cement Siding":"Revestimiento de Fibrocemento",
+    "Turn your kitchen into the heart of your home. From cabinets and countertops to full layouts, we design and build kitchens that look incredible and work beautifully.":"Convierte tu cocina en el corazón de tu hogar. Desde gabinetes y encimeras hasta diseños completos, creamos cocinas que se ven increíbles y funcionan de maravilla.",
+    "Cook, Gather, Enjoy":"Cocina, Reúnete, Disfruta","Kitchens Built Around You":"Cocinas Hechas a Tu Medida",
+    "A great kitchen balances beauty and function. We handle everything — cabinets, countertops, backsplash, lighting, flooring, and layout — with clean, professional workmanship from start to finish.":"Una gran cocina equilibra belleza y función. Nos encargamos de todo — gabinetes, encimeras, salpicadero, iluminación, pisos y distribución — con trabajo limpio y profesional de principio a fin.",
+    "Cabinets & countertops":"Gabinetes y encimeras","Backsplash & tile":"Salpicadero y azulejo","Lighting & fixtures":"Iluminación y accesorios","Flooring & layout changes":"Pisos y cambios de distribución","Full project management":"Gestión completa del proyecto",
+    "Kitchen Remodeling Questions":"Preguntas de Remodelación de Cocinas",
+    "How long does a kitchen remodel take?":"¿Cuánto tarda remodelar una cocina?","Most kitchen remodels take a few weeks depending on scope. We give you a clear timeline before we start and keep you updated throughout.":"La mayoría de remodelaciones de cocina toman unas semanas según el alcance. Te damos un plazo claro antes de empezar y te mantenemos informado.",
+    "Can you work with my budget?":"¿Pueden trabajar con mi presupuesto?","Yes. We help you prioritize what matters most and offer options at different price points — with an honest, upfront estimate.":"Sí. Te ayudamos a priorizar lo más importante y ofrecemos opciones a distintos precios — con un presupuesto honesto y por adelantado.",
+    "Do you handle design too?":"¿También hacen el diseño?","We do. We help with layout, materials, and finishes so everything comes together beautifully.":"Sí. Ayudamos con la distribución, materiales y acabados para que todo quede hermoso.",
+    "Can I use my kitchen during the remodel?":"¿Puedo usar mi cocina durante la remodelación?","We work to minimize disruption and walk you through what to expect at each stage.":"Trabajamos para minimizar las molestias y te explicamos qué esperar en cada etapa.",
+    "Design Your Dream Kitchen":"Diseña la Cocina de Tus Sueños",
+    "From a fresh update to a full spa-style renovation, we build beautiful, functional bathrooms — tile, vanities, showers, tubs, and more, done right the first time.":"Desde una actualización ligera hasta una renovación estilo spa, creamos baños hermosos y funcionales — azulejo, vanidades, duchas, tinas y más, bien hechos desde la primera vez.",
+    "Your Everyday Retreat":"Tu Refugio Diario","Bathrooms Done Beautifully":"Baños Hechos con Belleza",
+    "Your bathroom should feel like a retreat. We handle tile, vanities, showers, tubs, lighting, and plumbing fixtures — combining great design with waterproof, lasting workmanship.":"Tu baño debe sentirse como un refugio. Nos encargamos del azulejo, vanidades, duchas, tinas, iluminación y grifería — combinando buen diseño con trabajo impermeable y duradero.",
+    "Tile showers & tubs":"Duchas y tinas con azulejo","Vanities & countertops":"Vanidades y encimeras","Flooring & tile work":"Pisos y trabajo de azulejo","Fixtures & lighting":"Grifería e iluminación","Waterproofing done right":"Impermeabilización bien hecha",
+    "Bathroom Remodeling Questions":"Preguntas de Remodelación de Baños",
+    "How long does a bathroom remodel take?":"¿Cuánto tarda remodelar un baño?","Most bathrooms are completed in one to two weeks depending on the scope. We give you a firm timeline upfront.":"La mayoría de los baños se completan en una o dos semanas según el alcance. Te damos un plazo firme por adelantado.",
+    "Can you do a small bathroom update?":"¿Pueden hacer una actualización pequeña de baño?","Absolutely — from simple refreshes to full renovations, we scale the work to your needs and budget.":"Claro — desde renovaciones simples hasta completas, ajustamos el trabajo a tus necesidades y presupuesto.",
+    "Do you handle plumbing changes?":"¿Hacen cambios de plomería?","Yes, including moving fixtures and updating plumbing as part of the remodel.":"Sí, incluyendo mover accesorios y actualizar la plomería como parte de la remodelación.",
+    "Is the estimate free?":"¿El presupuesto es gratis?","Yes — a clear, no-obligation estimate after we see your space.":"Sí — un presupuesto claro y sin compromiso tras ver tu espacio.",
+    "Upgrade Your Bathroom":"Renueva Tu Baño",
+    "Turn unused basement space into a family room, home office, gym, or guest suite. We finish basements that are warm, dry, and built to enjoy year-round.":"Convierte el sótano sin usar en sala familiar, oficina, gimnasio o suite de huéspedes. Terminamos sótanos cálidos, secos y hechos para disfrutar todo el año.",
+    "More Room To Live":"Más Espacio Para Vivir","Finished Basements, Done Right":"Sótanos Terminados, Bien Hechos",
+    "A finished basement adds real living space and value to your home. We handle framing, insulation, drywall, flooring, lighting, and more — built to stay comfortable and dry.":"Un sótano terminado añade espacio real y valor a tu casa. Nos encargamos de la estructura, aislamiento, tablaroca, pisos, iluminación y más — hecho para mantenerse cómodo y seco.",
+    "Framing & insulation":"Estructura y aislamiento","Drywall & flooring":"Tablaroca y pisos","Lighting & electrical":"Iluminación y electricidad","Family rooms, offices & suites":"Salas, oficinas y suites","Moisture-conscious builds":"Construcción consciente de la humedad",
+    "Basement Remodeling Questions":"Preguntas de Remodelación de Sótanos",
+    "Does a finished basement add value?":"¿Un sótano terminado añade valor?","Yes — it adds usable living space and is one of the better returns on a remodeling investment.":"Sí — añade espacio útil y es uno de los mejores retornos de una inversión en remodelación.",
+    "What about moisture and dampness?":"¿Y la humedad?","We address moisture before finishing, using the right materials and methods to keep your basement dry and comfortable.":"Atendemos la humedad antes de terminar, usando los materiales y métodos correctos para mantener tu sótano seco y cómodo.",
+    "Can you add a bathroom or bedroom?":"¿Pueden agregar un baño o dormitorio?","Yes — we can include a bathroom, bedroom, office, or entertainment space in your basement plan.":"Sí — podemos incluir un baño, dormitorio, oficina o espacio de entretenimiento en tu plan de sótano.",
+    "How long does it take?":"¿Cuánto tarda?","It depends on size and scope. We provide a firm timeline before starting.":"Depende del tamaño y el alcance. Damos un plazo firme antes de empezar.",
+    "Finish Your Basement":"Termina Tu Sótano",
+    "Need more space? We design and build room additions, second stories, and expansions that blend seamlessly with your home — more room to live, without moving.":"¿Necesitas más espacio? Diseñamos y construimos cuartos nuevos, segundos pisos y ampliaciones que combinan perfectamente con tu casa — más espacio para vivir, sin mudarte.",
+    "Grow Your Home":"Haz Crecer Tu Casa","Room To Grow, Built To Match":"Espacio Para Crecer, Hecho a Juego",
+    "From a single room to a full expansion, we build additions that look like they were always part of your home — matching your roofline, siding, and style, inside and out.":"Desde un solo cuarto hasta una expansión completa, construimos ampliaciones que lucen como si siempre hubieran sido parte de tu casa — combinando tu techo, revestimiento y estilo, por dentro y por fuera.",
+    "Room additions & expansions":"Cuartos nuevos y expansiones","Matching roofing & siding":"Techo y revestimiento a juego","Foundation to finish":"De los cimientos al acabado","Seamless interior tie-in":"Integración interior perfecta",
+    "Home Addition Questions":"Preguntas de Ampliaciones de Casa",
+    "Is an addition cheaper than moving?":"¿Una ampliación es más barata que mudarse?","Often, yes — and you keep the home and neighborhood you love while gaining the space you need.":"A menudo, sí — y conservas la casa y el vecindario que amas mientras ganas el espacio que necesitas.",
+    "Will the addition match my house?":"¿La ampliación combinará con mi casa?","Yes. We match your roofline, siding, and finishes so it blends seamlessly inside and out.":"Sí. Combinamos tu techo, revestimiento y acabados para que se integre perfectamente por dentro y por fuera.",
+    "Do you handle permits?":"¿Se encargan de los permisos?","We guide the process and handle the construction to code from foundation to finish.":"Guiamos el proceso y hacemos la construcción según código, de los cimientos al acabado.",
+    "How do we start?":"¿Cómo empezamos?","Book a free estimate — we'll discuss your goals and lay out a clear plan and timeline.":"Agenda un presupuesto gratis — hablamos de tus metas y trazamos un plan y plazo claros.",
+    "Add Space To Your Home":"Añade Espacio a Tu Casa",
+    "Affordable, durable, and low-maintenance vinyl siding that transforms your home's look and protects it from the elements. Dozens of colors and styles to choose from.":"Revestimiento de vinilo económico, duradero y de bajo mantenimiento que transforma la apariencia de tu casa y la protege del clima. Muchos colores y estilos para elegir.",
+    "Curb Appeal & Protection":"Estética y Protección","Vinyl Siding That Lasts":"Revestimiento de Vinilo Que Perdura",
+    "Vinyl siding is the most popular choice for good reason — it's affordable, tough, and virtually maintenance-free. We install it clean and tight, transforming your home's look and sealing out the weather.":"El revestimiento de vinilo es la opción más popular por una buena razón — es económico, resistente y casi sin mantenimiento. Lo instalamos limpio y ajustado, transformando la apariencia de tu casa y sellándola del clima.",
+    "Low maintenance & durable":"Bajo mantenimiento y duradero","Insulated options available":"Opciones aisladas disponibles","Trim, soffit & fascia":"Molduras, sofito y fascia",
+    "Vinyl Siding Questions":"Preguntas de Revestimiento de Vinilo",
+    "How long does vinyl siding last?":"¿Cuánto dura el revestimiento de vinilo?","Quality vinyl siding can last 20–40 years with very little maintenance.":"El revestimiento de vinilo de calidad puede durar de 20 a 40 años con muy poco mantenimiento.",
+    "Is vinyl siding low maintenance?":"¿El revestimiento de vinilo es de bajo mantenimiento?","Yes — it never needs painting and usually just an occasional rinse to look great.":"Sí — nunca necesita pintura y normalmente solo un enjuague ocasional para verse bien.",
+    "Can insulated siding lower energy bills?":"¿El revestimiento aislado baja las facturas de energía?","Insulated vinyl siding adds a layer of protection that can help with energy efficiency.":"El revestimiento de vinilo aislado añade una capa de protección que puede ayudar con la eficiencia energética.",
+    "How much does it cost?":"¿Cuánto cuesta?","It depends on your home's size and the product. We give you a clear, free estimate.":"Depende del tamaño de tu casa y el producto. Te damos un presupuesto claro y gratis.",
+    "New siding transforms your home and protects it for decades. We install vinyl, fiber cement, and insulated siding with a clean, weather-tight finish across the Greater Pittsburgh area.":"El revestimiento nuevo transforma tu casa y la protege por décadas. Instalamos vinilo, fibrocemento y revestimiento aislado con un acabado limpio y hermético en el Gran Pittsburgh.",
+    "Weather-Tight & Clean":"Hermético y Limpio","Siding Installed Right":"Revestimiento Instalado Bien",
+    "Proper siding installation is about more than looks — it's your home's first defense against weather. We prep the surface, install a tight, level finish, and seal everything so it lasts.":"Una buena instalación de revestimiento es más que estética — es la primera defensa de tu casa contra el clima. Preparamos la superficie, instalamos un acabado ajustado y nivelado, y sellamos todo para que dure.",
+    "Vinyl, fiber cement & insulated":"Vinilo, fibrocemento y aislado","Proper prep & moisture barrier":"Preparación y barrera de humedad","Clean, level finish":"Acabado limpio y nivelado",
+    "Siding Installation Questions":"Preguntas de Instalación de Revestimiento",
+    "What siding types do you install?":"¿Qué tipos de revestimiento instalan?","Vinyl, fiber cement, and insulated siding — we help you choose the best fit for your home and budget.":"Vinilo, fibrocemento y revestimiento aislado — te ayudamos a elegir lo mejor para tu casa y presupuesto.",
+    "How long does siding installation take?":"¿Cuánto tarda instalar el revestimiento?","Most homes take several days depending on size and material. We give you a firm timeline upfront.":"La mayoría de casas toman varios días según el tamaño y el material. Te damos un plazo firme por adelantado.",
+    "Do you remove the old siding?":"¿Retiran el revestimiento viejo?","Yes — we remove the old siding, inspect the surface, and install fresh over a proper moisture barrier.":"Sí — retiramos el revestimiento viejo, inspeccionamos la superficie e instalamos nuevo sobre una barrera de humedad adecuada.",
+    "Get New Siding":"Instala Revestimiento Nuevo",
+    "Cracked, loose, or storm-damaged siding? We repair and replace damaged sections fast — matching your existing siding and sealing out moisture before it causes bigger problems.":"¿Revestimiento roto, suelto o dañado por tormenta? Reparamos y reemplazamos secciones dañadas rápido — combinando con tu revestimiento actual y sellando la humedad antes de que cause problemas mayores.",
+    "Fixed Before It Spreads":"Reparado Antes de Que Empeore","Siding Repairs Done Fast":"Reparaciones de Revestimiento Rápidas",
+    "Damaged siding lets moisture behind your walls, leading to rot and mold. We find and fix the problem — replacing cracked or missing pieces and matching your siding so the repair blends right in.":"El revestimiento dañado deja entrar humedad detrás de tus paredes, causando pudrición y moho. Encontramos y arreglamos el problema — reemplazando piezas rotas o faltantes y combinando tu revestimiento para que la reparación se integre.",
+    "Cracked & loose panel repair":"Reparación de paneles rotos y sueltos","Section replacement & matching":"Reemplazo de secciones y combinación","Moisture & rot prevention":"Prevención de humedad y pudrición","Trim & soffit repair":"Reparación de molduras y sofito",
+    "Siding Repair Questions":"Preguntas de Reparación de Revestimiento",
+    "Can you match my existing siding?":"¿Pueden combinar con mi revestimiento actual?","In most cases, yes — we match color and style so repairs blend in as much as possible.":"En la mayoría de los casos, sí — combinamos color y estilo para que las reparaciones se integren lo más posible.",
+    "Should I repair or replace my siding?":"¿Debo reparar o reemplazar mi revestimiento?","If damage is localized, a repair is usually best. We give you an honest recommendation after inspecting it.":"Si el daño es localizado, una reparación suele ser lo mejor. Te damos una recomendación honesta tras inspeccionarlo.",
+    "Does insurance cover siding damage?":"¿El seguro cubre el daño al revestimiento?","Storm damage is often covered. We can document it with photos to support your claim.":"El daño por tormenta suele estar cubierto. Podemos documentarlo con fotos para respaldar tu reclamo.",
+    "How fast can you repair it?":"¿Qué tan rápido lo pueden reparar?","Call 412-983-4397 — for damage letting in moisture we prioritize getting to you quickly.":"Llama al 412-983-4397 — para daños que dejan entrar humedad priorizamos llegar pronto.",
+    "Repair Your Siding":"Repara Tu Revestimiento",
+    "The look of wood with the toughness of cement. Fiber cement siding resists fire, rot, and pests, and holds paint for years — a premium, long-lasting upgrade for your home.":"La apariencia de la madera con la dureza del cemento. El revestimiento de fibrocemento resiste fuego, pudrición y plagas, y mantiene la pintura por años — una mejora premium y duradera para tu casa.",
+    "Premium & Durable":"Premium y Duradero","Built To Last Decades":"Hecho Para Durar Décadas",
+    "Fiber cement siding gives you the rich look of real wood without the upkeep. It stands up to fire, moisture, rot, and pests, holds its color, and can last 30–50 years — a smart long-term investment.":"El revestimiento de fibrocemento te da la rica apariencia de la madera real sin el mantenimiento. Resiste fuego, humedad, pudrición y plagas, mantiene su color y puede durar de 30 a 50 años — una inversión inteligente a largo plazo.",
+    "Wood-look, cement-tough":"Apariencia de madera, dureza de cemento","Fire, rot & pest resistant":"Resistente al fuego, pudrición y plagas","Holds paint for years":"Mantiene la pintura por años","Lasts 30–50 years":"Dura de 30 a 50 años","Boosts curb appeal & value":"Aumenta la estética y el valor",
+    "Fiber Cement Siding Questions":"Preguntas de Revestimiento de Fibrocemento",
+    "Is fiber cement better than vinyl?":"¿El fibrocemento es mejor que el vinilo?","It's more durable and premium, with a real-wood look — but costs more upfront. We help you weigh the options.":"Es más duradero y premium, con apariencia de madera real — pero cuesta más al inicio. Te ayudamos a evaluar las opciones.",
+    "How long does fiber cement last?":"¿Cuánto dura el fibrocemento?","Typically 30–50 years with minimal maintenance, making it a strong long-term value.":"Normalmente de 30 a 50 años con mínimo mantenimiento, siendo un gran valor a largo plazo.",
+    "Does it need painting?":"¿Necesita pintura?","It comes pre-finished or paintable and holds paint far longer than wood — with much less upkeep.":"Viene pre-acabado o pintable y mantiene la pintura mucho más que la madera — con mucho menos mantenimiento.",
+    "Is it worth the cost?":"¿Vale la pena el costo?","For durability, looks, and resale value, many homeowners find it well worth the investment.":"Por durabilidad, apariencia y valor de reventa, muchos propietarios lo consideran una gran inversión.",
+    "Upgrade To Fiber Cement":"Cambia a Fibrocemento",
     "A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.":"Un techo real de Vertex NTA al amanecer — trabajo de tejas limpio y bien hecho, aquí en el Gran Pittsburgh.",
     "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
@@ -266,7 +346,15 @@
     "gutter-installation":{t:"Instalación de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de canaletas sin uniones en Pittsburgh, PA, a la medida de tu casa. Aluminio duradero, bajantes y drenaje. Presupuesto gratis con Vertex NTA."},
     "gutter-repair":{t:"Reparación de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Reparación de canaletas en Pittsburgh, PA — goteras, canaletas caídas y desbordamiento. Sellado, re-fijación y reemplazo. Inspección gratis con Vertex NTA."},
     "gutter-cleaning":{t:"Limpieza de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Limpieza de canaletas en Pittsburgh, PA. Retiramos hojas y escombros y destapamos bajantes para que el agua fluya. Servicio por temporada. Vertex NTA."},
-    "gutter-guards":{t:"Protectores de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Protectores de canaletas en Pittsburgh, PA. Bloquean hojas y escombros y reducen la limpieza. Para canaletas nuevas o existentes. Presupuesto gratis."}
+    "gutter-guards":{t:"Protectores de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Protectores de canaletas en Pittsburgh, PA. Bloquean hojas y escombros y reducen la limpieza. Para canaletas nuevas o existentes. Presupuesto gratis."},
+    "kitchen-remodeling":{t:"Remodelación de Cocinas en Pittsburgh, PA | Vertex NTA Roofing",d:"Remodelación de cocinas en Pittsburgh, PA — gabinetes, encimeras, pisos y diseño completo. Trabajo profesional de principio a fin. Presupuesto gratis con Vertex NTA."},
+    "bathroom-remodeling":{t:"Remodelación de Baños en Pittsburgh, PA | Vertex NTA Roofing",d:"Remodelación de baños en Pittsburgh, PA — duchas, tinas, vanidades y azulejo. Diseño hermoso y trabajo impermeable. Presupuesto gratis con Vertex NTA."},
+    "basement-remodeling":{t:"Remodelación de Sótanos en Pittsburgh, PA | Vertex NTA Roofing",d:"Remodelación y acabado de sótanos en Pittsburgh, PA. Convierte tu sótano en sala, oficina o suite — cálido, seco y para disfrutar. Presupuesto gratis con Vertex NTA."},
+    "home-additions":{t:"Ampliaciones de Casa en Pittsburgh, PA | Vertex NTA Roofing",d:"Ampliaciones y adiciones de casa en Pittsburgh, PA. Cuartos nuevos y expansiones que combinan con tu hogar. Más espacio sin mudarte. Presupuesto gratis con Vertex NTA."},
+    "vinyl-siding":{t:"Revestimiento de Vinilo en Pittsburgh, PA | Vertex NTA Roofing",d:"Revestimiento de vinilo en Pittsburgh, PA — económico, duradero y de bajo mantenimiento. Muchos colores y estilos. Presupuesto gratis con Vertex NTA."},
+    "siding-installation":{t:"Instalación de Revestimiento en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación de revestimiento en Pittsburgh, PA — vinilo, fibrocemento y aislado. Acabado limpio y hermético. Presupuesto gratis con Vertex NTA."},
+    "siding-repair":{t:"Reparación de Revestimiento en Pittsburgh, PA | Vertex NTA Roofing",d:"Reparación de revestimiento en Pittsburgh, PA — piezas rotas, sueltas o dañadas por tormenta. Reemplazo y combinación de color. Inspección gratis con Vertex NTA."},
+    "fiber-cement-siding":{t:"Revestimiento de Fibrocemento en Pittsburgh, PA | Vertex NTA Roofing",d:"Revestimiento de fibrocemento en Pittsburgh, PA. Apariencia de madera con dureza de cemento — resiste fuego, pudrición y plagas. Presupuesto gratis con Vertex NTA."}
   };
   const _metaEl = document.querySelector('meta[name="description"]');
   const _origTitle = document.title;
@@ -275,7 +363,6 @@
     const t=_origTitle.toLowerCase();
     if(t.indexOf('roofing services')>=0) return 'roofing';
     if(t.indexOf('remodeling services')>=0) return 'remodeling';
-    if(t.indexOf('siding installation')>=0) return 'siding';
     if(t.indexOf('gutter services')>=0) return 'gutters';
     if(t.indexOf('roof repair')>=0) return 'roof-repair';
     if(t.indexOf('roof replacement')>=0) return 'roof-replacement';
@@ -289,6 +376,15 @@
     if(t.indexOf('gutter repair')>=0) return 'gutter-repair';
     if(t.indexOf('gutter cleaning')>=0) return 'gutter-cleaning';
     if(t.indexOf('gutter guard')>=0) return 'gutter-guards';
+    if(t.indexOf('kitchen remodeling')>=0) return 'kitchen-remodeling';
+    if(t.indexOf('bathroom remodeling')>=0) return 'bathroom-remodeling';
+    if(t.indexOf('basement remodeling')>=0) return 'basement-remodeling';
+    if(t.indexOf('home addition')>=0) return 'home-additions';
+    if(t.indexOf('vinyl siding')>=0) return 'vinyl-siding';
+    if(t.indexOf('siding installation')>=0) return 'siding-installation';
+    if(t.indexOf('siding repair')>=0) return 'siding-repair';
+    if(t.indexOf('fiber cement')>=0) return 'fiber-cement-siding';
+    if(t.indexOf('siding')>=0) return 'siding';
     if(t.indexOf('about')>=0) return 'about';
     if(t.indexOf('contact')>=0) return 'contact';
     return 'home';
@@ -405,6 +501,24 @@
       gl.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 28px"><span class="eyebrow" style="display:block;margin-bottom:12px">Gutter Services</span><h2 class="h-sec">Explore Our Gutter Services</h2></div><div class="area-list reveal" style="justify-content:center">'+gchips+'</div></div>';
       var glb=document.querySelector('.band-cta');
       if(glb&&glb.parentNode){glb.parentNode.insertBefore(gl,glb);}
+    }
+    // internal SEO links to remodeling sub-services (remodeling page only)
+    if(/\/remodeling$/.test(_pth) && !document.getElementById('remodel-links')){
+      var rml=document.createElement('section'); rml.className='blk'; rml.id='remodel-links';
+      var rmlinks=[['Kitchen Remodeling','/kitchen-remodeling'],['Bathroom Remodeling','/bathroom-remodeling'],['Basement Remodeling','/basement-remodeling'],['Home Additions','/home-additions']];
+      var rmchips=rmlinks.map(function(l){return '<a class="area-chip" href="'+l[1]+'" style="text-decoration:none">'+l[0]+'</a>';}).join('');
+      rml.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 28px"><span class="eyebrow" style="display:block;margin-bottom:12px">Remodeling Services</span><h2 class="h-sec">Explore Our Remodeling Services</h2></div><div class="area-list reveal" style="justify-content:center">'+rmchips+'</div></div>';
+      var rmb=document.querySelector('.band-cta');
+      if(rmb&&rmb.parentNode){rmb.parentNode.insertBefore(rml,rmb);}
+    }
+    // internal SEO links to siding sub-services (siding page only)
+    if(/\/siding$/.test(_pth) && !document.getElementById('siding-links')){
+      var sl=document.createElement('section'); sl.className='blk'; sl.id='siding-links';
+      var slinks=[['Vinyl Siding','/vinyl-siding'],['Siding Installation','/siding-installation'],['Siding Repair','/siding-repair'],['Fiber Cement Siding','/fiber-cement-siding']];
+      var schips=slinks.map(function(l){return '<a class="area-chip" href="'+l[1]+'" style="text-decoration:none">'+l[0]+'</a>';}).join('');
+      sl.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 28px"><span class="eyebrow" style="display:block;margin-bottom:12px">Siding Services</span><h2 class="h-sec">Explore Our Siding Services</h2></div><div class="area-list reveal" style="justify-content:center">'+schips+'</div></div>';
+      var slb=document.querySelector('.band-cta');
+      if(slb&&slb.parentNode){slb.parentNode.insertBefore(sl,slb);}
     }
     // Owner name + portrait
     var OWNER='Narlyn Ortiz';
