@@ -99,6 +99,49 @@
     "Our Work":"Nuestro Trabajo","Recent Projects":"Proyectos Realizados","Seamless Gutter Installation":"Instalación de Canaletas",
     "On The Roof":"Desde El Techo","See Our Work In Action":"Mira Nuestro Trabajo","Get a Free Inspection":"Inspección Gratis",
     "Find Us":"Encuéntranos","Our Location":"Nuestra Ubicación",
+    "Roof Repair":"Reparación de Techos","Roof Replacement":"Reemplazo de Techos","Roof Inspection":"Inspección de Techos","Emergency Roofing":"Techos de Emergencia","in Pittsburgh, PA":"en Pittsburgh, PA",
+    "Roofing Services":"Servicios de Techos","Explore Our Roofing Services":"Explora Nuestros Servicios de Techos",
+    "Get a Free Inspection":"Inspección Gratis","Book a Free Inspection":"Agenda una Inspección Gratis","Request Help":"Solicitar Ayuda","Call 412-983-4397 Now":"Llama Ya al 412-983-4397",
+    "Fast, reliable roof repair for leaks, storm damage, and worn shingles across the Greater Pittsburgh area — licensed, insured, and backed by free inspections.":"Reparación de techos rápida y confiable para goteras, daño por tormenta y tejas desgastadas en el Gran Pittsburgh — licenciados, asegurados y con inspecciones gratis.",
+    "Repairs Done Right":"Reparaciones Bien Hechas","Leaks & Storm Damage, Fixed Fast":"Goteras y Daño por Tormenta, Resueltos Rápido",
+    "A small leak can turn into major damage fast. Our team finds the source and fixes it right — from storm and wind damage to worn flashing and missing shingles — so your home stays protected.":"Una pequeña gotera puede volverse un daño grande rápido. Nuestro equipo encuentra el origen y lo repara bien — desde daño por tormenta y viento hasta tapajuntas desgastado y tejas faltantes — para que tu hogar siga protegido.",
+    "Leak detection & repair":"Detección y reparación de goteras","Storm & wind damage":"Daño por tormenta y viento","Missing or damaged shingles":"Tejas faltantes o dañadas","Flashing & chimney repair":"Reparación de tapajuntas y chimenea","Emergency tarping":"Colocación de lonas de emergencia","Free roof inspection":"Inspección de techo gratis",
+    "Roof Repair Questions":"Preguntas de Reparación de Techos",
+    "How much does roof repair cost in Pittsburgh?":"¿Cuánto cuesta reparar un techo en Pittsburgh?","It depends on the damage and roof type. Most minor repairs are affordable, and we give you a clear, upfront quote after a free inspection — no surprises.":"Depende del daño y el tipo de techo. La mayoría de reparaciones menores son accesibles, y te damos un precio claro y por adelantado tras una inspección gratis — sin sorpresas.",
+    "How fast can you repair my roof?":"¿Qué tan rápido pueden reparar mi techo?","For urgent leaks we respond quickly and can tarp the same day. Most repairs are completed in a single visit once we've assessed the damage.":"Para goteras urgentes respondemos rápido y podemos colocar lonas el mismo día. La mayoría de reparaciones se completan en una sola visita tras evaluar el daño.",
+    "Do you offer emergency roof repair?":"¿Ofrecen reparación de techos de emergencia?","Yes. If you have an active leak or storm damage, call us at 412-983-4397 and we'll protect your home right away.":"Sí. Si tienes una gotera activa o daño por tormenta, llámanos al 412-983-4397 y protegemos tu hogar de inmediato.",
+    "Will my insurance cover the repair?":"¿Mi seguro cubre la reparación?","Storm and sudden damage is often covered. We inspect the roof and help you document everything for your insurance claim.":"El daño por tormenta y repentino suele estar cubierto. Inspeccionamos el techo y te ayudamos a documentar todo para tu reclamo de seguro.",
+    "Need Your Roof Fixed?":"¿Necesitas Reparar Tu Techo?",
+    "Full roof replacement with top-grade asphalt and metal systems built to last decades. Free estimates, clear timelines, and clean, professional installation.":"Reemplazo completo de techos con sistemas de asfalto y metal de primera hechos para durar décadas. Presupuestos gratis, plazos claros e instalación limpia y profesional.",
+    "Built To Last":"Hecho Para Durar","A New Roof, Done Right":"Un Techo Nuevo, Bien Hecho",
+    "When repairs aren't enough, a full replacement protects your home for decades. We remove the old roof, inspect the deck, and install a complete, weather-tight system with quality materials and a solid warranty.":"Cuando las reparaciones no bastan, un reemplazo completo protege tu hogar por décadas. Retiramos el techo viejo, inspeccionamos la base e instalamos un sistema completo y hermético con materiales de calidad y una garantía sólida.",
+    "Complete tear-off & disposal":"Retiro y desecho completo","Asphalt shingle & metal roofing":"Tejas asfálticas y techos de metal","New underlayment & leak barrier":"Nuevo fieltro y barrera anti-goteras","Ventilation & flashing":"Ventilación y tapajuntas","Manufacturer warranties":"Garantías del fabricante","Free estimate":"Presupuesto gratis",
+    "Roof Replacement Questions":"Preguntas de Reemplazo de Techos",
+    "How do I know if I need a new roof?":"¿Cómo sé si necesito un techo nuevo?","Widespread leaks, curling or missing shingles, granules in the gutters, or a roof over 20 years old usually mean replacement is the smarter investment. Our free inspection gives you a straight answer.":"Goteras generalizadas, tejas dobladas o faltantes, gránulos en las canaletas, o un techo de más de 20 años suelen indicar que el reemplazo es la mejor inversión. Nuestra inspección gratis te da una respuesta clara.",
+    "How long does a roof replacement take?":"¿Cuánto tarda un reemplazo de techo?","Most homes are completed in 1–3 days depending on size, materials, and weather. We give you a firm timeline before we start.":"La mayoría de casas se completan en 1–3 días según tamaño, materiales y clima. Te damos un plazo firme antes de empezar.",
+    "What roofing materials do you offer?":"¿Qué materiales de techo ofrecen?","Asphalt shingles for value and reliability, and metal roofing for maximum durability. We help you choose what fits your home and budget.":"Tejas asfálticas por valor y confiabilidad, y techos de metal por máxima durabilidad. Te ayudamos a elegir lo que se ajuste a tu hogar y presupuesto.",
+    "Do you offer warranties?":"¿Ofrecen garantías?","Yes — both manufacturer material warranties and our own workmanship guarantee, so you're covered long after the job is done.":"Sí — garantías de materiales del fabricante y nuestra propia garantía de mano de obra, para que estés cubierto mucho después de terminar.",
+    "Ready For A New Roof?":"¿Listo Para Un Techo Nuevo?",
+    "Free, no-obligation roof inspections across the Greater Pittsburgh area. We check for leaks, storm damage, and wear — then give you an honest report and clear options.":"Inspecciones de techo gratis y sin compromiso en el Gran Pittsburgh. Revisamos goteras, daño por tormenta y desgaste — y te damos un reporte honesto con opciones claras.",
+    "Know Your Roof":"Conoce Tu Techo","Honest, Thorough Inspections":"Inspecciones Honestas y Completas",
+    "Whether you're buying a home, filing an insurance claim, or just want peace of mind, our free inspection tells you exactly what shape your roof is in — with photos and honest recommendations, never pressure.":"Ya sea que compres una casa, hagas un reclamo de seguro o solo quieras tranquilidad, nuestra inspección gratis te dice exactamente en qué estado está tu techo — con fotos y recomendaciones honestas, nunca presión.",
+    "Leak & moisture check":"Revisión de goteras y humedad","Storm & hail damage assessment":"Evaluación de daño por tormenta y granizo","Shingle & flashing condition":"Estado de tejas y tapajuntas","Photo report":"Reporte con fotos","Insurance claim help":"Ayuda con el reclamo de seguro","No obligation":"Sin compromiso",
+    "Roof Inspection Questions":"Preguntas de Inspección de Techos",
+    "Is the roof inspection really free?":"¿La inspección de techo es realmente gratis?","Yes. Our roof inspections are completely free and come with no obligation — you get an honest report and options, and the decision is yours.":"Sí. Nuestras inspecciones de techo son totalmente gratis y sin compromiso — recibes un reporte honesto y opciones, y la decisión es tuya.",
+    "How often should I have my roof inspected?":"¿Con qué frecuencia debo inspeccionar mi techo?","We recommend at least once a year, and after any major storm. Catching small issues early saves you from costly repairs later.":"Recomendamos al menos una vez al año, y después de cualquier tormenta fuerte. Detectar problemas pequeños a tiempo te evita reparaciones costosas después.",
+    "Can you inspect a roof for a home purchase?":"¿Pueden inspeccionar un techo para comprar una casa?","Absolutely. We provide a clear, documented report so you know the roof's condition before you buy.":"Claro. Entregamos un reporte claro y documentado para que conozcas el estado del techo antes de comprar.",
+    "Do you help with insurance claims?":"¿Ayudan con reclamos de seguro?","Yes. If we find storm or sudden damage, we document it with photos to support your insurance claim.":"Sí. Si encontramos daño por tormenta o repentino, lo documentamos con fotos para respaldar tu reclamo de seguro.",
+    "Get Your Free Roof Inspection":"Obtén Tu Inspección de Techo Gratis",
+    "Active leak or storm damage? We respond fast across the Greater Pittsburgh area with emergency tarping and repairs to protect your home before it gets worse.":"¿Gotera activa o daño por tormenta? Respondemos rápido en el Gran Pittsburgh con lonas de emergencia y reparaciones para proteger tu hogar antes de que empeore.",
+    "Fast Response":"Respuesta Rápida","We Protect Your Home First":"Protegemos Tu Hogar Primero",
+    "Storms, fallen branches, and sudden leaks don't wait — and neither do we. We move quickly to stop the water, tarp the damage, and get your roof back to safe and dry.":"Las tormentas, ramas caídas y goteras repentinas no esperan — y nosotros tampoco. Actuamos rápido para detener el agua, cubrir el daño con lonas y dejar tu techo seguro y seco.",
+    "Fast emergency response":"Respuesta rápida de emergencia","Same-day tarping":"Lonas el mismo día","Active leak & storm damage":"Gotera activa y daño por tormenta","Wind & fallen debris damage":"Daño por viento y escombros caídos","Insurance claim support":"Apoyo con el reclamo de seguro",
+    "Emergency Roofing Questions":"Preguntas de Techos de Emergencia",
+    "How fast can you get here?":"¿Qué tan rápido pueden llegar?","For emergencies we respond as fast as possible and can tarp most roofs the same day to stop further damage. Call 412-983-4397 right away.":"En emergencias respondemos lo más rápido posible y podemos cubrir la mayoría de techos con lonas el mismo día para detener más daño. Llama al 412-983-4397 de inmediato.",
+    "What should I do while I wait?":"¿Qué hago mientras espero?","Stay safe, keep off the roof, and move valuables away from any leak. Place a bucket under drips and we'll handle the rest when we arrive.":"Mantente seguro, no subas al techo y aleja objetos de valor de la gotera. Coloca una cubeta bajo el goteo y nosotros nos encargamos del resto al llegar.",
+    "Do you work with insurance?":"¿Trabajan con seguros?","Yes. Storm and sudden damage is often covered — we document everything with photos to support your claim.":"Sí. El daño por tormenta y repentino suele estar cubierto — documentamos todo con fotos para respaldar tu reclamo.",
+    "Do you offer permanent repairs too?":"¿También hacen reparaciones permanentes?","Absolutely. After we secure your roof, we schedule the full repair or replacement to fix it for good.":"Claro. Después de asegurar tu techo, programamos la reparación o el reemplazo completo para dejarlo bien de forma definitiva.",
+    "Roof Emergency? Call Now":"¿Emergencia de Techo? Llama Ya",
     "A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.":"Un techo real de Vertex NTA al amanecer — trabajo de tejas limpio y bien hecho, aquí en el Gran Pittsburgh.",
     "A look at completed roofing, remodeling, siding, and gutter work across the Greater Pittsburgh area.":"Un vistazo a trabajos de techos, remodelación, revestimiento y canaletas realizados en el Gran Pittsburgh.",
     "All":"Todos",
@@ -127,7 +170,11 @@
     siding:{t:"Instalación de Revestimiento en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación y reparación de revestimiento resistente al clima en Pittsburgh, PA. Vinilo, fibrocemento y aislado que realza tu fachada. Cotización gratis con Vertex NTA."},
     gutters:{t:"Servicios de Canaletas en Pittsburgh, PA | Vertex NTA Roofing",d:"Instalación, reparación y limpieza de canaletas sin uniones en Pittsburgh, PA. Protege tu casa del daño por agua. Licenciados y asegurados. Cotización gratis con Vertex NTA."},
     contact:{t:"Contacta a Vertex NTA Roofing | Presupuesto Gratis en Pittsburgh, PA",d:"Contacta a Vertex NTA Roofing en Pittsburgh, PA. Llama al 412-983-4397 o pide un presupuesto gratis para techos, remodelación y revestimiento. Respuesta rápida."},
-    about:{t:"Sobre Nosotros | Vertex NTA Roofing en Pittsburgh, PA",d:"Conoce a Vertex NTA Roofing, contratista de confianza en Pittsburgh, PA. Más de 7 años en techos, remodelación, revestimiento y canaletas con trabajo honesto y de calidad."}
+    about:{t:"Sobre Nosotros | Vertex NTA Roofing en Pittsburgh, PA",d:"Conoce a Vertex NTA Roofing, contratista de confianza en Pittsburgh, PA. Más de 7 años en techos, remodelación, revestimiento y canaletas con trabajo honesto y de calidad."},
+    "roof-repair":{t:"Reparación de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Reparación de techos rápida y confiable en Pittsburgh, PA — goteras, daño por tormenta y tejas dañadas. Licenciados, asegurados e inspección gratis."},
+    "roof-replacement":{t:"Reemplazo de Techos en Pittsburgh, PA | Vertex NTA Roofing",d:"Reemplazo completo de techos en Pittsburgh, PA con tejas asfálticas y metal de primera. Presupuesto gratis, plazos claros e instalación profesional."},
+    "roof-inspection":{t:"Inspección de Techos Gratis en Pittsburgh, PA | Vertex NTA Roofing",d:"Inspección de techos gratis en Pittsburgh, PA. Revisamos goteras, daño por tormenta y desgaste con un reporte honesto. Sin compromiso."},
+    "emergency-roofing":{t:"Techos de Emergencia en Pittsburgh, PA | Vertex NTA Roofing",d:"Techos de emergencia en Pittsburgh, PA. Respuesta rápida con lonas y reparaciones para goteras y daño por tormenta. Llama al 412-983-4397."}
   };
   const _metaEl = document.querySelector('meta[name="description"]');
   const _origTitle = document.title;
@@ -138,6 +185,10 @@
     if(t.indexOf('remodeling services')>=0) return 'remodeling';
     if(t.indexOf('siding installation')>=0) return 'siding';
     if(t.indexOf('gutter services')>=0) return 'gutters';
+    if(t.indexOf('roof repair')>=0) return 'roof-repair';
+    if(t.indexOf('roof replacement')>=0) return 'roof-replacement';
+    if(t.indexOf('roof inspection')>=0) return 'roof-inspection';
+    if(t.indexOf('emergency roofing')>=0) return 'emergency-roofing';
     if(t.indexOf('about')>=0) return 'about';
     if(t.indexOf('contact')>=0) return 'contact';
     return 'home';
@@ -236,6 +287,15 @@
       if(rband&&rband.parentNode){rband.parentNode.insertBefore(vsec,rband);}
       else if(rfoot&&rfoot.parentNode){rfoot.parentNode.insertBefore(vsec,rfoot);}
       else {var mm2=document.querySelector('main')||document.body; mm2.appendChild(vsec);}
+      // internal SEO links to roofing sub-services (crawlable discovery)
+      if(!document.getElementById('roof-links')){
+        var rl=document.createElement('section'); rl.className='blk'; rl.id='roof-links';
+        var links=[['Roof Repair','/roof-repair'],['Roof Replacement','/roof-replacement'],['Roof Inspection','/roof-inspection'],['Emergency Roofing','/emergency-roofing']];
+        var chips=links.map(function(l){return '<a class="area-chip" href="'+l[1]+'" style="text-decoration:none">'+l[0]+'</a>';}).join('');
+        rl.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto 28px"><span class="eyebrow" style="display:block;margin-bottom:12px">Roofing Services</span><h2 class="h-sec">Explore Our Roofing Services</h2></div><div class="area-list reveal" style="justify-content:center">'+chips+'</div></div>';
+        var rlb=document.querySelector('.band-cta');
+        if(rlb&&rlb.parentNode){rlb.parentNode.insertBefore(rl,rlb);}
+      }
     }
     // Owner name + portrait
     var OWNER='Narlyn Ortiz';
