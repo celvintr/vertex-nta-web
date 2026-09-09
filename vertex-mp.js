@@ -809,11 +809,26 @@
   document.addEventListener('click',go);
   document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.closest&&e.target.closest('[data-route]')){go(e);} });
 
-  // ---- contact form (demo) ----
+  // ---- contact form -> FormSubmit (real email delivery, no backend) ----
   const qf=document.getElementById('quoteForm');
-  if(qf){qf.addEventListener('submit',e=>{
-    e.preventDefault();
-    if(!qf.name.value.trim()||!qf.phone.value.trim()){qf.reportValidity&&qf.reportValidity();return;}
-    document.getElementById('formOk').classList.add('show');
-    qf.querySelector('button[type=submit]').textContent='Request Sent ✓';
-  });}
+  if(qf){
+    var FORM_ENDPOINT='https://formsubmit.co/ajax/Info@vertexntasolution.com';
+    var fv=function(n){var el=qf.querySelector('[name="'+n+'"]');return el?String(el.value||'').trim():'';};
+    qf.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!fv('name')||!fv('phone')){qf.reportValidity&&qf.reportValidity();return;}
+      var btn=qf.querySelector('button[type=submit]'); var orig=btn?btn.textContent:'';
+      if(btn){btn.disabled=true;btn.textContent='Sending…';}
+      var payload={name:fv('name'),phone:fv('phone'),email:fv('email'),service:fv('service'),message:fv('message'),_subject:'New quote request — Vertex NTA website',_template:'table'};
+      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+        .then(function(r){return r.json();})
+        .then(function(d){
+          if(d&&(d.success==='true'||d.success===true)){
+            var ok=document.getElementById('formOk'); if(ok)ok.classList.add('show');
+            if(btn){btn.textContent='Request Sent ✓';}
+            qf.reset();
+          } else { throw new Error('send failed'); }
+        })
+        .catch(function(){ if(btn){btn.disabled=false;btn.textContent=orig;} alert('Could not send right now — please call 412-983-4397.'); });
+    });
+  }
