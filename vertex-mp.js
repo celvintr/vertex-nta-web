@@ -314,7 +314,7 @@
     "Vinyl Siding Installation":"Instalación de Revestimiento","Exterior Facelift":"Renovación de Fachada",
     "Exterior Renovation":"Renovación Exterior","Siding Repair & Trim":"Reparación de Revestimiento",
     "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
-    "Proudly serving Pittsburgh and the surrounding communities — if you're in the Greater Pittsburgh area, we've got you covered.":"Con orgullo servimos a Pittsburgh y las comunidades cercanas — si estás en el Gran Pittsburgh, te cubrimos.",
+    "Proudly serving the Greater Pittsburgh and Erie areas and nearby communities — if you're in the region, we've got you covered.":"Con orgullo servimos las áreas del Gran Pittsburgh y Erie y las comunidades cercanas — si estás en la región, te cubrimos.",
     "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona.",
     "Credentials":"Credenciales","Licensed & Insured":"Con Licencia y Asegurado","License & insurance details coming soon.":"Detalles de licencia y seguro próximamente.",
     "Gutters":"Canaletas","Gutter Services":"Servicios de Canaletas","Seamless Gutters, Done Right":"Canaletas Sin Uniones, Bien Hechas",
@@ -570,7 +570,7 @@
   (function(){
     if(document.getElementById('area')) return;
     if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
-    const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739],['Wilkinsburg',40.4443,-79.8817],['Bellevue',40.4939,-80.0503],['West Mifflin',40.3573,-79.8664],['Bridgeville',40.3567,-80.1112],['Coraopolis',40.5187,-80.1684],['Sewickley',40.5359,-80.1848],['Fox Chapel',40.5187,-79.8908],['Carnegie',40.4090,-80.0842],['Munhall',40.3962,-79.8967],['Oakmont',40.5223,-79.8375]];
+    const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739],['Wilkinsburg',40.4443,-79.8817],['Bellevue',40.4939,-80.0503],['West Mifflin',40.3573,-79.8664],['Bridgeville',40.3567,-80.1112],['Coraopolis',40.5187,-80.1684],['Sewickley',40.5359,-80.1848],['Fox Chapel',40.5187,-79.8908],['Carnegie',40.4090,-80.0842],['Munhall',40.3962,-79.8967],['Oakmont',40.5223,-79.8375],['Erie',42.1292,-80.0851],['Millcreek',42.1069,-80.1206],['Harborcreek',42.1520,-79.9490],['Fairview',42.0303,-80.2551],['Girard',42.0006,-80.3190],['North East',42.2178,-79.8347],['Edinboro',41.8739,-80.1313],['Waterford',41.9426,-79.9836],['McKean',41.9987,-80.1470],['Lake City',42.0192,-80.3453]];
     let chips=''; towns.forEach((t,i)=>chips+='<button type="button" class="area-chip" data-i="'+i+'">'+t[0]+'</button>');
     const sec=document.createElement('section');
     sec.className='blk surface'; sec.id='area';
@@ -578,7 +578,7 @@
     sec.innerHTML='<div class="wrap area"><div class="area-grid">'+
       '<div><span class="eyebrow" style="display:block;margin-bottom:14px">Where We Work</span>'+
       '<h2 class="h-sec">Service Area</h2>'+
-      '<p class="lead" style="margin-top:16px">Proudly serving Pittsburgh and the surrounding communities — if you\'re in the Greater Pittsburgh area, we\'ve got you covered.</p>'+
+      '<p class="lead" style="margin-top:16px">Proudly serving the Greater Pittsburgh and Erie areas and nearby communities — if you\'re in the region, we\'ve got you covered.</p>'+
       '<div class="area-list">'+chips+'</div>'+
       '<p class="lead" style="margin-top:22px;font-size:.92rem">Don\'t see your town? Give us a call — we likely cover your area too.</p></div>'+
       '<div class="map"><div id="vmap"></div></div>'+
@@ -591,12 +591,14 @@
       function boot(){
         if(!window.L||!document.getElementById('vmap'))return;
         const isMobile=window.matchMedia('(max-width:900px)').matches||('ontouchstart' in window);
-        const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true,dragging:!isMobile,touchZoom:!isMobile,doubleClickZoom:!isMobile,tap:false}).setView([40.44,-79.99],10);
+        const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true,dragging:true,touchZoom:true,doubleClickZoom:true,tap:true}).setView([40.44,-79.99],10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
+        L.circle([42.1292,-80.0851],{radius:30000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
+        const HUBS={'Pittsburgh':1,'Erie':1};
         const pts=[], markers=[];
         towns.forEach(function(t,i){
-          const big=t[0]==='Pittsburgh';
+          const big=!!HUBS[t[0]];
           const m=L.circleMarker([t[1],t[2]],{radius:big?9:6,color:'#8F651E',weight:2,fillColor:big?'#B8862F':'#E8C066',fillOpacity:1}).addTo(map);
           m.bindTooltip(t[0],{direction:'top',offset:[0,-4]});
           m.bindPopup('<b style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.03em">'+t[0]+'</b><br><span style="color:#8F651E;font-size:.8rem;font-weight:600">Vertex NTA · Roofing · Remodeling · Siding</span>');
@@ -607,7 +609,7 @@
         const chipEls=[].slice.call(sec.querySelectorAll('.area-chip'));
         function select(i,fromMap){
           chipEls.forEach(function(c){c.classList.toggle('active',+c.dataset.i===i);});
-          markers.forEach(function(mm,j){mm.setStyle({radius:j===i?11:(towns[j][0]==='Pittsburgh'?9:6),fillColor:j===i?'#B8862F':(towns[j][0]==='Pittsburgh'?'#B8862F':'#E8C066')});});
+          markers.forEach(function(mm,j){mm.setStyle({radius:j===i?11:(HUBS[towns[j][0]]?9:6),fillColor:j===i?'#B8862F':(HUBS[towns[j][0]]?'#B8862F':'#E8C066')});});
           const t=towns[i];
           map.flyTo([t[1],t[2]],12,{duration:.7});
           markers[i].openPopup();
