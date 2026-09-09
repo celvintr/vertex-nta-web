@@ -316,6 +316,7 @@
     "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
     "Proudly serving Pittsburgh and the surrounding communities — if you're in the Greater Pittsburgh area, we've got you covered.":"Con orgullo servimos a Pittsburgh y las comunidades cercanas — si estás en el Gran Pittsburgh, te cubrimos.",
     "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona.",
+    "Credentials":"Credenciales","Licensed & Insured":"Con Licencia y Asegurado","License & insurance details coming soon.":"Detalles de licencia y seguro próximamente.",
     "Gutters":"Canaletas","Gutter Services":"Servicios de Canaletas","Seamless Gutters, Done Right":"Canaletas Sin Uniones, Bien Hechas",
     "Seamless gutter installation, repair, and cleaning to protect your home from water damage — done right the first time.":"Instalación, reparación y limpieza de canaletas sin uniones para proteger tu casa del daño por agua — bien hecho desde la primera vez.",
     "Clogged or failing gutters cause leaks, rot, and foundation damage. We install and maintain seamless gutter systems that channel water safely away from your home — clean, durable, and built to last.":"Las canaletas tapadas o en mal estado causan filtraciones, pudrición y daños a los cimientos. Instalamos y mantenemos sistemas de canaletas sin uniones que desvían el agua lejos de tu casa — limpios, durables y hechos para durar.",
@@ -524,6 +525,12 @@
     var OWNER='Narlyn Ortiz';
     document.querySelectorAll('.sig').forEach(function(sg){var n=sg.childNodes[0]; if(n&&n.nodeType===3&&/The Owner/.test(n.nodeValue)){n.nodeValue='— '+OWNER;}});
     if(/\/about$/.test(_pth)){var fm=document.querySelector('.feat-media img'); if(fm){fm.src=CDN+'v-owner-portrait.jpg'; fm.removeAttribute('srcset');}}
+    // About: licensing placeholder (client to provide official license details)
+    if(/\/about$/.test(_pth) && !document.getElementById('lic-info')){
+      var lsec=document.createElement('section'); lsec.className='blk surface'; lsec.id='lic-info';
+      lsec.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto"><span class="eyebrow" style="display:block;margin-bottom:12px">Credentials</span><h2 class="h-sec">Licensed &amp; Insured</h2><p class="lead" style="margin:14px auto 0;max-width:620px">License &amp; insurance details coming soon.</p></div></div>';
+      var af=document.querySelector('footer'); if(af&&af.parentNode){af.parentNode.insertBefore(lsec,af);} else {(document.querySelector('main')||document.body).appendChild(lsec);}
+    }
     // Contact page: Google map of the office
     if(/\/contact$/.test(_pth) && !document.getElementById('office-map')){
       var msec=document.createElement('section'); msec.className='blk surface'; msec.id='office-map';
@@ -563,7 +570,7 @@
   (function(){
     if(document.getElementById('area')) return;
     if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
-    const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739]];
+    const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739],['Wilkinsburg',40.4443,-79.8817],['Bellevue',40.4939,-80.0503],['West Mifflin',40.3573,-79.8664],['Bridgeville',40.3567,-80.1112],['Coraopolis',40.5187,-80.1684],['Sewickley',40.5359,-80.1848],['Fox Chapel',40.5187,-79.8908],['Carnegie',40.4090,-80.0842],['Munhall',40.3962,-79.8967],['Oakmont',40.5223,-79.8375]];
     let chips=''; towns.forEach((t,i)=>chips+='<button type="button" class="area-chip" data-i="'+i+'">'+t[0]+'</button>');
     const sec=document.createElement('section');
     sec.className='blk surface'; sec.id='area';
