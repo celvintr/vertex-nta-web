@@ -472,7 +472,7 @@
     var _pth=location.pathname;
     if(/\/roofing$/.test(_pth)){_setURL('New roof installation',CDN+'v-roof.jpg');_setURL('Home exterior',CDN+'v-p-roof1.jpg');_setURL('Roof replacement in progress',CDN+'v-p-roof2.jpg');}
     if(/\/siding$/.test(_pth)){_setURL('New siding',CDN+'v-siding.jpg');_setURL('Home exterior',CDN+'v-p-siding1.jpg');_setURL('New siding installation',CDN+'v-p-siding2.jpg');}
-    if(/\/remodeling$/.test(_pth)){_setURL('Remodeled interior',_uns('photo-1556912173-3bb406ef7e77',900,1300));_setURL('Home exterior',_uns('photo-1620626011761-996317b8d101',900,1100));_setURL('Home remodeling project',_uns('photo-1616486338812-3dadae4b4ace',1000,720));}
+    if(/\/remodeling$/.test(_pth)){_setURL('Remodeled interior',CDN+'v-remodel-hero.jpg');_setURL('Home exterior',_uns('photo-1620626011761-996317b8d101',900,1100));_setURL('Home remodeling project',_uns('photo-1616486338812-3dadae4b4ace',1000,720));}
     // Roofing page: real jobsite video section
     if(/\/roofing$/.test(_pth) && !document.getElementById('roofvid')){
       var vsec=document.createElement('section'); vsec.className='blk surface'; vsec.id='roofvid';
