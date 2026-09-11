@@ -620,6 +620,32 @@
     [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(function(){shows.forEach(function(s){s.repaint();});},60);});});
   })();
 
+  // ===== QR code on the Contact page (scan to open/share the site) =====
+  (function(){
+    if(!/\/contact$/.test(location.pathname)) return;
+    var card=document.querySelector('.info-card');
+    if(!card || card.querySelector('.qr-share')) return;
+    var CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    if(!document.getElementById('qr-css')){
+      var st=document.createElement('style'); st.id='qr-css';
+      st.textContent='.qr-share{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}'+
+        '.qr-share .qr-img{flex:0 0 auto;width:104px;height:104px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:7px;box-shadow:0 4px 14px rgba(0,0,0,.08)}'+
+        '.qr-share .qr-img img{display:block;width:100%;height:100%}'+
+        '.qr-share .qr-tx b{display:block;font-size:1rem;color:var(--ink);margin-bottom:3px}'+
+        '.qr-share .qr-tx span{display:block;font-size:.86rem;color:var(--ink-soft);line-height:1.4}';
+      document.head.appendChild(st);
+    }
+    var box=document.createElement('div'); box.className='qr-share';
+    box.innerHTML='<div class="qr-img"><img src="'+CDN+'qr-vertex.png" alt="QR code - vertexntaroofing.com" loading="lazy"></div>'+
+      '<div class="qr-tx"><b data-qr-t></b><span data-qr-s></span></div>';
+    card.appendChild(box);
+    var _t=box.querySelector('[data-qr-t]'), _s=box.querySelector('[data-qr-s]');
+    var QR={en:['Scan to visit or share','Point your phone camera at the code to open our site.'],es:['Escanea para visitar o compartir','Apunta la cámara de tu teléfono al código para abrir nuestro sitio.']};
+    function setQR(){var l='en';try{if(localStorage.getItem('vlang')==='es')l='es';}catch(e){} _t.textContent=QR[l][0]; _s.textContent=QR[l][1];}
+    setQR();
+    [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setQR,60);});});
+  })();
+
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
   (function(){
     if(document.getElementById('area')) return;
