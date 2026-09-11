@@ -628,11 +628,11 @@
     var CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     if(!document.getElementById('qr-css')){
       var st=document.createElement('style'); st.id='qr-css';
-      st.textContent='.qr-share{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}'+
-        '.qr-share .qr-img{flex:0 0 auto;width:104px;height:104px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:7px;box-shadow:0 4px 14px rgba(0,0,0,.08)}'+
+      st.textContent='.qr-share{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}'+
+        '.qr-share .qr-img{flex:0 0 auto;width:104px;height:104px;background:#fff;border-radius:12px;padding:7px;box-shadow:0 4px 14px rgba(0,0,0,.25)}'+
         '.qr-share .qr-img img{display:block;width:100%;height:100%}'+
-        '.qr-share .qr-tx b{display:block;font-size:1rem;color:var(--ink);margin-bottom:3px}'+
-        '.qr-share .qr-tx span{display:block;font-size:.86rem;color:var(--ink-soft);line-height:1.4}';
+        '.qr-share .qr-tx b{display:block;font-size:1rem;color:var(--on-band);margin-bottom:3px}'+
+        '.qr-share .qr-tx span{display:block;font-size:.86rem;color:var(--on-band-dim);line-height:1.4}';
       document.head.appendChild(st);
     }
     var box=document.createElement('div'); box.className='qr-share';
@@ -661,6 +661,36 @@
     function setFC(){var es=false;try{es=localStorage.getItem('vlang')==='es';}catch(e){} lab.textContent=es?'Sitio por ':'Site by ';}
     setFC();
     [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setFC,60);});});
+  })();
+
+  // ===== Contact page: real interactive map inside the placeholder box =====
+  (function(){
+    if(!/\/contact$/.test(location.pathname)) return;
+    var ph=document.querySelector('.map-ph');
+    if(!ph || document.getElementById('cmap')) return;
+    ph.textContent=''; ph.style.background='none'; ph.style.position='relative'; ph.style.overflow='hidden'; ph.style.borderRadius='10px'; ph.style.aspectRatio='16/9';
+    var mdiv=document.createElement('div'); mdiv.id='cmap'; mdiv.style.cssText='position:absolute;inset:0;width:100%;height:100%'; ph.appendChild(mdiv);
+    function boot(){
+      if(!window.L||!document.getElementById('cmap'))return;
+      var map=L.map('cmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([40.44,-79.99],10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+      L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
+      L.circle([42.1292,-80.0851],{radius:30000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
+      var hubs=[['Pittsburgh',40.4406,-79.9959],['Erie',42.1292,-80.0851]];
+      hubs.forEach(function(h){
+        var m=L.circleMarker([h[1],h[2]],{radius:9,color:'#8F651E',weight:2,fillColor:'#B8862F',fillOpacity:1}).addTo(map);
+        m.bindTooltip(h[0],{direction:'top',offset:[0,-4]});
+        m.bindPopup('<b style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.03em">'+h[0]+'</b><br><span style="color:#8F651E;font-size:.8rem;font-weight:600">Vertex NTA · Roofing · Remodeling · Siding</span>');
+      });
+      function refresh(){try{map.invalidateSize(false);map.fitBounds([[40.4406,-79.9959],[42.1292,-80.0851]],{padding:[30,30]});}catch(e){}}
+      map.whenReady(function(){requestAnimationFrame(refresh);});
+      if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){refresh();setTimeout(refresh,300);setTimeout(refresh,900);}});},{threshold:.01});io.observe(document.getElementById('cmap'));}
+      [150,500,1200,2500].forEach(function(d){setTimeout(refresh,d);});
+      window.addEventListener('resize',refresh);
+    }
+    if(window.L){boot();return;}
+    if(!document.getElementById('leaflet-css')){var c=document.createElement('link');c.id='leaflet-css';c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);}
+    var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=boot;document.head.appendChild(s);
   })();
 
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
