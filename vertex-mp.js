@@ -812,14 +812,14 @@
   // ---- contact form -> FormSubmit (real email delivery, no backend) ----
   const qf=document.getElementById('quoteForm');
   if(qf){
-    var FORM_ENDPOINT='https://formsubmit.co/ajax/Info@vertexntasolution.com';
+    var FORM_ENDPOINT='https://formsubmit.co/ajax/turciosr1991@gmail.com';
     var fv=function(n){var el=qf.querySelector('[name="'+n+'"]');return el?String(el.value||'').trim():'';};
     qf.addEventListener('submit',function(e){
       e.preventDefault();
       if(!fv('name')||!fv('phone')){qf.reportValidity&&qf.reportValidity();return;}
       var btn=qf.querySelector('button[type=submit]'); var orig=btn?btn.textContent:'';
       if(btn){btn.disabled=true;btn.textContent='Sending…';}
-      var payload={name:fv('name'),phone:fv('phone'),email:fv('email'),service:fv('service'),message:fv('message'),_subject:'New quote request — Vertex NTA website',_template:'table'};
+      var payload={name:fv('name'),phone:fv('phone'),email:fv('email'),service:fv('service'),message:fv('message'),_subject:'New quote request — Vertex NTA website',_template:'table',_cc:'Info@vertexntasolution.com'};
       fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
         .then(function(r){return r.json();})
         .then(function(d){
