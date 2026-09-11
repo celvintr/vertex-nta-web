@@ -814,6 +814,24 @@
   if(qf){
     var FORM_ENDPOINT='https://formsubmit.co/ajax/turciosr1991@gmail.com';
     var fv=function(n){var el=qf.querySelector('[name="'+n+'"]');return el?String(el.value||'').trim():'';};
+    // form is live now: drop the old "design mockup" note and the "(demo)" tag (works in EN & ES)
+    var _note=document.querySelector('.form-note'); if(_note){_note.remove();}
+    // Hours -> 24/7 (bilingual, follows the language toggle)
+    (function(){
+      var it=[].slice.call(document.querySelectorAll('.info-item')).filter(function(el){var b=el.querySelector('b');return b&&/Hours|Horario/i.test(b.textContent);})[0];
+      var hs=it?it.querySelector('span'):null;
+      if(!hs)return;
+      var HRS={en:'Open 24/7<br>Every day, day or night',es:'Abierto 24/7<br>Todos los días, día o noche'};
+      var setHours=function(){var l='en';try{if(localStorage.getItem('vlang')==='es')l='es';}catch(e){} hs.innerHTML=HRS[l];};
+      setHours();
+      [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setHours,60);});});
+    })();
+    var _ok=document.getElementById('formOk');
+    if(_ok){
+      var _strip=function(){ if(/\(demo\)/i.test(_ok.textContent)){ _ok.innerHTML=_ok.innerHTML.replace(/\s*\(demo\)/gi,''); } };
+      _strip();
+      try{ new MutationObserver(_strip).observe(_ok,{childList:true,characterData:true,subtree:true}); }catch(e){}
+    }
     qf.addEventListener('submit',function(e){
       e.preventDefault();
       if(!fv('name')||!fv('phone')){qf.reportValidity&&qf.reportValidity();return;}
