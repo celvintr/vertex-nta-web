@@ -832,8 +832,19 @@
       _strip();
       try{ new MutationObserver(_strip).observe(_ok,{childList:true,characterData:true,subtree:true}); }catch(e){}
     }
+    // anti-spam: honeypot (invisible) + simple math captcha (no API/key)
+    var _es=function(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}};
+    var _hp=document.createElement('input'); _hp.type='text'; _hp.name='_honey'; _hp.tabIndex=-1; _hp.setAttribute('autocomplete','off'); _hp.setAttribute('aria-hidden','true'); _hp.style.cssText='position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0'; qf.appendChild(_hp);
+    var _a=Math.floor(Math.random()*8)+2, _b=Math.floor(Math.random()*8)+1;
+    var _cap=document.createElement('div'); _cap.className='form-field cap-field';
+    _cap.innerHTML='<label for="capq">'+(_es()?'Anti-spam: ¿cuánto es ':'Anti-spam: what is ')+_a+' + '+_b+'?</label><input id="capq" name="_captcha_q" type="text" inputmode="numeric" autocomplete="off" placeholder="=?">';
+    var _btn0=qf.querySelector('button[type=submit]');
+    if(_btn0&&_btn0.parentNode){_btn0.parentNode.insertBefore(_cap,_btn0);}
+    var _capInput=_cap.querySelector('input');
     qf.addEventListener('submit',function(e){
       e.preventDefault();
+      if(_hp.value){return;} // honeypot filled -> bot
+      if(parseInt(_capInput.value,10)!==(_a+_b)){alert(_es()?'Respuesta anti-spam incorrecta. Intenta de nuevo.':'Anti-spam answer is incorrect. Please try again.'); _capInput.focus(); return;}
       if(!fv('name')||!fv('phone')){qf.reportValidity&&qf.reportValidity();return;}
       var btn=qf.querySelector('button[type=submit]'); var orig=btn?btn.textContent:'';
       if(btn){btn.disabled=true;btn.textContent='Sending…';}
