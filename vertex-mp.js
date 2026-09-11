@@ -392,7 +392,7 @@
   }
   const _orig = new Map();
   function walkText(fn){
-    const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode(n){const p=n.parentNode&&n.parentNode.nodeName; if(p==='SCRIPT'||p==='STYLE')return NodeFilter.FILTER_REJECT; return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+    const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode(n){const pn=n.parentNode; const p=pn&&pn.nodeName; if(p==='SCRIPT'||p==='STYLE')return NodeFilter.FILTER_REJECT; if(pn&&pn.closest&&pn.closest('.notranslate,[translate="no"]'))return NodeFilter.FILTER_REJECT; return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
     const a=[]; while(w.nextNode())a.push(w.currentNode); a.forEach(fn);
   }
   function setLang(lang){
@@ -746,7 +746,7 @@
     const plus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
     const fab=document.createElement('div'); fab.className='fab';
     fab.innerHTML='<div class="fab-menu">'+
-      '<a class="fab-item" href="https://signal.me/#p/+1'+phone+'" target="_blank" rel="noopener"><span class="ic sg">'+sgIco+'</span>Signal</a>'+
+      '<a class="fab-item" href="https://signal.me/#p/+1'+phone+'" target="_blank" rel="noopener"><span class="ic sg">'+sgIco+'</span><span translate="no" class="notranslate">Signal</span></a>'+
       '<a class="fab-item" href="tel:'+phone+'"><span class="ic cl">'+clIco+'</span>'+callTxt+' 412-983-4397</a>'+
       '</div><button class="fab-main" type="button" aria-label="Contact">'+plus+'</button>';
     document.body.appendChild(fab);
