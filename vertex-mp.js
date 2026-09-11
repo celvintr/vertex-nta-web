@@ -566,6 +566,60 @@
     }
   })();
 
+  // ===== DESKTOP hero slider — home only; both hero tiles crossfade (Ken Burns) with bilingual service captions =====
+  (function(){
+    var isHome=(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname));
+    if(!isHome) return;
+    if(window.innerWidth<=900) return; // desktop only — mobile keeps its own slider
+    var CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    if(!document.getElementById('hshow-css')){
+      var st=document.createElement('style'); st.id='hshow-css';
+      st.textContent='.hero .shot .hslide-img{transition:opacity 1s ease}'+
+        '.hero .shot .hslide-img.on{animation:hzoom 6.5s ease-out both}'+
+        '@keyframes hzoom{from{transform:scale(1.11)}to{transform:scale(1)}}'+
+        '.hcap{position:absolute;left:0;right:0;top:0;z-index:3;padding:20px 22px 56px;pointer-events:none;background:linear-gradient(to bottom,rgba(9,11,16,.86),rgba(9,11,16,.32) 54%,transparent)}'+
+        '.hcap-k{display:block;color:#E8C066;font-family:var(--display),"Oswald",sans-serif;font-weight:600;font-size:1.7rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.02;text-shadow:0 2px 10px rgba(0,0,0,.35)}'+
+        '.hcap-s{display:block;color:#fff;font-size:.86rem;margin-top:4px;opacity:.94;font-weight:500}'+
+        '.hcap-k,.hcap-s{opacity:0;transform:translateY(-14px);transition:opacity .6s ease,transform .6s ease}'+
+        '.hcap.in .hcap-k,.hcap.in .hcap-s{opacity:1;transform:none}'+
+        '.hcap.in .hcap-s{transition-delay:.09s}'+
+        '@media(prefers-reduced-motion:reduce){.hero .shot .hslide-img.on{animation:none}.hcap-k,.hcap-s{transition:none;opacity:1;transform:none}}';
+      document.head.appendChild(st);
+    }
+    function esNow(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}}
+    function build(sel,slides){
+      var shot=document.querySelector(sel);
+      if(!shot||shot.querySelector('.hslide')) return null;
+      shot.innerHTML='';
+      var wrap=document.createElement('div'); wrap.className='hslide';
+      slides.forEach(function(s,i){var im=document.createElement('img'); im.src=CDN+s.f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA — '+s.en; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
+      var cap=document.createElement('div'); cap.className='hcap'; cap.innerHTML='<span class="hcap-k"></span><span class="hcap-s"></span>';
+      wrap.appendChild(cap); shot.appendChild(wrap);
+      var imgs=[].slice.call(wrap.querySelectorAll('.hslide-img'));
+      var k=cap.querySelector('.hcap-k'), sub=cap.querySelector('.hcap-s'); var idx=0;
+      function paint(){var es=esNow(); k.textContent=es?slides[idx].es:slides[idx].en; sub.textContent=es?slides[idx].subEs:slides[idx].subEn;}
+      function anim(){cap.classList.remove('in'); void cap.offsetWidth; cap.classList.add('in');}
+      paint(); anim();
+      return {go:function(){imgs[idx].classList.remove('on'); idx=(idx+1)%imgs.length; imgs[idx].classList.add('on'); paint(); anim();}, repaint:paint};
+    }
+    var L=build('.hero .shot:not(.short)',[
+      {f:'v-roof.jpg',en:'Roofing',es:'Techos',subEn:'Repairs & replacements',subEs:'Reparación y reemplazo'},
+      {f:'v-siding.jpg',en:'Siding',es:'Revestimiento',subEn:'Vinyl, fiber-cement & more',subEs:'Vinil, fibrocemento y más'},
+      {f:'v-remodel-hero.jpg',en:'Remodeling',es:'Remodelación',subEn:'Kitchens, baths & additions',subEs:'Cocinas, baños y ampliaciones'},
+      {f:'v-gutters.jpg',en:'Gutters',es:'Canaletas',subEn:'Install, repair & guards',subEs:'Instalación, reparación y protección'}
+    ]);
+    var R=build('.hero .shot.short',[
+      {f:'v-hero.jpg',en:'Roof Inspection',es:'Inspección de techo',subEn:'Free & no obligation',subEs:'Gratis y sin compromiso'},
+      {f:'v-p-roof2.jpg',en:'Roof Replacement',es:'Reemplazo de techo',subEn:'Built to last',subEs:'Hecho para durar'},
+      {f:'v-p-siding2.jpg',en:'New Siding',es:'Revestimiento nuevo',subEn:'Boost your curb appeal',subEs:'Realza tu fachada'},
+      {f:'v-p-roof1.jpg',en:'Quality Work',es:'Trabajo de calidad',subEn:'Licensed & insured',subEs:'Con licencia y seguro'}
+    ]);
+    var shows=[L,R].filter(Boolean);
+    if(!shows.length) return;
+    setInterval(function(){shows.forEach(function(s){s.go();});},4600);
+    [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(function(){shows.forEach(function(s){s.repaint();});},60);});});
+  })();
+
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
   (function(){
     if(document.getElementById('area')) return;
@@ -738,8 +792,6 @@
   (function(){
     if(document.querySelector('.fab')) return;
     const phone='4129834397';
-    const es=(document.documentElement.lang||'en')==='es';
-    const callTxt=es?'Llamar':'Call';
     const waIco='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5c-.1.2-.3.3-.1.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>';
     const sgIco='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18l1.2-3A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z"/></svg>';
     const clIco='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>';
@@ -747,9 +799,15 @@
     const fab=document.createElement('div'); fab.className='fab';
     fab.innerHTML='<div class="fab-menu">'+
       '<a class="fab-item" href="https://signal.me/#p/+1'+phone+'" target="_blank" rel="noopener"><span class="ic sg">'+sgIco+'</span><span translate="no" class="notranslate">Signal</span></a>'+
-      '<a class="fab-item" href="tel:'+phone+'"><span class="ic cl">'+clIco+'</span>'+callTxt+' 412-983-4397</a>'+
+      '<a class="fab-item" href="tel:'+phone+'"><span class="ic cl">'+clIco+'</span><span class="notranslate" translate="no" data-call-lbl></span></a>'+
       '</div><button class="fab-main" type="button" aria-label="Contact">'+plus+'</button>';
     document.body.appendChild(fab);
+    // call label is language-controlled by us (never baked/frozen), so it always matches the current language
+    var CALL={en:'Call 412-983-4397',es:'Llamar 412-983-4397'};
+    var _callLbl=fab.querySelector('[data-call-lbl]');
+    var setCall=function(){var l='en';try{if(localStorage.getItem('vlang')==='es')l='es';}catch(e){} if(_callLbl)_callLbl.textContent=CALL[l];};
+    setCall();
+    [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setCall,60);});});
     fab.querySelector('.fab-main').addEventListener('click',function(e){e.stopPropagation();fab.classList.toggle('open');});
     document.addEventListener('click',function(e){ if(!fab.contains(e.target)) fab.classList.remove('open'); });
   })();
