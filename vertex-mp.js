@@ -646,6 +646,23 @@
     [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setQR,60);});});
   })();
 
+  // ===== Footer credit — "Site by Honduweb" linking to honduweb.net (all pages) =====
+  (function(){
+    var copy=document.querySelector('footer .copy');
+    if(!copy || copy.querySelector('.foot-credit')) return;
+    var sep=document.createElement('span'); sep.className='foot-credit notranslate'; sep.setAttribute('translate','no');
+    sep.style.cssText='display:inline-block;margin-left:8px;padding-left:10px;border-left:1px solid rgba(255,255,255,.25);opacity:.85';
+    var lab=document.createElement('span'); lab.setAttribute('data-fc','');
+    var a=document.createElement('a'); a.href='https://honduweb.net'; a.target='_blank'; a.rel='noopener';
+    a.textContent='Honduweb'; a.style.cssText='color:var(--gold-bright);font-weight:700;text-decoration:none';
+    a.addEventListener('mouseenter',function(){a.style.textDecoration='underline';});
+    a.addEventListener('mouseleave',function(){a.style.textDecoration='none';});
+    sep.appendChild(lab); sep.appendChild(a); copy.appendChild(sep);
+    function setFC(){var es=false;try{es=localStorage.getItem('vlang')==='es';}catch(e){} lab.textContent=es?'Sitio por ':'Site by ';}
+    setFC();
+    [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setFC,60);});});
+  })();
+
   // ===== Service Area + map — home only, injected (no embed re-paste) =====
   (function(){
     if(document.getElementById('area')) return;
