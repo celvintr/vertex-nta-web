@@ -548,15 +548,29 @@
     if(isHome && window.innerWidth<=900){
       const shot=document.querySelector('.hero .shot:not(.short)');
       if(shot && !shot.querySelector('.hslide')){
-        const files=['v-roof.jpg','v-roof3.jpg','v-hero.jpg','v-siding.jpg','v-gutter2.jpg','v-p-roof1.jpg','v-p-siding2.jpg'];
+        const files=[
+          {f:'v-roof.jpg',en:'Roofing',es:'Techos',subEn:'Repairs & replacements',subEs:'Reparación y reemplazo'},
+          {f:'v-roof3.jpg',en:'Roof Replacement',es:'Reemplazo de techo',subEn:'Built to last',subEs:'Hecho para durar'},
+          {f:'v-hero.jpg',en:'Roof Inspection',es:'Inspección de techo',subEn:'Free & no obligation',subEs:'Gratis y sin compromiso'},
+          {f:'v-siding.jpg',en:'Siding',es:'Revestimiento',subEn:'Vinyl, fiber-cement & more',subEs:'Vinil, fibrocemento y más'},
+          {f:'v-gutter2.jpg',en:'Gutters',es:'Canaletas',subEn:'Install, repair & guards',subEs:'Instalación, reparación y protección'},
+          {f:'v-p-roof1.jpg',en:'Quality Work',es:'Trabajo de calidad',subEn:'Licensed & insured',subEs:'Con licencia y seguro'},
+          {f:'v-p-siding2.jpg',en:'New Siding',es:'Revestimiento nuevo',subEn:'Boost your curb appeal',subEs:'Realza tu fachada'}
+        ];
         shot.innerHTML='';
         const wrap=document.createElement('div'); wrap.className='hslide';
-        files.forEach(function(f,i){var im=document.createElement('img'); im.src=CDN+f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA project'; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
+        files.forEach(function(s,i){var im=document.createElement('img'); im.src=CDN+s.f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA — '+s.en; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
+        var cap=document.createElement('div'); cap.className='hcap'; cap.innerHTML='<span class="hcap-k"></span><span class="hcap-s"></span>'; wrap.appendChild(cap);
         const dots=document.createElement('div'); dots.className='hslide-dots';
-        files.forEach(function(f,i){var d=document.createElement('button'); d.type='button'; d.className='hslide-dot'+(i===0?' on':''); d.setAttribute('aria-label','Ver imagen '+(i+1)); dots.appendChild(d);});
+        files.forEach(function(s,i){var d=document.createElement('button'); d.type='button'; d.className='hslide-dot'+(i===0?' on':''); d.setAttribute('aria-label','Ver imagen '+(i+1)); dots.appendChild(d);});
         wrap.appendChild(dots); shot.appendChild(wrap);
+        var _ck=cap.querySelector('.hcap-k'), _cs=cap.querySelector('.hcap-s');
+        function _mEs(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}}
+        function paintCap(){var es=_mEs(); _ck.textContent=es?files[idx].es:files[idx].en; _cs.textContent=es?files[idx].subEs:files[idx].subEn; cap.classList.remove('in'); void cap.offsetWidth; cap.classList.add('in');}
         const slides=[].slice.call(wrap.querySelectorAll('.hslide-img')), ds=[].slice.call(dots.children); let idx=0, t;
-        function go(n){slides[idx].classList.remove('on');ds[idx].classList.remove('on');idx=(n+slides.length)%slides.length;slides[idx].classList.add('on');ds[idx].classList.add('on');}
+        function go(n){slides[idx].classList.remove('on');ds[idx].classList.remove('on');idx=(n+slides.length)%slides.length;slides[idx].classList.add('on');ds[idx].classList.add('on');paintCap();}
+        paintCap();
+        [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(paintCap,60);});});
         function start(){t=setInterval(function(){go(idx+1);},3800);} function reset(){clearInterval(t);start();}
         ds.forEach(function(d,i){d.addEventListener('click',function(){go(i);reset();});});
         var sx=0; wrap.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
@@ -572,20 +586,6 @@
     if(!isHome) return;
     if(window.innerWidth<=900) return; // desktop only — mobile keeps its own slider
     var CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
-    if(!document.getElementById('hshow-css')){
-      var st=document.createElement('style'); st.id='hshow-css';
-      st.textContent='.hero .shot .hslide-img{transition:opacity 1s ease}'+
-        '.hero .shot .hslide-img.on{animation:hzoom 6.5s ease-out both}'+
-        '@keyframes hzoom{from{transform:scale(1.11)}to{transform:scale(1)}}'+
-        '.hcap{position:absolute;left:0;right:0;top:0;z-index:3;padding:20px 22px 56px;pointer-events:none;background:linear-gradient(to bottom,rgba(9,11,16,.86),rgba(9,11,16,.32) 54%,transparent)}'+
-        '.hcap-k{display:block;color:#E8C066;font-family:var(--display),"Oswald",sans-serif;font-weight:600;font-size:1.7rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.02;text-shadow:0 2px 10px rgba(0,0,0,.35)}'+
-        '.hcap-s{display:block;color:#fff;font-size:.86rem;margin-top:4px;opacity:.94;font-weight:500}'+
-        '.hcap-k,.hcap-s{opacity:0;transform:translateY(-14px);transition:opacity .6s ease,transform .6s ease}'+
-        '.hcap.in .hcap-k,.hcap.in .hcap-s{opacity:1;transform:none}'+
-        '.hcap.in .hcap-s{transition-delay:.09s}'+
-        '@media(prefers-reduced-motion:reduce){.hero .shot .hslide-img.on{animation:none}.hcap-k,.hcap-s{transition:none;opacity:1;transform:none}}';
-      document.head.appendChild(st);
-    }
     function esNow(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}}
     function build(sel,slides){
       var shot=document.querySelector(sel);
