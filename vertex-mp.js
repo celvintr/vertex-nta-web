@@ -548,7 +548,7 @@
     if(isHome && window.innerWidth<=900){
       const shot=document.querySelector('.hero .shot:not(.short)');
       if(shot && !shot.querySelector('.hslide')){
-        const files=['v-roof.jpg','v-hero.jpg','v-siding.jpg','v-p-roof2.jpg','v-p-roof1.jpg','v-p-siding2.jpg'];
+        const files=['v-roof.jpg','v-roof3.jpg','v-hero.jpg','v-siding.jpg','v-gutter2.jpg','v-p-roof1.jpg','v-p-siding2.jpg'];
         shot.innerHTML='';
         const wrap=document.createElement('div'); wrap.className='hslide';
         files.forEach(function(f,i){var im=document.createElement('img'); im.src=CDN+f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA project'; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
@@ -606,11 +606,11 @@
       {f:'v-roof.jpg',en:'Roofing',es:'Techos',subEn:'Repairs & replacements',subEs:'Reparación y reemplazo'},
       {f:'v-siding.jpg',en:'Siding',es:'Revestimiento',subEn:'Vinyl, fiber-cement & more',subEs:'Vinil, fibrocemento y más'},
       {f:'v-remodel-hero.jpg',en:'Remodeling',es:'Remodelación',subEn:'Kitchens, baths & additions',subEs:'Cocinas, baños y ampliaciones'},
-      {f:'v-gutters.jpg',en:'Gutters',es:'Canaletas',subEn:'Install, repair & guards',subEs:'Instalación, reparación y protección'}
+      {f:'v-gutter2.jpg',en:'Gutters',es:'Canaletas',subEn:'Install, repair & guards',subEs:'Instalación, reparación y protección'}
     ]);
     var R=build('.hero .shot.short',[
       {f:'v-hero.jpg',en:'Roof Inspection',es:'Inspección de techo',subEn:'Free & no obligation',subEs:'Gratis y sin compromiso'},
-      {f:'v-p-roof2.jpg',en:'Roof Replacement',es:'Reemplazo de techo',subEn:'Built to last',subEs:'Hecho para durar'},
+      {f:'v-roof3.jpg',en:'Roof Replacement',es:'Reemplazo de techo',subEn:'Built to last',subEs:'Hecho para durar'},
       {f:'v-p-siding2.jpg',en:'New Siding',es:'Revestimiento nuevo',subEn:'Boost your curb appeal',subEs:'Realza tu fachada'},
       {f:'v-p-roof1.jpg',en:'Quality Work',es:'Trabajo de calidad',subEn:'Licensed & insured',subEs:'Con licencia y seguro'}
     ]);
