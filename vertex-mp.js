@@ -940,13 +940,13 @@
   document.addEventListener('click',go);
   document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.closest&&e.target.closest('[data-route]')){go(e);} });
 
-  // ---- contact form -> FormSubmit (real email delivery, no backend) ----
+  // ---- contact form -> NATIVE Webflow form (reliable email to Info@, stored in Webflow Forms) ----
   const qf=document.getElementById('quoteForm');
   if(qf){
-    var FORM_ENDPOINT='https://formsubmit.co/ajax/turciosr1991@gmail.com';
-    var fv=function(n){var el=qf.querySelector('[name="'+n+'"]');return el?String(el.value||'').trim():'';};
-    // form is live now: drop the old "design mockup" note and the "(demo)" tag (works in EN & ES)
+    var _es=function(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}};
+    // form is live now: drop the old "design mockup" note and the old demo success box
     var _note=document.querySelector('.form-note'); if(_note){_note.remove();}
+    var _oldok=document.getElementById('formOk'); if(_oldok){_oldok.remove();}
     // Hours -> 24/7 (bilingual, follows the language toggle)
     (function(){
       var it=[].slice.call(document.querySelectorAll('.info-item')).filter(function(el){var b=el.querySelector('b');return b&&/Hours|Horario/i.test(b.textContent);})[0];
@@ -957,14 +957,27 @@
       setHours();
       [].slice.call(document.querySelectorAll('[data-lang]')).forEach(function(b){b.addEventListener('click',function(){setTimeout(setHours,60);});});
     })();
-    var _ok=document.getElementById('formOk');
-    if(_ok){
-      var _strip=function(){ if(/\(demo\)/i.test(_ok.textContent)){ _ok.innerHTML=_ok.innerHTML.replace(/\s*\(demo\)/gi,''); } };
-      _strip();
-      try{ new MutationObserver(_strip).observe(_ok,{childList:true,characterData:true,subtree:true}); }catch(e){}
+    // styling for the native done/fail states (match our design; keep Webflow's display toggling)
+    if(!document.getElementById('wf-form-css')){
+      var fst=document.createElement('style'); fst.id='wf-form-css';
+      fst.textContent='#quoteForm .w-form-done,#quoteForm~.w-form-done,.contact-grid .w-form-done{margin-top:16px;padding:16px 18px;border-radius:10px;background:rgba(184,134,47,.12);border:1px solid var(--gold);color:var(--ink);font-weight:600}'+
+        '.contact-grid .w-form-fail{margin-top:16px;padding:14px 18px;border-radius:10px;background:rgba(200,60,60,.1);border:1px solid #c33;color:#c33}';
+      document.head.appendChild(fst);
+    }
+    // turn our hand-coded form into a real Webflow form so Webflow delivers + stores it
+    if(!qf.closest('.w-form')){
+      qf.setAttribute('name','wf-form-Contact'); qf.setAttribute('data-name','Contact'); qf.setAttribute('method','get');
+      var rn={name:'Name',phone:'Phone',email:'Email',service:'Service',message:'Message'};
+      Object.keys(rn).forEach(function(k){var el=qf.querySelector('[name="'+k+'"]'); if(el){el.setAttribute('data-name',rn[k]); el.setAttribute('name',rn[k]);}});
+      var wrap=document.createElement('div'); wrap.className='w-form';
+      qf.parentNode.insertBefore(wrap,qf); wrap.appendChild(qf);
+      var done=document.createElement('div'); done.className='w-form-done'; done.setAttribute('role','status');
+      done.innerHTML=(_es()?'<b>¡Gracias! 🎉</b> Tu solicitud fue recibida. Te contactaremos en un día hábil.':'<b>Thanks! 🎉</b> Your request was received. We\'ll reach out within one business day.');
+      var fail=document.createElement('div'); fail.className='w-form-fail';
+      fail.innerHTML=(_es()?'Algo salió mal. Llámanos al 412-983-4397.':'Something went wrong. Please call 412-983-4397.');
+      wrap.appendChild(done); wrap.appendChild(fail);
     }
     // anti-spam: honeypot (invisible) + simple math captcha (no API/key)
-    var _es=function(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}};
     var _hp=document.createElement('input'); _hp.type='text'; _hp.name='_honey'; _hp.tabIndex=-1; _hp.setAttribute('autocomplete','off'); _hp.setAttribute('aria-hidden','true'); _hp.style.cssText='position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0'; qf.appendChild(_hp);
     var _a=Math.floor(Math.random()*8)+2, _b=Math.floor(Math.random()*8)+1;
     var _cap=document.createElement('div'); _cap.className='form-field cap-field';
@@ -972,23 +985,14 @@
     var _btn0=qf.querySelector('button[type=submit]');
     if(_btn0&&_btn0.parentNode){_btn0.parentNode.insertBefore(_cap,_btn0);}
     var _capInput=_cap.querySelector('input');
+    // capture phase: gate spam BEFORE Webflow's own submit handler; on pass, hand off to Webflow
     qf.addEventListener('submit',function(e){
-      e.preventDefault();
-      if(_hp.value){return;} // honeypot filled -> bot
-      if(parseInt(_capInput.value,10)!==(_a+_b)){alert(_es()?'Respuesta anti-spam incorrecta. Intenta de nuevo.':'Anti-spam answer is incorrect. Please try again.'); _capInput.focus(); return;}
-      if(!fv('name')||!fv('phone')){qf.reportValidity&&qf.reportValidity();return;}
-      var btn=qf.querySelector('button[type=submit]'); var orig=btn?btn.textContent:'';
-      if(btn){btn.disabled=true;btn.textContent='Sending…';}
-      var payload={name:fv('name'),phone:fv('phone'),email:fv('email'),service:fv('service'),message:fv('message'),_subject:'New quote request — Vertex NTA website',_template:'table',_cc:'Info@vertexntasolution.com'};
-      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
-        .then(function(r){return r.json();})
-        .then(function(d){
-          if(d&&(d.success==='true'||d.success===true)){
-            var ok=document.getElementById('formOk'); if(ok)ok.classList.add('show');
-            if(btn){btn.textContent='Request Sent ✓';}
-            qf.reset();
-          } else { throw new Error('send failed'); }
-        })
-        .catch(function(){ if(btn){btn.disabled=false;btn.textContent=orig;} alert('Could not send right now — please call 412-983-4397.'); });
-    });
+      if(_hp.value){e.preventDefault();e.stopImmediatePropagation();return;} // bot
+      if(parseInt(_capInput.value,10)!==(_a+_b)){e.preventDefault();e.stopImmediatePropagation();alert(_es()?'Respuesta anti-spam incorrecta. Intenta de nuevo.':'Anti-spam answer is incorrect. Please try again.');_capInput.focus();return;}
+      // valid: don't send the anti-spam fields to Webflow (keep the email clean), let Webflow submit natively
+      _capInput.disabled=true; _hp.disabled=true;
+    },true);
+    // (re)initialize Webflow's forms module so it binds to this dynamically-created form
+    function _wfBind(){ try{ if(window.Webflow&&window.Webflow.require){var fm=window.Webflow.require('forms'); if(fm&&fm.ready)fm.ready();} }catch(e){} }
+    if(window.Webflow&&window.Webflow.push){ window.Webflow.push(_wfBind); } else { _wfBind(); setTimeout(_wfBind,600); setTimeout(_wfBind,1600); }
   }
