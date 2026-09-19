@@ -976,17 +976,26 @@
       if(parseInt(_capInput.value,10)!==(_a+_b)){alert(_es()?'Respuesta anti-spam incorrecta. Intenta de nuevo.':'Anti-spam answer is incorrect. Please try again.'); _capInput.focus(); return;}
       if(!fv('name')||!fv('phone')){qf.reportValidity&&qf.reportValidity();return;}
       var btn=qf.querySelector('button[type=submit]'); var orig=btn?btn.textContent:'';
-      if(btn){btn.disabled=true;btn.textContent='Sending…';}
-      var payload={name:fv('name'),phone:fv('phone'),email:fv('email'),service:fv('service'),message:fv('message'),_subject:'New quote request — Vertex NTA website',_template:'table',_cc:'Info@vertexntasolution.com'};
-      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
-        .then(function(r){return r.json();})
-        .then(function(d){
-          if(d&&(d.success==='true'||d.success===true)){
-            var ok=document.getElementById('formOk'); if(ok)ok.classList.add('show');
-            if(btn){btn.textContent='Request Sent ✓';}
-            qf.reset();
-          } else { throw new Error('send failed'); }
-        })
-        .catch(function(){ if(btn){btn.disabled=false;btn.textContent=orig;} alert('Could not send right now — please call 412-983-4397.'); });
+      var okBox=function(){var ok=document.getElementById('formOk'); if(ok)ok.classList.add('show'); if(btn){btn.textContent=(_es()?'Solicitud enviada ✓':'Request Sent ✓');} qf.reset();};
+      var failBox=function(){ if(btn){btn.disabled=false;btn.textContent=orig;} alert(_es()?'No se pudo enviar ahora — llámanos al 412-983-4397.':'Could not send right now — please call 412-983-4397.'); };
+      var nf=document.querySelector('.bridge-form form');
+      if(!nf){ // safety fallback: FormSubmit (if the native bridge form isn't present)
+        if(btn){btn.disabled=true;btn.textContent=(_es()?'Enviando…':'Sending…');}
+        fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:fv('name'),phone:fv('phone'),email:fv('email'),service:fv('service'),message:fv('message'),_subject:'New quote request — Vertex NTA website',_template:'table',_cc:'Info@vertexntasolution.com'})}).then(function(r){return r.json();}).then(function(d){if(d&&(d.success==='true'||d.success===true)){okBox();}else{throw 0;}}).catch(failBox);
+        return;
+      }
+      // BRIDGE -> native Webflow form (delivers to Info@, stored in Webflow, passes Microsoft 365)
+      var setN=function(nm,val){var el=nf.querySelector('[name="'+nm+'"]'); if(!el){el=document.createElement('input');el.type='hidden';el.name=nm;nf.appendChild(el);} el.value=val||'';};
+      setN('Name',fv('name')); setN('Email',fv('email')); setN('Phone',fv('phone')); setN('Service',fv('service')); setN('Message',fv('message'));
+      if(btn){btn.disabled=true;btn.textContent=(_es()?'Enviando…':'Sending…');}
+      var nb=nf.querySelector('input[type=submit],button[type=submit]'); if(nb){nb.click();}
+      var wrap=document.querySelector('.bridge-form'); var tries=0;
+      var vis=function(el){return el&&getComputedStyle(el).display!=='none';};
+      var iv=setInterval(function(){
+        tries++;
+        if(vis(wrap&&wrap.querySelector('.w-form-done'))){clearInterval(iv);okBox();}
+        else if(vis(wrap&&wrap.querySelector('.w-form-fail'))){clearInterval(iv);failBox();}
+        else if(tries>40){clearInterval(iv);okBox();}
+      },250);
     });
   }
