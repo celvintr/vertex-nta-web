@@ -986,9 +986,9 @@
       }
       // BRIDGE -> native Webflow form (delivers to Info@, stored in Webflow, passes Microsoft 365)
       var setN=function(nm,val){var el=nf.querySelector('[name="'+nm+'"]'); if(!el){el=document.createElement('input');el.type='hidden';el.name=nm;nf.appendChild(el);} el.value=val||'';};
-      setN('Name',fv('name')); setN('Email',fv('email')); setN('Phone',fv('phone')); setN('Service',fv('service')); setN('Message',fv('message'));
+      setN('name',fv('name')); setN('email',fv('email')); setN('Phone',fv('phone')); setN('Service',fv('service')); setN('Message',fv('message'));
       if(btn){btn.disabled=true;btn.textContent=(_es()?'Enviando…':'Sending…');}
-      var nb=nf.querySelector('input[type=submit],button[type=submit]'); if(nb){nb.click();}
+      try{ if(nf.requestSubmit){nf.requestSubmit();} else { var nb=nf.querySelector('input[type=submit],button[type=submit]'); if(nb)nb.click(); } }catch(_e){ nf.submit(); }
       var wrap=document.querySelector('.bridge-form'); var tries=0;
       var vis=function(el){return el&&getComputedStyle(el).display!=='none';};
       var iv=setInterval(function(){
