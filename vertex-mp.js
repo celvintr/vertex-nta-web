@@ -315,7 +315,7 @@
     "Exterior Renovation":"Renovación Exterior","Siding Repair & Trim":"Reparación de Revestimiento",
     "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
     "Greater Pittsburgh · PA":"Gran Pittsburgh · PA","Erie Area · PA":"Área de Erie · PA",
-    "Proudly serving the Greater Pittsburgh and Erie areas and nearby communities — if you're in the region, we've got you covered.":"Con orgullo servimos las áreas del Gran Pittsburgh y Erie y las comunidades cercanas — si estás en la región, te cubrimos.",
+    "Proudly serving Greater Pittsburgh, Erie and Delaware and nearby communities — if you're in the region, we've got you covered.":"Con orgullo servimos el Gran Pittsburgh, Erie y Delaware y las comunidades cercanas — si estás en la región, te cubrimos.",
     "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona.",
     "Credentials":"Credenciales","Licensed & Insured":"Con Licencia y Asegurado","License & insurance details coming soon.":"Detalles de licencia y seguro próximamente.",
     "Gutters":"Canaletas","Gutter Services":"Servicios de Canaletas","Seamless Gutters, Done Right":"Canaletas Sin Uniones, Bien Hechas",
@@ -698,17 +698,17 @@
   (function(){
     if(document.getElementById('area')) return;
     if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
-    const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739],['Wilkinsburg',40.4443,-79.8817],['Bellevue',40.4939,-80.0503],['West Mifflin',40.3573,-79.8664],['Bridgeville',40.3567,-80.1112],['Coraopolis',40.5187,-80.1684],['Sewickley',40.5359,-80.1848],['Fox Chapel',40.5187,-79.8908],['Carnegie',40.4090,-80.0842],['Munhall',40.3962,-79.8967],['Oakmont',40.5223,-79.8375],['Erie',42.1292,-80.0851],['Millcreek',42.1069,-80.1206],['Harborcreek',42.1520,-79.9490],['Fairview',42.0303,-80.2551],['Girard',42.0006,-80.3190],['North East',42.2178,-79.8347],['Edinboro',41.8739,-80.1313],['Waterford',41.9426,-79.9836],['McKean',41.9987,-80.1470],['Lake City',42.0192,-80.3453]];
-    const erieStart=towns.findIndex(t=>t[0]==='Erie'); const eStart=erieStart>0?erieStart:towns.length;
+    const townsRaw=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739],['Wilkinsburg',40.4443,-79.8817],['Bellevue',40.4939,-80.0503],['West Mifflin',40.3573,-79.8664],['Bridgeville',40.3567,-80.1112],['Coraopolis',40.5187,-80.1684],['Sewickley',40.5359,-80.1848],['Fox Chapel',40.5187,-79.8908],['Carnegie',40.4090,-80.0842],['Munhall',40.3962,-79.8967],['Oakmont',40.5223,-79.8375],['Erie',42.1292,-80.0851],['Millcreek',42.1069,-80.1206],['Harborcreek',42.1520,-79.9490],['Fairview',42.0303,-80.2551],['Girard',42.0006,-80.3190],['North East',42.2178,-79.8347],['Edinboro',41.8739,-80.1313],['Waterford',41.9426,-79.9836],['McKean',41.9987,-80.1470],['Lake City',42.0192,-80.3453],['Wilmington',39.7459,-75.5466],['Newark',39.6837,-75.7497],['New Castle',39.6620,-75.5663],['Middletown',39.4496,-75.7163],['Bear',39.6293,-75.6580],['Smyrna',39.2998,-75.6046],['Dover',39.1582,-75.5244],['Milford',38.9126,-75.4279],['Seaford',38.6412,-75.6115],['Georgetown',38.6901,-75.3855],['Lewes',38.7745,-75.1393],['Rehoboth Beach',38.7209,-75.0760]];
+    const _byName=function(a,b){return a[0].localeCompare(b[0]);}; const _pgh=townsRaw.slice(0,26).sort(_byName); const _erie=townsRaw.slice(26,36).sort(_byName); const _de=townsRaw.slice(36).sort(_byName); const towns=_pgh.concat(_erie).concat(_de); const eStart=_pgh.length; const deStart=_pgh.length+_erie.length;
     function areaGroup(label,from,to){var c='';for(var i=from;i<to;i++){c+='<button type="button" class="area-chip" data-i="'+i+'">'+towns[i][0]+'</button>';}return '<div class="area-region" style="margin-top:22px"><span class="area-region-label" style="font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px">'+label+'</span><div class="area-list" style="margin-top:12px">'+c+'</div></div>';}
-    let chips=areaGroup('Greater Pittsburgh · PA',0,eStart)+(eStart<towns.length?areaGroup('Erie Area · PA',eStart,towns.length):'');
+    let chips=areaGroup('Greater Pittsburgh · PA',0,eStart)+areaGroup('Erie Area · PA',eStart,deStart)+areaGroup('Delaware · DE',deStart,towns.length);
     const sec=document.createElement('section');
     sec.className='blk surface'; sec.id='area';
     sec.style.scrollMarginTop='100px';
     sec.innerHTML='<div class="wrap area"><div class="area-grid">'+
       '<div><span class="eyebrow" style="display:block;margin-bottom:14px">Where We Work</span>'+
       '<h2 class="h-sec">Service Area</h2>'+
-      '<p class="lead" style="margin-top:16px">Proudly serving the Greater Pittsburgh and Erie areas and nearby communities — if you\'re in the region, we\'ve got you covered.</p>'+
+      '<p class="lead" style="margin-top:16px">Proudly serving Greater Pittsburgh, Erie and Delaware and nearby communities — if you\'re in the region, we\'ve got you covered.</p>'+
       chips+
       '<p class="lead" style="margin-top:22px;font-size:.92rem">Don\'t see your town? Give us a call — we likely cover your area too.</p></div>'+
       '<div class="map"><div id="vmap"></div></div>'+
@@ -725,7 +725,8 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         L.circle([42.1292,-80.0851],{radius:30000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
-        const HUBS={'Pittsburgh':1,'Erie':1};
+        L.circle([39.30,-75.55],{radius:58000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
+        const HUBS={'Pittsburgh':1,'Erie':1,'Wilmington':1};
         const pts=[], markers=[];
         towns.forEach(function(t,i){
           const big=!!HUBS[t[0]];
