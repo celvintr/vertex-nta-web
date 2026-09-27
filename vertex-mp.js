@@ -58,7 +58,7 @@
     "How long does a roof last?":"¿Cuánto dura un techo?",
     "Asphalt shingles typically last 20–30 years, metal roofing 40–70 years, depending on materials and maintenance. We'll help you pick what fits your budget and timeline.":"Las tejas de asfalto duran típicamente de 20 a 30 años, y el techo de metal de 40 a 70 años, según materiales y mantenimiento. Te ayudamos a elegir lo que se ajuste a tu presupuesto.",
     "Professional construction services focused on roofing, remodeling, and siding for Pittsburgh homes and businesses.":"Servicios de construcción profesional enfocados en techos, remodelación y revestimiento para hogares y negocios de Pittsburgh.",
-    "Get In Touch":"Contáctanos","© 2026 Vertex NTA Roofing LLC. All rights reserved.":"© 2026 Vertex NTA Roofing LLC. Todos los derechos reservados.",
+    "Get In Touch":"Contáctanos","Areas we serve:":"Zonas que atendemos:","© 2026 Vertex NTA Roofing LLC. All rights reserved.":"© 2026 Vertex NTA Roofing LLC. Todos los derechos reservados.",
     "Done Right":"Bien Hecho","Rebuilt Right":"Renovados","Spaces":"Espacios",
     "Expert roof installation, repair, and replacement using top-grade materials built to protect your home through every Pittsburgh season.":"Instalación, reparación y reemplazo de techos con materiales de primera, construidos para proteger tu hogar en cada estación de Pittsburgh.",
     "Free Roof Inspection":"Inspección Gratis","All Services":"Todos los Servicios","Call 412-983-4397":"Llama al 412-983-4397",
@@ -760,6 +760,21 @@
       if(!document.getElementById('leaflet-css')){var c=document.createElement('link');c.id='leaflet-css';c.rel='stylesheet';c.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';document.head.appendChild(c);}
       var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';s.onload=boot;document.head.appendChild(s);
     })();
+  })();
+
+  // ===== Footer: Areas We Serve links (all pages, SEO internal linking) =====
+  (function(){
+    var fw=document.querySelector('footer .wrap');
+    if(!fw||fw.querySelector('[data-areas]'))return;
+    var copy=fw.querySelector('.copy');
+    var d=document.createElement('div');
+    d.setAttribute('data-areas','');
+    d.style.cssText='padding:22px 0 2px;font-size:.92rem;color:var(--on-band-dim);display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px';
+    d.innerHTML='<span style="letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;font-weight:700;color:var(--gold-bright)">Areas we serve:</span>'+
+      '<a href="/delaware" style="color:var(--gold-bright)">Delaware</a><span style="opacity:.4">/</span>'+
+      '<a href="/erie" style="color:var(--gold-bright)">Erie, PA</a><span style="opacity:.4">/</span>'+
+      '<a href="/wilmington" style="color:var(--gold-bright)">Wilmington, DE</a>';
+    if(copy)fw.insertBefore(d,copy);else fw.appendChild(d);
   })();
 
   // ===== Gutters — 4th service (nav on all pages; card + info section + hero on home) =====
