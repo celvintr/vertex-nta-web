@@ -314,6 +314,7 @@
     "Vinyl Siding Installation":"Instalación de Revestimiento","Exterior Facelift":"Renovación de Fachada",
     "Exterior Renovation":"Renovación Exterior","Siding Repair & Trim":"Reparación de Revestimiento",
     "Where We Work":"Dónde Trabajamos","Service Area":"Área de Servicio",
+    "Greater Pittsburgh · PA":"Gran Pittsburgh · PA","Erie Area · PA":"Área de Erie · PA",
     "Proudly serving the Greater Pittsburgh and Erie areas and nearby communities — if you're in the region, we've got you covered.":"Con orgullo servimos las áreas del Gran Pittsburgh y Erie y las comunidades cercanas — si estás en la región, te cubrimos.",
     "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona.",
     "Credentials":"Credenciales","Licensed & Insured":"Con Licencia y Asegurado","License & insurance details coming soon.":"Detalles de licencia y seguro próximamente.",
@@ -698,7 +699,9 @@
     if(document.getElementById('area')) return;
     if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
     const towns=[['Pittsburgh',40.4406,-79.9959],['Mount Lebanon',40.3767,-80.0490],['Bethel Park',40.3273,-80.0370],['Upper St. Clair',40.3320,-80.0850],['Monroeville',40.4212,-79.7881],['Penn Hills',40.4728,-79.8931],['Cranberry Twp',40.6847,-80.1073],['Wexford',40.6231,-80.0562],['McCandless',40.5806,-80.0139],['Ross Twp',40.5187,-80.0170],['Robinson',40.4506,-80.1420],['Moon Twp',40.5148,-80.2103],['McKeesport',40.3448,-79.8642],['Plum',40.5017,-79.7439],['Shaler',40.5170,-79.9550],['Baldwin',40.3873,-79.9739],['Wilkinsburg',40.4443,-79.8817],['Bellevue',40.4939,-80.0503],['West Mifflin',40.3573,-79.8664],['Bridgeville',40.3567,-80.1112],['Coraopolis',40.5187,-80.1684],['Sewickley',40.5359,-80.1848],['Fox Chapel',40.5187,-79.8908],['Carnegie',40.4090,-80.0842],['Munhall',40.3962,-79.8967],['Oakmont',40.5223,-79.8375],['Erie',42.1292,-80.0851],['Millcreek',42.1069,-80.1206],['Harborcreek',42.1520,-79.9490],['Fairview',42.0303,-80.2551],['Girard',42.0006,-80.3190],['North East',42.2178,-79.8347],['Edinboro',41.8739,-80.1313],['Waterford',41.9426,-79.9836],['McKean',41.9987,-80.1470],['Lake City',42.0192,-80.3453]];
-    let chips=''; towns.forEach((t,i)=>chips+='<button type="button" class="area-chip" data-i="'+i+'">'+t[0]+'</button>');
+    const erieStart=towns.findIndex(t=>t[0]==='Erie'); const eStart=erieStart>0?erieStart:towns.length;
+    function areaGroup(label,from,to){var c='';for(var i=from;i<to;i++){c+='<button type="button" class="area-chip" data-i="'+i+'">'+towns[i][0]+'</button>';}return '<div class="area-region" style="margin-top:22px"><span class="area-region-label" style="font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px">'+label+'</span><div class="area-list" style="margin-top:12px">'+c+'</div></div>';}
+    let chips=areaGroup('Greater Pittsburgh · PA',0,eStart)+(eStart<towns.length?areaGroup('Erie Area · PA',eStart,towns.length):'');
     const sec=document.createElement('section');
     sec.className='blk surface'; sec.id='area';
     sec.style.scrollMarginTop='100px';
@@ -706,7 +709,7 @@
       '<div><span class="eyebrow" style="display:block;margin-bottom:14px">Where We Work</span>'+
       '<h2 class="h-sec">Service Area</h2>'+
       '<p class="lead" style="margin-top:16px">Proudly serving the Greater Pittsburgh and Erie areas and nearby communities — if you\'re in the region, we\'ve got you covered.</p>'+
-      '<div class="area-list">'+chips+'</div>'+
+      chips+
       '<p class="lead" style="margin-top:22px;font-size:.92rem">Don\'t see your town? Give us a call — we likely cover your area too.</p></div>'+
       '<div class="map"><div id="vmap"></div></div>'+
       '</div></div>';
