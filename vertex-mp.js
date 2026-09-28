@@ -705,7 +705,7 @@
         if(!window.L||!document.getElementById('vmap'))return;
         const isMobile=window.matchMedia('(max-width:900px)').matches||('ontouchstart' in window);
         const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true,dragging:true,touchZoom:true,doubleClickZoom:true,tap:true}).setView([40.44,-79.99],10);
-        L.tileLayer('https://{s}.basemap.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         L.circle([42.1292,-80.0851],{radius:30000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         L.circle([39.30,-75.55],{radius:58000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
@@ -1036,4 +1036,11 @@
     opt();
     [250,800,1800].forEach(function(t){setTimeout(opt,t);});
     window.addEventListener('load',opt);
+  })();
+
+  /* ---- Accessibility: fix contrast on active language toggle (white-on-gold -> dark ink) + tap size ---- */
+  (function(){
+    var s=document.createElement('style');
+    s.textContent='.lang .on{color:#14181d !important}.lang button{min-height:32px}';
+    document.head.appendChild(s);
   })();
