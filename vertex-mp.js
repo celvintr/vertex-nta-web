@@ -1001,3 +1001,39 @@
       },250);
     });
   }
+
+  /* ---- Image delivery optimization: WebP + right-sizing via images.weserv.nl, LCP priority ---- */
+  (function(){
+    function optURL(u,w){
+      if(!u) return u;
+      var bare=u.replace(/^https?:\/\//,'').split('#')[0].split('?')[0];
+      return 'https://images.weserv.nl/?url='+encodeURIComponent(bare)+'&w='+w+'&output=webp&q=72';
+    }
+    function widthFor(im){
+      if(im.classList.contains('hslide-img')) return 900;
+      if(im.classList.contains('fill')) return 800;
+      var r=im.getBoundingClientRect();
+      var w=Math.round((r.width||560)*Math.min(window.devicePixelRatio||1,2));
+      return Math.min(Math.max(w,300),1000);
+    }
+    function opt(){
+      var list=document.getElementsByTagName('img');
+      for(var i=0;i<list.length;i++){
+        var im=list[i];
+        if(im.dataset.opt) continue;
+        var s=im.getAttribute('src')||'';
+        if(/(cdn\.jsdelivr\.net\/gh\/celvintr|raw\.githubusercontent\.com\/celvintr)/.test(s) && s.indexOf('weserv')===-1){
+          im.dataset.opt='1';
+          im.setAttribute('decoding','async');
+          var hero=im.classList.contains('hslide-img') && (im.classList.contains('on')||!document.querySelector('.hslide-img.data-opt-hero'));
+          im.setAttribute('src',optURL(s,widthFor(im)));
+          im.removeAttribute('srcset');
+          if(im.classList.contains('hslide-img') && im.classList.contains('on')){ im.setAttribute('fetchpriority','high'); im.classList.add('data-opt-hero'); im.loading='eager'; }
+          else if(!im.getAttribute('loading')){ im.loading='lazy'; }
+        }
+      }
+    }
+    opt();
+    [250,800,1800].forEach(function(t){setTimeout(opt,t);});
+    window.addEventListener('load',opt);
+  })();
