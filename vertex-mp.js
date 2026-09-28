@@ -413,7 +413,7 @@
   (function(){
     if(document.getElementById('projects')) return;
     if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
-    const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const CDN='https://images.weserv.nl/?w=1000&output=webp&q=70&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const P=[
       ['roofing','Complete Roof Replacement',CDN+'v-p-roof2.jpg'],
       ['roofing','Storm Damage Repair',CDN+'v-p-roof1.jpg'],
@@ -460,7 +460,7 @@
   // ===== Swap stock images for the client's real photos + hero video =====
   (function(){
     if(!document.querySelector('section.hero')) return;
-    const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const CDN='https://images.weserv.nl/?w=1000&output=webp&q=70&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const set=(alt,file)=>{const im=document.querySelector('img[alt="'+alt+'"]'); if(im){im.src=CDN+file; im.removeAttribute('srcset');}};
     set('Home exterior','v-hero.jpg');
     set('Roofing','v-roof.jpg');
@@ -479,7 +479,7 @@
       var vsec=document.createElement('section'); vsec.className='blk surface'; vsec.id='roofvid';
       vsec.innerHTML='<div class="wrap vid-wrap">'+
         '<div class="reveal vid-txt"><span class="eyebrow">On The Roof</span><h2 class="h-sec">See Our Work In Action</h2><p class="lead">A real Vertex NTA roof at sunrise — clean shingle work done right, here in the Greater Pittsburgh area.</p><a class="btn btn-gold" href="/contact">Get a Free Inspection</a></div>'+
-        '<div class="vid-frame reveal"><video src="'+CDN+'v-roof-video.mp4" poster="'+CDN+'v-roof-video-poster.jpg" autoplay muted loop playsinline preload="metadata" controls></video></div>'+
+        '<div class="vid-frame reveal"><video src="https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/v-roof-video.mp4" poster="'+CDN+'v-roof-video-poster.jpg" autoplay muted loop playsinline preload="metadata" controls></video></div>'+
         '</div>';
       var rband=document.querySelector('.band-cta'); var rfoot=document.querySelector('footer');
       if(rband&&rband.parentNode){rband.parentNode.insertBefore(vsec,rband);}
@@ -560,7 +560,7 @@
         ];
         shot.innerHTML='';
         const wrap=document.createElement('div'); wrap.className='hslide';
-        files.forEach(function(s,i){var im=document.createElement('img'); im.src=CDN+s.f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA — '+s.en; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
+        files.forEach(function(s,i){var im=document.createElement('img'); im.src=CDN+s.f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA — '+s.en; im.loading=i===0?'eager':'lazy'; im.decoding='async'; if(i===0){im.setAttribute('fetchpriority','high');} wrap.appendChild(im);});
         var cap=document.createElement('div'); cap.className='hcap'; cap.innerHTML='<span class="hcap-k"></span><span class="hcap-s"></span>'; wrap.appendChild(cap);
         const dots=document.createElement('div'); dots.className='hslide-dots';
         files.forEach(function(s,i){var d=document.createElement('button'); d.type='button'; d.className='hslide-dot'+(i===0?' on':''); d.setAttribute('aria-label','Ver imagen '+(i+1)); dots.appendChild(d);});
@@ -586,14 +586,14 @@
     var isHome=(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname));
     if(!isHome) return;
     if(window.innerWidth<=900) return; // desktop only — mobile keeps its own slider
-    var CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    var CDN='https://images.weserv.nl/?w=1000&output=webp&q=70&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     function esNow(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}}
     function build(sel,slides){
       var shot=document.querySelector(sel);
       if(!shot||shot.querySelector('.hslide')) return null;
       shot.innerHTML='';
       var wrap=document.createElement('div'); wrap.className='hslide';
-      slides.forEach(function(s,i){var im=document.createElement('img'); im.src=CDN+s.f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA — '+s.en; im.loading=i===0?'eager':'lazy'; wrap.appendChild(im);});
+      slides.forEach(function(s,i){var im=document.createElement('img'); im.src=CDN+s.f; im.className='hslide-img'+(i===0?' on':''); im.alt='Vertex NTA — '+s.en; im.loading=i===0?'eager':'lazy'; im.decoding='async'; if(i===0){im.setAttribute('fetchpriority','high');} wrap.appendChild(im);});
       var cap=document.createElement('div'); cap.className='hcap'; cap.innerHTML='<span class="hcap-k"></span><span class="hcap-s"></span>';
       wrap.appendChild(cap); shot.appendChild(wrap);
       var imgs=[].slice.call(wrap.querySelectorAll('.hslide-img'));
@@ -626,7 +626,7 @@
     if(!/\/contact$/.test(location.pathname)) return;
     var card=document.querySelector('.info-card');
     if(!card || card.querySelector('.qr-share')) return;
-    var CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    var CDN='https://images.weserv.nl/?w=1000&output=webp&q=70&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     if(!document.getElementById('qr-css')){
       var st=document.createElement('style'); st.id='qr-css';
       st.textContent='.qr-share{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}'+
@@ -637,7 +637,7 @@
       document.head.appendChild(st);
     }
     var box=document.createElement('div'); box.className='qr-share';
-    box.innerHTML='<div class="qr-img"><img src="'+CDN+'qr-vertex.png" alt="QR code - vertexntaroofing.com" loading="lazy"></div>'+
+    box.innerHTML='<div class="qr-img"><img src="https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/qr-vertex.png" alt="QR code - vertexntaroofing.com" loading="lazy"></div>'+
       '<div class="qr-tx"><b data-qr-t></b><span data-qr-s></span></div>';
     card.appendChild(box);
     var _t=box.querySelector('[data-qr-t]'), _s=box.querySelector('[data-qr-s]');
@@ -705,7 +705,7 @@
         if(!window.L||!document.getElementById('vmap'))return;
         const isMobile=window.matchMedia('(max-width:900px)').matches||('ontouchstart' in window);
         const map=L.map('vmap',{scrollWheelZoom:false,zoomControl:true,attributionControl:true,dragging:true,touchZoom:true,doubleClickZoom:true,tap:true}).setView([40.44,-79.99],10);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,subdomains:'abc',attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+        L.tileLayer('https://{s}.basemap.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
         L.circle([40.4406,-79.9959],{radius:34000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         L.circle([42.1292,-80.0851],{radius:30000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
         L.circle([39.30,-75.55],{radius:58000,color:'#B8862F',weight:1.5,opacity:.6,fillColor:'#CDA349',fillOpacity:.08}).addTo(map);
@@ -762,7 +762,7 @@
 
   // ===== Gutters — 4th service (nav on all pages; card + info section + hero on home) =====
   (function(){
-    const CDN='https://cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const CDN='https://images.weserv.nl/?w=1000&output=webp&q=70&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const GHREF='/gutters';
     // Home link as the FIRST nav item (desktop + mobile), unless already present
     var dn=document.querySelector('nav.links');
