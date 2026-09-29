@@ -895,7 +895,7 @@
     if(!home || home.querySelector('.hero-dog')) return;
     const card=document.createElement('div');
     card.className='hero-dog';
-    card.innerHTML='<img src="https://raw.githubusercontent.com/celvintr/vertex-nta-web/main/vertex-dog.png" alt="Vertex NTA mascot">';
+    card.innerHTML='<img src="https://images.weserv.nl/?w=420&output=webp&q=82&url=raw.githubusercontent.com/celvintr/vertex-nta-web/main/vertex-dog.png" alt="Vertex NTA mascot" loading="lazy" decoding="async">';
     home.appendChild(card);
   })();
 
