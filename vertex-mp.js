@@ -13,8 +13,9 @@
   });}
   // mobile menu
   const mm=document.getElementById('mobileMenu');
-  const openMenu=()=>{mm.classList.add('open');document.body.classList.add('menu-open');mm.setAttribute('aria-hidden','false')};
-  const closeMenu=()=>{mm.classList.remove('open');document.body.classList.remove('menu-open');mm.setAttribute('aria-hidden','true')};
+  if(mm){mm.setAttribute('inert','');}
+  const openMenu=()=>{mm.classList.add('open');document.body.classList.add('menu-open');mm.setAttribute('aria-hidden','false');mm.removeAttribute('inert')};
+  const closeMenu=()=>{mm.classList.remove('open');document.body.classList.remove('menu-open');mm.setAttribute('aria-hidden','true');mm.setAttribute('inert','')};
   document.querySelector('.menu-btn').addEventListener('click',openMenu);
   document.getElementById('mmClose').addEventListener('click',closeMenu);
   mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
@@ -424,9 +425,9 @@
     ];
     const cap={roofing:'Roofing',remodeling:'Remodeling',siding:'Siding',gutters:'Gutters'};
     let cards='';
-    P.forEach((p,i)=>{cards+='<figure class="pjx-item" data-cat="'+p[0]+'" data-i="'+i+'" tabindex="0" role="button">'+
+    P.forEach((p,i)=>{cards+='<div class="pjx-item" data-cat="'+p[0]+'" data-i="'+i+'" tabindex="0" role="button" aria-label="'+p[1]+' — view photo">'+
       '<img loading="lazy" src="'+p[2]+'" alt="'+p[1]+'">'+
-      '<figcaption><span class="pjx-cat">'+cap[p[0]]+'</span><span class="pjx-title">'+p[1]+'</span><span class="pjx-loc">Pittsburgh, PA</span></figcaption></figure>';});
+      '<div class="pjx-cap"><span class="pjx-cat">'+cap[p[0]]+'</span><span class="pjx-title">'+p[1]+'</span><span class="pjx-loc">Pittsburgh, PA</span></div></div>';});
     const sec=document.createElement('section');
     sec.className='blk projects'; sec.id='projects';
     sec.innerHTML='<div class="wrap">'+
