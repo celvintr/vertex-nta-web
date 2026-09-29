@@ -1041,7 +1041,10 @@
   /* ---- Accessibility: contrast on active language toggle + tap size + footer heading order ---- */
   (function(){
     var s=document.createElement('style');
-    s.textContent='.lang .on{color:#14181d !important}.lang button{min-height:32px}';
+    s.textContent='.lang .on{color:#14181d !important}.lang button{min-height:32px}'
+      +'.hslide-dots{gap:0 !important}'
+      +'.hslide-dot{width:24px !important;height:24px !important;padding:8px !important;box-sizing:border-box !important;background-clip:content-box !important;box-shadow:none !important}'
+      +'.hslide-dot.on{width:38px !important;padding:8px !important}';
     document.head.appendChild(s);
     // Fix heading-order: footer column titles are <h4> after an <h2> (skips h3). Demote to <h3>, keeping look.
     function fixFooterHeadings(){
