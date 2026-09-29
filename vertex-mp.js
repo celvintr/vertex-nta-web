@@ -413,7 +413,7 @@
   (function(){
     if(document.getElementById('projects')) return;
     if(!(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname))) return; // home page only
-    const CDN='https://images.weserv.nl/?w=800&output=webp&q=68&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const CDN='https://images.weserv.nl/?w=760&output=webp&q=64&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const P=[
       ['roofing','Complete Roof Replacement',CDN+'v-p-roof2.jpg'],
       ['roofing','Storm Damage Repair',CDN+'v-p-roof1.jpg'],
@@ -460,7 +460,7 @@
   // ===== Swap stock images for the client's real photos + hero video =====
   (function(){
     if(!document.querySelector('section.hero')) return;
-    const CDN='https://images.weserv.nl/?w=800&output=webp&q=68&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const CDN='https://images.weserv.nl/?w=760&output=webp&q=64&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const set=(alt,file)=>{const im=document.querySelector('img[alt="'+alt+'"]'); if(im){im.src=CDN+file; im.removeAttribute('srcset');}};
     set('Home exterior','v-hero.jpg');
     set('Roofing','v-roof.jpg');
@@ -586,7 +586,7 @@
     var isHome=(location.pathname==='/'||location.pathname===''||/\/(index(\.html)?)$/.test(location.pathname));
     if(!isHome) return;
     if(window.innerWidth<=900) return; // desktop only — mobile keeps its own slider
-    var CDN='https://images.weserv.nl/?w=800&output=webp&q=68&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    var CDN='https://images.weserv.nl/?w=760&output=webp&q=64&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     function esNow(){try{return localStorage.getItem('vlang')==='es';}catch(e){return false;}}
     function build(sel,slides){
       var shot=document.querySelector(sel);
@@ -626,7 +626,7 @@
     if(!/\/contact$/.test(location.pathname)) return;
     var card=document.querySelector('.info-card');
     if(!card || card.querySelector('.qr-share')) return;
-    var CDN='https://images.weserv.nl/?w=800&output=webp&q=68&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    var CDN='https://images.weserv.nl/?w=760&output=webp&q=64&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     if(!document.getElementById('qr-css')){
       var st=document.createElement('style'); st.id='qr-css';
       st.textContent='.qr-share{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}'+
@@ -762,7 +762,7 @@
 
   // ===== Gutters — 4th service (nav on all pages; card + info section + hero on home) =====
   (function(){
-    const CDN='https://images.weserv.nl/?w=800&output=webp&q=68&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
+    const CDN='https://images.weserv.nl/?w=760&output=webp&q=64&url=cdn.jsdelivr.net/gh/celvintr/vertex-nta-web@main/';
     const GHREF='/gutters';
     // Home link as the FIRST nav item (desktop + mobile), unless already present
     var dn=document.querySelector('nav.links');
