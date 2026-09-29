@@ -1038,9 +1038,24 @@
     window.addEventListener('load',opt);
   })();
 
-  /* ---- Accessibility: fix contrast on active language toggle (white-on-gold -> dark ink) + tap size ---- */
+  /* ---- Accessibility: contrast on active language toggle + tap size + footer heading order ---- */
   (function(){
     var s=document.createElement('style');
     s.textContent='.lang .on{color:#14181d !important}.lang button{min-height:32px}';
     document.head.appendChild(s);
+    // Fix heading-order: footer column titles are <h4> after an <h2> (skips h3). Demote to <h3>, keeping look.
+    function fixFooterHeadings(){
+      try{
+        var hs=document.querySelectorAll('footer h4');
+        for(var i=0;i<hs.length;i++){
+          var h=hs[i]; var cs=getComputedStyle(h);
+          var n=document.createElement('h3');
+          n.className=h.className; n.innerHTML=h.innerHTML;
+          n.style.cssText='font:'+cs.font+';letter-spacing:'+cs.letterSpacing+';text-transform:'+cs.textTransform+';color:'+cs.color+';margin:'+cs.margin;
+          h.parentNode.replaceChild(n,h);
+        }
+      }catch(e){}
+    }
+    if(document.readyState==='complete') fixFooterHeadings();
+    else window.addEventListener('load',fixFooterHeadings);
   })();
