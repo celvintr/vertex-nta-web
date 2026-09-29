@@ -1061,6 +1061,20 @@
         }
       }catch(e){}
     }
-    if(document.readyState==='complete') fixFooterHeadings();
-    else window.addEventListener('load',fixFooterHeadings);
+    // Well-formed accessibility tree (for AI agents + screen readers): give every <section> a landmark name from its heading; hide truly-empty sections.
+    function labelSections(){
+      try{
+        var secs=document.querySelectorAll('section');
+        for(var i=0;i<secs.length;i++){
+          var s=secs[i];
+          if(s.getAttribute('aria-label')||s.getAttribute('aria-labelledby')) continue;
+          var h=s.querySelector('h1,h2,h3,h4');
+          if(h && h.textContent.trim()){ s.setAttribute('aria-label', h.textContent.trim().replace(/\s+/g,' ').slice(0,70)); }
+          else if(!s.textContent.trim() && !s.querySelector('img,iframe,svg')){ s.setAttribute('aria-hidden','true'); }
+        }
+      }catch(e){}
+    }
+    function runA11y(){ fixFooterHeadings(); labelSections(); }
+    if(document.readyState==='complete') runA11y();
+    else window.addEventListener('load',runA11y);
   })();
