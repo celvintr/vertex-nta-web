@@ -318,7 +318,7 @@
     "Greater Pittsburgh · PA":"Gran Pittsburgh · PA","Erie Area · PA":"Área de Erie · PA",
     "Proudly serving Greater Pittsburgh, Erie and Delaware and nearby communities — if you're in the region, we've got you covered.":"Con orgullo servimos el Gran Pittsburgh, Erie y Delaware y las comunidades cercanas — si estás en la región, te cubrimos.",
     "Don't see your town? Give us a call — we likely cover your area too.":"¿No ves tu ciudad? Llámanos — probablemente también cubrimos tu zona.",
-    "Credentials":"Credenciales","Licensed & Insured":"Con Licencia y Asegurado","License & insurance details coming soon.":"Detalles de licencia y seguro próximamente.",
+    "Credentials":"Credenciales","Licensed & Insured":"Con Licencia y Asegurado","Pennsylvania Home Improvement Contractor — fully licensed & insured.":"Contratista de Mejoras para el Hogar de Pensilvania — con licencia y totalmente asegurado.",
     "Gutters":"Canaletas","Gutter Services":"Servicios de Canaletas","Seamless Gutters, Done Right":"Canaletas Sin Uniones, Bien Hechas",
     "Seamless gutter installation, repair, and cleaning to protect your home from water damage — done right the first time.":"Instalación, reparación y limpieza de canaletas sin uniones para proteger tu casa del daño por agua — bien hecho desde la primera vez.",
     "Clogged or failing gutters cause leaks, rot, and foundation damage. We install and maintain seamless gutter systems that channel water safely away from your home — clean, durable, and built to last.":"Las canaletas tapadas o en mal estado causan filtraciones, pudrición y daños a los cimientos. Instalamos y mantenemos sistemas de canaletas sin uniones que desvían el agua lejos de tu casa — limpios, durables y hechos para durar.",
@@ -530,7 +530,7 @@
     // About: licensing placeholder (client to provide official license details)
     if(/\/about$/.test(_pth) && !document.getElementById('lic-info')){
       var lsec=document.createElement('section'); lsec.className='blk surface'; lsec.id='lic-info';
-      lsec.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto"><span class="eyebrow" style="display:block;margin-bottom:12px">Credentials</span><h2 class="h-sec">Licensed &amp; Insured</h2><p class="lead" style="margin:14px auto 0;max-width:620px">License &amp; insurance details coming soon.</p></div></div>';
+      lsec.innerHTML='<div class="wrap"><div class="sec-head reveal" style="text-align:center;margin:0 auto"><span class="eyebrow" style="display:block;margin-bottom:12px">Credentials</span><h2 class="h-sec">Licensed &amp; Insured</h2><p class="lead" style="margin:14px auto 0;max-width:620px">Pennsylvania Home Improvement Contractor — fully licensed &amp; insured.</p><p style="margin:16px auto 0;font-family:var(--mono,\'IBM Plex Mono\',monospace);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:1.05rem;color:#CDA349">License #PA-238249</p></div></div>';
       var af=document.querySelector('footer'); if(af&&af.parentNode){af.parentNode.insertBefore(lsec,af);} else {(document.querySelector('main')||document.body).appendChild(lsec);}
     }
     // Contact page: Google map of the office
